@@ -1,0 +1,565 @@
+Static: get same code every time, even if it seems dynamic (ex. Rgb game)
+Dynamic: diff code each time, as decided by server
+ 
+Stack: all the technology a particular web app uses
+HTML, css, js usually in stack together for front end
+Much more variety in backend. Incl a backend language, server, database
+Our stack: node js, express, mongodb
+ 
+HTTP requests
+3 important parts of what comes back in a response: the body (all the html, css, js), headers (metadata of response), and in the header, the status code
+Browser urls can only do GET requests
+Get requests still send a bit of data too, like a query string of what you’re searching
+ 
+Make a new file in command line
+Touch index.html
+Rm -rf    deletes entire directory. Be careful!
+-rf is a flag. Stands for recursive force
+ 
+NODE
+In the past, all JS was run on the brownser, no server side
+ 
+Node console: like JS console, but not as useful. Just run node
+> means it's open
+Can interact with JS server side only (no browser fxns like dom, alert, listeners). Ctrl C twice to quite.
+ 
+REPL: read evaluate print loop
+ 
+Run a file with node (w/o any html, css): node filename.js
+ 
+Accumulator pattern: where you have a var that accumulates values
+ 
+NPM: package manager for JS
+Can’t link like front end JS, no script tags
+Easy installation for pkgs
+ 
+Installing packages
+Make a dir, have a file to run it
+Npm install pkgname
+Will create folder called node_modules, inside that will be the folders w/ the files
+Dwlding multiple packages: do it in the directory with the node_modules directory so it doesn’t make another folder
+ 
+Including a package in a folder
+Var smth = require(“packagename”);    // saving it in a var called smth
+smth();        // to run
+ 
+EXPRESS; web development framework
+ 
+Framework vs library:
+You call libraries, you control how you use it
+Framework has control flow built in… you have less control
+ 
+Can be described as heavy/lightweight (depending on how much it does for you), expres described as lightweight and unopinionated (flexible--vs rails for ruby, very opinionated, very specific way to use it)
+ 
+Routes: responsible for listening to requests and deciding what to send back
+ 
+Express has many methods all in an object
+Var app = express()    save object into variable
+The methods we use will be like app.something
+Can combine this with require
+    Var app = require(“express”)();
+ 
+Syntax for defining a route
+app.get(“/”, function(req, res) {    // request and response objects
+    res.send(“Hi”);        // this method can only be done once per page response
+});
+ 
+Need to tell express to listen for requests (start server)
+app.listen(port, optionalcallbackfxn);
+On cloud 9, (process.env.PORT, process.env.IP);
+Need to restart server if you change code
+Package.json: all packages have this file, a JSON data format, has all the metadata, dependencies (things it relies on to work);
+Install packages with the flag --save to automatically update your package.json file
+Npm init inside the folder will help you make your package.json file
+Entry point: file the app starts in. typically app.js
+ 
+Splat aka * route
+For routing all the get requests for routes that don’t exist
+Order matters! Put this one last. The code will always run the first route that matches
+ 
+Route parameters
+For huge sites, it would be impossible to make routes for each of them
+Use variables and a pattern to make links a : means it's a variable
+app.get(“r/r:subredditName/comments/:id/:title/”), func…
+ 
+Req.params to get the info of what was typed into URL
+Ex. req.params.subredditName
+ 
+Ejs files. Need to install --save
+Stands for embedded javascript. Allows us to use JS to fill a html template
+Express doesn’t use plain html, need dynamic templates
+<%= javascript %> for when what is returned goes into html
+<% without = for logic and stuff that isn’t going to be printed
+Needed for every line of js. Keep html out of it tho
+ 
+Files for rendering needs to be in a views directory (express requires that name)
+Render method that lives on res object
+Need to pass variables as an object into render to access in ejs file
+res.render(“dogs.ejs”, {thing: thing});
+ 
+Public: directory for external style sheets and js
+Express needs to be told to serve directories, default only serves views
+app.use(express.static(“public”);
+When linking, href=”/main.css” not “public/main.css” because we already told express to serve that directory, the slash is needed to tell them to look in root directory
+Can also link like…
+app.use(express.static(__dirname + “/public”)
+__dirname just always prints name of current file
+ 
+Can also leave .ejs file extensions out of code by writing
+app.set(“new engine”, “ejs”);
+ 
+Partials: templates you include in other templates
+Often a header and footer one, in a partials folder inside of views, ejs format
+Will have the html boiler plate
+<% include partials/header %>
+ 
+POST. use like get, can use postman to test
+<form action=”/addfriend” method=”POST”>
+    <input type=”text” name=”newFriend” placeholder…
+        Name is the key to it after
+Input is sent in req.body.object (ex. req.body.newFriend), but need body-parser (used for extracting form data server side)
+After requiring it, need to tell express to use it
+app.use(bodyParser.urlencoded({extended: true});
+Redirect after a post
+ 
+APIs are interfaces for code/computers to interact
+What we know are web APIs, but that is just a subset of it
+Programmable web - API directory
+ 
+Api’s don’t respond with HTML. typically XML or JSON
+XML: no structure, only encodes key value pairs
+JSON: looks like an object, but is actually a huge string. Change it via built in JS method JSON.parse(body);
+    JSONview is great for formatting JSON nicely for reading
+ 
+Curl is a way to make HTTP requests from the command line
+ 
+Making HTTP requests with node. Use the package request, install and require
+Var request = request(“request”);
+request(“url”, function(error, response, body) {
+    If (!error && response.statusCode == 200)
+Error holds error messages, body is actual HTM
+ 
+Formatting pictures
+Div class=”caption” inside thumbnail
+For columns of diff sizes pics
+    Display: flex;
+    Flex-wrap: wrap;
+ 
+Databases: for persistent data that doesn’t delete if the server stops
+A collection of info with interface (can write code to interact) to interact with data
+ 
+SQL(relational) vs NoSQL (non relational)
+SQL: tabular, flat. Have to define ahead of time. Not flexible. To join tables, need another table to link. Define exact pattern of what an instance looks like
+NoSQL: (BSON binary obj notation), no tables, not flat (nested), flexible, no patterns
+ 
+MongoDB commands
+Mongo        // opens up mongo shell, console to interact/debug
+Mongod    // Have mongo running in background aka mongo demon
+help    
+Show dbs    list databases. Empty ones won’t show
+Use databasename        will create new one if it doesn’t exist.
+Insert        for creating/using collections
+        db.dogs.insert({name: “rusty”, breed: “mutt”})
+Show collections
+Find        shows all if no param, or can pass in object
+        db.dogs.find()        db.dogs.find({name: “rusty”})
+Update        db.dogs.update({select something}, {update it})    this will overwrite other data
+db.dogs.update({name: “rusty”}, {$set: {name: “tater”}})    this won’t. Can also add more updates
+Remove    db.dogs.remove({breed:”pug”})
+limit(n)        put to back of remove to limit how to delete
+.drop        delete whole collection ex. db.dogs.drop()
+ 
+Mongoose package: makes it easier to limit how many to delete. Require, then connect
+mongoose.connect(“mongodb://localhost/databasename”)
+    If db non existent, will make it for you
+Need to define schema. A pattern that can be changed, flexible
+Var catSchema = new mongoose.Schema({
+    Name: String,        // if left empty, won’t cause errors
+    Age: Number
+});
+Then make model
+Cat = mongoose.model(“Cat”, catSchema);
+Use capital and singular, will auto pluralize in name of collection
+Now methods will be like Cat.create, etc
+ 
+Method 1 to add new cat
+Var newCat = new Cat({
+    Name: “George”,
+    Age: 11
+});
+newCat.save(function(err, cat) {    … callback fxn
+ 
+Method 2: Can also combine into one step.
+Cat.create({
+    Name: “Snowy,
+    Age: 15
+}, function(err, cat) {    …. Callback fxn
+ 
+Most mongoose fxns require a callback fxn to deal with errors
+Cat.find({}, function(err, cats) { …. Callback fxn
+ 
+RESTful routes: a pattern for mapping HTTP routes and CRUD
+ 
+Name of file
+Name of route
+verb
+purpose
+Mongoose fxn
+index
+/dogs
+GET
+Display a list of all dogs
+.find()
+new
+/dogs/new
+GET
+Display form for a new dog
+ 
+create
+/dogs
+POST
+Add new dog to database
+.create
+show
+/dogs/:id
+GET
+Show info about one dog
+.findById
+edit
+/dogs/:id/edit
+GET
+Show edit form for one dog
+.findByIdAndUpdate
+update
+/dogs/:id
+PUT
+Update a dog, then redirect
+.findByIdAndUpdate
+destroy
+/dogs/:id
+delete
+Delete a dog then redirect
+.findByIdAndRemove
+ 
+Campground.findById(req.params.id, function(err, foundCampground) { …
+<%= campground._id %>
+ 
+In blog Schema… if we did
+Created: Date    //we would have to specify
+Created: {type: Date, default: Date.now}
+Can also do stuff like…
+Image: {type: String, default: “placeholder.jpg”}
+ 
+Root route redirect to index page
+ 
+Semantics UI
+Easy to link only the pats you want
+ 
+For names
+Blog[body], blog[title]
+Then thru req.body.blog can access all properties
+ 
+.toDateString() for formatting dates
+ 
+<%-    allows user to put HTML in and for it to be treated as HTML
+ 
+To limit how much of a blog post to show
+blog.body.substring(0, 100)
+ 
+Can prepopulate fields by putting data into value=””
+Textareas don’t have value attributes, just put between tags
+ 
+HTML forms only support get and post requests. Anything else is treated as get
+Use method-override package. Require and then…
+    app.use(methodOverride(“_method”));
+At the end of action link, put ?_method=PUT        with method=”POST”
+ 
+Blog.findByIdAndUpdate(id, newData, callback) …
+    Ex.    (req.params.id, req.body.blog, function(error, updatedBlog) { ….
+ 
+Blog.findByIdAndRemove(req.params.id, function(err) ….
+Just err, no data after deleting something
+Delete button must be a form, needs method attribute
+ 
+Sanitizing with package express-sanitizer. Will remove scripts where you are letting HTML come through
+Require then app.use(expressSanitizer());    this part should be after bodyParser
+Req.body.blog.body = req.sanitize(req.body.blog.body);
+ 
+Associations: data is related
+One:one
+One:many
+Many:many
+ 
+Method 1: embedded data
+Ex. user and post models. Link together by adding in user schema, posts: [postSchema]
+Then adding posts, user.posts.push({ …
+    Then user.save
+ 
+Method 2: object references
+An array of IDs. put into user
+Posts: [
+    { type: mongoose.Schema.Types.ObjectId,
+      Ref: “post”
+}]
+ 
+Then when uploading posts…
+Post.create({
+    Title: “...”,
+    Content: “blah blah”
+}, function(err. post) {
+    user.findOne({email: “whatever”}, function(err, foundUser) {
+        If err..
+        Else…
+            foundUser.posts.push(post);
+            foundUser.save(function(err, data) {
+                If err…
+                Else…
+But using this method, when finding all posts for a user, it will return ids. To find full posts…
+User.findOne({email: “whatever@yea.com”}).populate(“posts”).exec)function(err, user) { …
+ 
+Module.exports    for factoring out models/schemas
+Set up a models directory. Separate files for each one
+Will need to require mongoose again
+In the model declaration, can delete var Post and sub w/ module.exports
+Ex. module.exports = mongoose.model(“Post”, postSchema);
+Import in app.js with var Post = require(“./models/post.js”);
+./ means current directory
+../ means from one dir back
+ 
+SEEDS FILE: for generating data in db to work with
+In file seeds.js, need to require schemas and mongoose
+End with module.exports = seedDB;
+ 
+Require it in app.js
+seedDB = require(“./seeds”)
+ 
+Emptying the database
+Campground.remove({}, function(err) { …
+ 
+NESTED ROUTES
+campgrounds/:id/comments/new
+ 
+AUTHORIZATION
+Passport.js, passport-local-mongoose, passport-local, express-session
+ 
+Strategies: types of auth. Local means user/email and password
+ 
+Sessions: http are supposed to be stateless (one time thing), not linked to past requests
+Sessions provide state, so can stay logged in, leaving just some encrypted info in each request
+ 
+Packages we used: express, mongoose, passport, passport-local, passport-local-mongoose, body-parser, express-session, ejs
+ 
+Var passport = require(“passport”),
+LocalStrategy = require(“passport-local”),
+passportLocalMongoose = require(“passport-local-mongoose”)
+ 
+In user model file:
+Require passport, local-mongoose
+Then just under schema and above export modules
+User.Schema.plugin(passportLocalMongoose)
+This will give UserSchema a bunch of methods
+ 
+In app.js
+app.use(passport.initialize());
+app.use(passport.session());    // need both of these to use passport
+ 
+Also need to require express-session, takes 3 args to work w/ passport. Possible to require and use at same time
+app.use(require(“express-session”) ({
+    Secret: “I like strawberries”,    // used for encrypting sessions
+    Resave: false,        // last two lines are just needed
+    saveUninitialized: false
+}));
+ 
+Also need to tell passport what fxns to use. Order matters, ref authdemo
+passport.use(newLocalStrategy(User.authenticate()));
+Below two are responsible for encoding/decoding/reading sessions. Telling passport to use the methods from passport-local-mongoose that we declared in user model
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+ 
+REGISTER ROUTES
+Name of this doesn’t matter too much, but a get and post to same name
+ 
+// below: new User obj. Only pass username in. password is passed in as second arg, will hash first before saving in db
+User.register(new User({username: req.body.username}), req.body.password, function(err, user) {
+    if(err)...
+        // Return so function doesn’t go through
+    Else {
+        passport.authenticate(“local”)(req, res, function() {
+            res.redirect...
+            // will log in, store session, serialize user
+            // local here is the strategy. Could be twitter, facebook, etc
+// user is auto saved to mongo
+ 
+Submit buttons could be an input or a button, buttons auto submit if at end of form element
+ 
+LOGGING IN
+Get and post to /login
+ 
+app.post(“/login”, passport.authenticate(“local, {    // known as middle ware. Code that runs
+    SuccessRedirect: “/secret”,            // before final route callback
+    failureRedirect: “/login”            // can have multiple middle ware
+}), function (res, req) { …                // passport authenticate takes those 2 args
+ 
+LOG OUT    just 1 link and route
+req.logout();
+Then redirect somewhere
+ 
+Adding middleware to prevent people from seeing pages if they are not logged in
+Function isLoggedIn(req, res, next( {        // these 3 params are std for middleware
+    If (req.isAuthenticated()) {
+        Return next();        // next is what to run next. Aka continue
+    Redirect
+// then add isLoggedIn (without the ()) as middleware to those routes
+In yelpcamp, we added this to both get and post for adding comments
+ 
+How to show only login/register when signed out, logout when signed in
+Need to pass in a user object on every route (req.user), if not logged in will be empty. Ex currentUser: req.user, can be part of another object you’re already passing
+Partials have access to this too
+But an easier way to do it, instead of having to add it to every route is a middleware that must be included above the routes
+app.use(function(req, res, next) {
+    res.locals.currentUser = req.user;
+    next();        // need this or else it will never continue to next step
+});
+Inside of header, signed in logic
+If (!currentUser) {
+    Login and signup links
+Else
+    Logout and currently signed in as
+ 
+REFACTORING ROUTES
+In a routes directory, separate by group (ex. Index (has the auth and root routes, general purpose), comments, campgrounds)
+Will need to require express, then instead of adding routes to app, add to router
+Var router = express.Router();
+So instead of app.get… will be route.get
+Also require any models you need
+At the end, module.exports = router;
+ 
+In app.js, need to require and use them (a lot more requiring but this factoring is worth it)
+Var commentRoutes = require(“./routes/comments”) .. etc
+app.use(indexRoutes) .. etc
+ 
+When doing app.use(theRoutes), can also pass in common parts of the route name as a 1st arg, it will auto append to url name so you don’t have to write it so much in the route
+Ex. app.use(“/campgrounds”, campgroundRoutes);
+Then in campground.js, “/campgrounds/:id” becomes “/:id”; “/campgrounds” becomes “/”
+HOWEVER with stuff like /campgrounds/:id/comments, where we need the id being passed through to find the comments by campground id, need to pass into router an obj
+    Var router = express.Router({mergeParams: true})
+ 
+CONNECTING USERS AN COMMENTS
+Add extra info into commentSchema and change author into an obj
+Author: {
+Id: {
+    Type: mongoose.Schema.Types.ObjectId,
+    Ref: “user”
+},
+    Username: String }
+ 
+In comment route, after creating comment but before pushing into campgrounds
+Comment.author.id = req.user._id;
+Comment.author.username = req.user.username;
+comment.save();
+ 
+AUTHORIZATION: what someone is allowed to do (vs authenticate: someone is who they say they are)
+ 
+2 layers of protection: hide the edit and delte buttons, add middleware if someone tries to access with postman or something
+ 
+Be careful when checking if foundCampground.author.id === req.user._id
+    The first is an obj, the second a sring. Will look the same when printed out
+Use a mongoose method to compare
+If (foundCampground.author.id.equals(req.user._id));
+ 
+Can res.redirect(“back”);
+ 
+Hiding del/edit btns if not logged in/not same user
+First make sure you have currentUser set up in app.js, we don’t have access to req.user.id in ejs files
+Below have to check for currentUser first, else if no one is logged in and we run found.Campground.author…, will get error
+If (currentUser && foundCampground.author.id.equals(currentUser._id));
+ 
+Route variables cannot have same name
+/campgrounds/:id/comments/:comment_id/edit
+ 
+REFACTORING MIDDLEWARE
+Mkdir middleware
+Can separate middleware, but we had so few we saved all in index.js
+Index is a special name. If you require the directory, it will auto require index too
+Create middlewareObj containing all those methods, then export it (rmb to require what you need)
+Also require it in the routes needing the fxns
+Put middlewareObj. In front of those fxns
+ 
+ADDING FLASH MESSAGES
+We used package connect-flash
+Require then app.use(flash());    // must come before passport config, and before route use
+ 
+To use: req.flash(key, message)
+Key determines colour
+Ex. req.flash(“error”, “You must be logged in”);
+Message could also be err (ex. Problems when registering. req.flash(“error”, err.message); (err is an object)
+This must be right before the redirect. Will occur for next request only
+We used bootstrap to style
+ 
+Also have to handle in the route you are redirecting to. Could pass in {erorr: req.flash(“error)}
+But instead of passing it into every route, in app.js like how we passed in currentUser, can do…
+    Res.locals.error = req.flash(“error”);
+    Res.locals.success = req.flash(“success”), etc
+Except this needs to be before passport config while currentUser needs to be after
+ 
+In header
+Have to check error/success.length because an empty array would show the empty box
+        <div class="container">
+        <% if(error && error.length > 0) { %>
+            <div class="alert alert-danger" role="alert"><%= error %></div>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+        <div class="container">
+            <div class="alert alert-success" role="alert"><%= success %></div>
+        </div>
+        <% } %>
+Modernizer - will detect browser and add special classes to help with browser compatibility
+ 
+Nodemon - like node app.js but don’t have to restart for every file change
+Npm install -g nodeman
+Will auto start the file you pointed to in package.json
+ 
+Dynamic price
+Add into Schema price: String,
+Storing as string allows us to preserve formatting
+Attribute step=”0.01” in input creates the lil up and down arrow to change the penny amount
+ 
+DEPLOYING AND HEROKU
+Not a good idea to only have one copy of app, can’t restart server and test things out
+Most companies have a company to take care of their servers, don’t have computer just running in a corner
+Make sure package.json is up to date, we don’t send node_modules, they do it by our package.json file.
+Also need to include a start script in package.json. Under scripts
+    “start”: “node app.js”
+ 
+Deploying an app w/o database
+Heroku login
+Use git to push to heroku    git push heroku master
+Heroku logs        // see errors in command line
+New, ready commits can be pushed to heroku to update
+ 
+Can also run terminal commands in whats been pushed up to heroku
+Heroku run ls, can npm install stuff, touch
+ 
+Deploying with a database
+We used mLab to deploy our database. Single node sandbox
+Click on the ds link, need to create a database user (can have many with diff permissions)
+Take the link and plug that into app.js instead of localhost. Test to make sure it works (database should be empty, no campgrounds)
+ 
+ENVIRONMENT VARIABLES
+Deployed code and testing ground should use different databases
+Always starts with process.env.VARNAME (usually in caps)
+These variables live in the server, are good because it's hidden so you don’t expose your database
+ 
+In command line
+Export DATABASE URL = locallink;
+Then can replace the link with process.env.DATABASEURL
+Process.env is what you use for environ vars in node
+ 
+Heroku won’t have access to that variable, have to set up for that environment
+Can go onto their site and add it or
+In command line: heroku config:set DATABASEURL= ….
+ 
+Also good to set up a backup default variable, just in case something happens or you send to someone else
+Var url = process.env.DATABASEURL ||  “your backuplink”;
+mongoose.connect(url)

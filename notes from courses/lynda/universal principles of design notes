@@ -1,0 +1,624 @@
+PARADOX OF UNANIMITY: occurs when data seems too amazing to be true
+ex. large groups of people agree on something too much, data from complex systems is too consistent, results conform to expectations too well
+likely a result of systematic error, bias, or corruption, then to actually be true
+be highly skeptical! such perfect data is highly unlikely
+ 
+FLEXIBILITY TRADEOFFS: as flexibility of a design increases, the usability and performance decreases
+flexibility requires satisfying a larger set of requirements, which may conflict with one another. this requires compromise and complexity, increasing cost while decreasing performance/usability
+ask these 5 q's. if one is no, not justified
+    is suboptimal good enough?
+    is the performance env stable?
+    are performance & user requirements similar?
+    can functions be modulated in the design?
+    does the value of flexibility justify the performance tradeoffs?
+ex. that army plane is not justified. smartphones are justified
+"jack of all trades, master of none"
+ 
+ALIGNMENT
+human perception. things that are aligned are perceived to be more related than things that are not aligned
+things that are aligned lead the eye, which then influences the sequence in which people process information
+west: top to down, left to right
+every element in a design should align with atleast one other element. none should be left dangling
+    exception: when you are trying to create a sense of disorder
+influence sequence of how elements are perceived and acted upon, improve usability and reduce errors
+"keep your ducks in a row"
+ 
+FEATURE CREEP
+continuous expansion of addition of new project features beyond the original scope
+biggest causes of cost and schedule overruns
+reasons it may occur
+    features are easy/convenient to add
+    features accumulate over multiple generations of a product
+    features are added to appease internal project stakeholders
+ 
+internal audience problem: designers and marketers think they know whats best for the customer, but they're often wrong
+the key driver to this: the belief that more is better, so features are continuously added and rarely taken away
+ 
+best case: feature creep changes scope of a proj, increasing time and cost w/ nominal impact on performance and customer experience
+worst case: unintended performance or usability consequences
+ 
+how to avoid this
+    be on lookout for it
+    ensure features are linked to customer need
+    when doing updated versions, also ask what can be subtracted
+    add a freezepoint (no more adding features)
+ 
+DESIRE LINES
+traces of use or wear that indicate preferred methods of interaction
+think of worn out paths on grass vs sidewalks
+peril of designer-centered design. all too often, designers don't know best
+user-centered design philosophy: develop a deep understanding of how people interact/use a thing, and let that inform/guide the design
+most reliable indication of interaction. its noninvasive, unbiased, statistical.
+if you ask someone how they use something, their responses are never reliable
+you can observe them, but being watched/videoed alters their behaviour
+"explore the road most travelled... there is much to be learned there"
+ 
+TOP DOWN LIGHTING BIAS
+tendency to interpret objects as being lit from a single light source from above
+dark/shade appears farthest from light source, light as closer
+make things look 3d
+ex. the statue. looks thoughtful when lit from top left, ghostly if from below
+objects look most natural when lit from top-left, rather than from above. also will look more inviting
+things lit from bottom look unnatural and scary
+"put your design in the best possible light"
+ 
+ITERATION
+repeating a set of design, development and test operations, with each repetition building on the last, until the desired result is achieved
+ex. build human powered airplane. the problem is not building the plane. its how to get thru these iterations fast enough
+fail fast, fail often
+involves experiments that don't work, dead ends that take time to explore
+failure is not the end. its another iteration
+gall's law: all complex systems that work evolved from simpler systems that worked
+ 
+GARBAGE IN, GARBAGE OUT (GIGO)
+quality of system output is largely dependent on quality of system input
+garbage in
+    problems of type - wrong kind of data
+    problems of quality - right data but with mistakes
+well designed systems deal with GIGO in 4 ways
+    prevent bad input
+    correct bad input
+    prevent bad output
+    correct bad output
+ 
+HICK'S LAW
+the time it takes to make a decision increases with the number of options
+applies to all decisions
+the more prey there are, longer it takes for a predator to choose one to hunt
+more karate moves you know, longer it takes to decide which to use
+does not apply to complex decision making or decisions requiring reading, scanning, searching, extended deliberation
+aka only simple quick decisions. doesn't apply to multichoice test or complex menu
+if response time is critical, keep number of options small - 5 or less
+systems with fewer choices are almost always rated as easier to understand and more satisfying than similar products with more options
+highlighting: when a few items stand out, people are no longer picking equivalent items in a list. response times are quickened
+reduce noise and distractions: when choices have distractions, they act like additional choices and slow response time
+ex. gaming controls. too complicated, hard to learn, less fun for everyone
+ 
+KISS (Keep it Simple Stupid)
+simple systems work better than complex systems
+simplicity should be a key goal in design
+given 2 functionally equivalent systems, the one with minimal parts, with minimal interactions between those parts, will be faster and cheaper to build, perform more reliably, and easier to troubleshoot
+however innovative designs rarely start off simply. KISS should be applied later in the process
+what can be removed without hurting performance?
+ 
+LEFT DIGIT EFFECT (pricing strategy)
+consumers overweigh the left most digits of prices
+29.99 vs 30
+we process our emotional feeling after seeing the first digit
+not always a good strategy. ending in 99 feels like discount/low quality, while rounded numbers feel high price/quality
+ 
+ROOT CAUSE
+want for a nail proverb
+temptation to presume that problems have a single, proximal cause
+root cause analysis: way of understanding problems in terms of their causes. goal: finding the first event that caused everything else
+everything after the root cause is a symptom. treating the symptom won't cure the disease
+5 whys. ask 5x why an event occurred
+be sure to identify and solve the right problem, and more deeply understand problems and identify the causal links where you have the most leverage
+ 
+SUNK COST EFFECT
+tendency to continue investing in an endeavor because of heavy past investments of time, effort or money
+rationally, only cost benefits of current options should influence decisions, not past investments
+this happens because people fear failure more than they desire for success, and don't want to feel/appear wasteful
+this is a very strong bias. people who know about it are just as susceptible to it as students who haven't heard of it
+telltale phrases
+    we have too much invested to quit
+    we owe it to those who have sacrificed
+    we can't quit now after all we've put into this
+often a significant negative emotional event is required to disrupt this tendency
+ 
+SELECTION BIAS
+a bias in the way evidence is collected that distorts our analysis and conclusions
+humans are pattern detecting and pattern making machines. when we see dots, we try to connect them
+are the dots we've collected worthy of collecting?
+prevention
+    small populations: collect data from everyone
+    if you can't collect from everyone: random sampling. sample from the full set of things you are generalizing about (ex. the bomber planes and adding armour. his sample was not random, included only planes that returned)
+ 
+IKEA EFFECT
+the act of creating a thing, or partially creating a thing, increases the perceived value to the creator
+people are willing to pay more than equivalent preassembled products, and value as much as if an expert made it
+cake mixes - required breaking of eggs and played up the decoration part, helping people feel emotional investment, like chefs
+this effects only when tasks are completed. if the effort is too much, people don't finish
+ 
+RED EFFECTS
+set of cognitive and behavioural effects triggered by exposure to the color red
+distinguishing red from other colors is one of our most ancient abilities
+red is powerful, dangerous, lust, blood and fire, dominance
+a number of diff effects, but top 3
+    red makes women more attractive to men. red can make both genders more attractive
+    wearing red in sports contest confers a small competitive advantage (when evenly matched, wear red--they win more than 60% of the time in these circumstances. a small but significant improvement)
+    appears to impair problem solving/creativity (children exposed to red performed worse than all other color conditions). avoid red before a test, and in environments requiring learning, testing, cooperation
+ 
+BLACK EFFECTS
+black is absence of light, white is mix of all colored light, but from the perspective of what our brains see, black and white are the only truly universal colors
+across all languages, words for black and white exist, and the words are some of the most ancient
+set of cognitive/behavioural effects triggered by exposure to black
+associated with evil, foreboding, aggression, dominance
+"black dog syndrome": difficulty of getting black dogs adopted vs the relative ease of lighter colored dogs
+sport teams in black are perceived to be more aggressive and more likely to cheat
+    get penalized more
+black products, esp glossy ones, are perceived as classy, high value, timeless
+hence high priced items tend to come in black, while lower priced versions tend to come in bright hues
+a premium product will prob come in black
+a salesperson wearing dark colors is seen as more threatening and less approachable than one in light colours
+    prob not so good for sales, but better for security guards, judges, etc
+useful for highlighting key lines/outlining. easy way to make designs look more polished and finished
+ 
+WHITE EFFECTS
+associated with moral goodness, security, passivity, safety
+in placebo pills, white colored ones perceived as least potent
+police uniforms: white and light colored are perceived as more passive, approachable, helpful, honest
+black police uniform: rated mean, forceful, aggressive, corrupt
+in a study of sport plays, with identical moves but diff colors, white is rated as less aggressive, less dirty, less likely to be penalized
+white products, esp white glossy, are seem as classy, high value, timeless
+high priced items often come in white, less expensive in hues
+use for associations to calmness, honesty, cleanliness
+ 
+WEAKEST LINK
+use of elements in a system designed to fail in order to protect more important elemets in that system from harm
+ex. the car. a rigid car shell transfers all the kinetic energy to the weakest link, the passenger compartment. creating crumple zones meant those failed, while passenger zones were protected
+1. halt or disconnect systems when they fail
+2. mitigate damage during or after system failure
+applicable to all systems with cascading fault conditions (ex. chain of events that can be interrupted)
+if you decide to add a weak link, verify that the link only fails under appropriate, predefined conditions (not in regular use), and reliably fails when conditions warrant
+ 
+SUPERNORMAL STIMULI
+variation of a familiar stimulus that elicits a response stronger than the stimulus for which it evolved from
+anything that sells like crazy is probably some type of this
+ex. the gull chicks responding to red sticks with yellow stripes (like a beak)
+ex. hyper-masculinized/feminized superheroes,, exaggerated face/body of dolls, unnatural fat/sugar combos
+the younger people are, the more susceptible they are to these kinds of stimuli
+how to use
+    faces, particular eyes - tweak our instinct for recognizing/interpreting faces/expressions
+    provocative images - instinct for finding mates/competition
+    continuous rapid stimuli in games - instinct for responding to sudden movement
+can identify supernormal stimuli by exploring well established biases/preferences
+    ex. humans, esp females, like baby faces, so babyish cute things are appealing
+    v shaped torsos on men/hourglass on women ae appealing
+so highly exaggerated forms of both are appealing. design with human instincts in mind
+ 
+PERFORMANCE LOAD
+the mental and physical effort required to complete a task
+minimize performance load. the higher it is, the more errors/time to perform increases
+don't make me think, don't make me move
+can help make things more usable for everybody
+does not always apply, ex. for building memories/learning, building muscles
+or don't want too hard but neither too easy. ex. video games need some difficulty to be entertaining
+ 
+minimizing the mental
+    reduce visual complexity
+    reduce number of things that need to be remembered
+    automate memory/computational tasks when possible
+minimizing the physical
+    reduce # of steps in tasks
+    reduce physical effort needed
+    automate when possible
+ 
+for tasks requiring a prescribed amount of effort, consider diff users levels that vary the complexity of interaction. significant amount of testing needed to find right load
+ 
+FORGIVENESS
+help people avoid errors whenever possible, and protect them from harm when they do occur
+should always be considered a priority. errors and failures will occur, good design prevents these events from causing harm
+ways to incorporate forgiveness
+    prevent harmful conditions from occurring using affordances/constraints
+    warn people of harmful conditions before they occur w/ alerts
+    request confirmations when people make choices that can cause harm
+    when harmful conditions do occur, allow them to be reversed when possible
+    when all else fails, have a safety net as a last ditch catch-all to prevent harm
+forgiveness benefits
+    minimize harm
+    provide sense of security and stability (fosters willingness to learn, explore, use a design)
+    cultivate loyalty (after using forgiving designs, won't want to go back to less forgiving alternatives)
+ 
+FIGURE-GROUND effect
+the brain tries to separate the perceived world into two categories
+    figure: object of focus
+    ground: periphery or background
+gestalt switch: mental switch from seeing the world one way to another complete diff way
+fedex logo has a hidden white arrow
+rubin's vase image. even so, can only ever see 1 image at a time
+stable images: perceive figure and ground in one way. bi-stable: switch back and forth
+figure elements receive more attention and are better remembered than ground
+elements below a horizon line, or in lower regions of a design, are more likely to be perceived as figures
+bi-stable can grab attention, is fun for the brain. when relevant to the brand, makes logos more memorable
+may occasionally want unstable. ex. camouflage, or stuff where things pop out at you and disappear into horizon
+ 
+CROWD INTELLIGENCE
+arising from the unwitting collab of many people
+crowd: group of people whose members contribute independently to solving a problem. wide range of people, better result
+with guessing games, the average estimate of the crowd is more accurate than all individual estimates
+works best on simple problems that have clear right/wrong answers. not creativity/innovation
+in product surveys. instead of asking, would you buy this? ask, how many people do you think will buy this product in the next 6 months?
+ 
+ERRORS
+an action that yields an unintended result.
+1. slips
+    errors of action/execution
+    occur when an action performed is not what was intended
+    prevention: design look/arrangement of controls to minimize accidental activation
+2. lapses
+    errors of attention. when a person forgets to perform an action, typically due to distractions/passage of time
+    prevention: use alarms and checklists
+3. mistakes
+    errors of intention/planning
+    intention to do something is incorrect/inappropriate
+    prevention: provide clear/timely feedback, intuitive control layouts, appropriate training
+should also have safety nets to prevent failure across all error types
+ 
+AESTHETIC USABILITY EFFECT
+beautiful objects are perceived to be easier to use than ugly objects, whether they are or not
+goes against the idea of form follows function. make things work, then make it beautiful
+in products that perform the same, the more beautiful one is seen as easier to use, and people are more positive, caring, loyal, and patient/tolerant when things go wrong
+once these responses are formed, they are hard to change. early impressions influence long term attitudes
+ 
+80/20 RULE
+80% of a site's traffic are on 20% of the site
+80% profits from 20% customers
+focusing on the critical 20%, make a high impact with low cost
+breakdowns may differ. regardless, ask: what is the critical component driving the majority?
+ 
+BABY-FACE BIAS
+instinctive preference, to see things with baby-faced features as having the cuteness/personality of babies. strongest to women/kids
+light hair/skin, high foreheads, round features*, large eyes*, small noses, short chins: perceived as more naive, helpless, honest
+does your design benefit from being perceived as babyish?
+baby faced adults are perceived as simple and naive, more likely to be found innocent when the alleged crime is intentional, and guilty when alleged crime involves negligence. when they plead guilty, receive harsher sentences than mature-faced defendants
+ 
+COGNITIVE DISSONANCE
+state of mental discomfort that results from incompatible attitudes, thoughts, or beliefs
+the ben franklin book borrowing example
+to reconcile the mental conflict, people seek an "out", which can be used as a means of persuasion
+small favour, big favour
+ex. diamonds. prove your love by buying one. if you don't buy it, means you don't love them enough--else, buy them one
+construct situations that create a mental conflict, then provide an out that alleviates the conflict and creates a favorable outcome
+the out typically buying a product/service
+ 
+CONSISTENCY
+consistency enables people to
+    efficiently transfer knowledge to new contexts
+    learn new things more quickly
+    focus attention on the relevant aspects of a task
+4 types of consistency
+    visual: same or similar elements are depicted the same way
+    functional: same or similar controls function the same way. increases predictability and creates sense of security and safe use
+    internal consistency: same or similar elements are visually and functionally the same inside a system. allow for knowledge of one part of the system to transfer to other parts of the system
+    external consistency: same/similar elements are visually & functionally the same outside a system. extends benefits of internal consistency across outside things
+use all 4 types. reduce error and training times
+principle of least astonishment/surprise: design elements to appear and behave in such a way that least surprises your users
+ 
+DESIGN BY COMMITTEE
+design process based on consensus building, group decision making, extensive iteration
+seen as inefficient and frustrating, costly in time/budget, lacking in aesthetics/innovation (averages out design)
+this can be true, but can be favorable when
+    requirements are highly complex (not just aesthetics)
+    tolerance for risk is low (ex. a building), consequences of error are serious
+    stakeholder buy in is important
+    suggest diverse committee members of 7-12/committee, adopt governance model to facilitate decision-making and prevent deadlocks
+    slow, but careful
+design by dictator (one person) is favorable when
+    projects are time/budget driven
+    requirements are straightforward
+    consequences of error are tolerable
+    stakeholder buy in is less important
+    innovation
+    fast, but risky
+ 
+EXPECTATION EFFECTS
+change in a person's perception/behaviour by making them aware of an expected outcome
+halo effect: employers rate the performance of certain employees more highly based on overall positive impression of those employees
+hawthorne effect: employees are more productive based on their belief that changes made to the environment will increase productivity
+pygmalion effect: students perform better or worse based on expectations of their teacher
+placebo: experience treatment effects based on belief that a treatment will work
+demand characteristics: participants in an experiment/interview respond/act in ways they believe are expected of them
+ 
+have to guard against this in research contexts. blind both researchers and participants by masking information
+in marketing, tell people how to perceive your product, instead of having them guess
+ 
+FACTORS OF SAFETY
+designing components/systems beyond expected loads to offset the effects of unknown vars and prevent failure
+factor safety of...
+    1: handle anticipated load and no more
+    2: handle 2x anticipated load
+non life critical product designs, factor safety of just over 1
+plane components, 1.5-2.5, bridges, 5-7, elevators 12
+adding factors of safety usually means adding weight. where weight is a critical param, adding too much material to beef up the system can cut into factor of safety. tradeoff needs to be considered
+use higher factor of safety when ignorance about design params are high, and when consequences of failure are high
+keep in mind adding factor of safety will also likely increase cost and complexity
+also applies to unexpected traffic loads, delays/lengthy queues, etc
+Can’t anticipate unknown unknowns, but can design for it
+ 
+GLOSS BIAS
+general human preference for glossy vs dull objects
+even people who consciously think they prefer matte, often end up buying glossy, especially in impulse buy or when objs are displayed side by side
+choose glossy for mass market appeal. in niche audience with experience w/ diff finishes, use matte to help differentiate
+exception: non glossy when objs pose a mouthing/swallowing hazard to young children
+ 
+GOLDEN RATIO
+ratio within elements of a form, such as height to width, which approximates 1.618
+mass market paperbacks are golden rectangles
+evidence that this is true for lines and rectangles, but not more complex shapes
+ 
+MAFA EFFECT (most average facial appearance)
+the most average facial appearance of a population is more attractive han faces that deviate from the average
+can composite images of faces from target populations (digital compositing/morphing software) for ads, esp when real models are unavailable/budget is limited
+clues on how to be more attractive
+    smooth/even skin complexion/color
+    more symmetrical features
+    minimize idiosyncrasies
+ 
+ARCHETYPES
+universal patterns of form, social role, and story that have innate appeal or influence; instinctive appeal
+examples of form: face (esp baby faces), glossy faceted stones, horns, canine teeth, snakes, spiders, provocative forms
+examples of social role: ruler, hero, rebel, mentor, trickster, villain
+examples of story: quest, tragedy, voyage and return, conquering the monster
+most effective with mass market audiences vs niche audiences w/ specialized training
+since archetypes influence perception on an unconscious/emotional level, most useful...
+    complement traditional designs
+    influence behaviour across cultures
+    communicate emotional messages when traditional modes of communication can't be used
+used by most marketing
+ 
+FACE-ISM RATIO
+ratio of face to body in an image
+calculate by distance of top of head to bottom of chin, divided by top of head to lowest visible part of body
+full head and body: face-ism ratio of .13
+classic portrait shot: face-ism ~.5
+high face-ism ratio: focus on intellect, personality. seen as intelligent, dominant, ambitious.
+full body - focus on physical, sensual. less intelligent, dominant, ambitious
+in magazines, photos of men tend to have higher face-ism ratios than women
+use high face-ism for more thoughtful associations, and low face-ism for more ornamental/provocative associations
+ 
+FIVE HAT RACKS
+5 ways to organize information
+    alphabetical
+        good if referential in nature
+        efficient non linear access to specific items is required
+        no other strategy is appropriate
+    category
+        clusters of similarity exist
+        when people naturally seek info by category
+    continuum (organization by magnitude)
+        comparing across a common measure
+    location
+        when orienting/wayfinding are important
+        information is meaningfully related to the geography of a place
+    time
+        when presenting/comparing events over fixed durations
+        time-based sequence is involved
+answer questions clearly, esp when time is short and stress is high
+ 
+FLOW
+getting people into the zone
+pacman
+right balance between task difficulty and skill level
+    too hard, skill low: anxiety, worry
+    too easy, high skill: relaxation, boredom
+    difficulty = skill low: arousal, interest, increased sense of control
+    flow: just hard enough to challenge a person at their skill level
+achieve by..
+    match difficulty to skill
+    create clear hierarchy of goals, little goals building to higher goals
+    provide clear, immediate feedback
+get people into the zone!
+ 
+FREEZE-FLIGHT-FIGHT-FORFEIT (4 Fs)
+modern fight or flight, and in order
+instinctive responses
+    1. freeze: threat is suspected. stop, look, listen for threats
+    2. flight: threat is detected. escape the threat
+    3. fight: unable to escape, neutralize the threat
+    4. forfeit: when unable to neutralize the threat, surrender
+stages can be skipped, and people may react differently to stimuli
+consider the 4Fs in design of systems that involve performance under extreme stress
+in anticipation of diminished performance capabilities...
+    simplify tools, plans, displays
+    controls that need motor control only, forgiveness to prevent/minimize effects of errors
+    mitigate tunnel vision with highly visible critical elements
+    avoid overusing alerts/alarms that undermine concentration
+design with stress in mind
+ 
+LEGIBILITY
+visual clarity of text
+how to ensure legibility
+size: measured in pts from top of ascenders to bottom of descenders
+    9 - 12 pts
+    smaller sizes are ok in small chunks, ex. captions/footnotes
+    larger for low res, young/old audiences
+high contrast: color doesn't affect, but contrast between colors does. avoid background patterns
+font family: doesn't matter, but professionally made ones typically better
+case: first letter of sentences. all caps takes longer to read, use for short lines (ex. headings) only
+line length: 10-12 words/line
+line spacing: 1 to 4 units
+improving legibility improves communication
+ 
+MAYA (most advanced yet acceptable) principle
+determining the most commercially visible aesthetic for a design
+aesthetic appeal is a balancing act between familiarity and novelty
+    most advanced form of a design, that is still recognizable as member of its product category, is most pleasing to mass market
+be careful not to introduce radical innovations all at once, rather in gradual steps over multiple product releases
+bridge innovation to the familiar with metaphors
+if you change something consider providing a classic mode for users who need more time to acclimate to the new design
+only aesthetically sophisticated clients will weigh novelty higher than familiarity
+ 
+MENTAL MODELS
+system models: of how things work ex. engineer. knows how things work, but not how people use things
+interaction models: how to use or interact with something. ex user. know how to use something but not how it works
+designers need to have both models to bridge the gap
+when mental model !== reality, errors occur
+well established mental models are hard to change
+leverage existing mental models, don't' go against them
+use your own products!!
+ 
+MODULARITY
+structural principle used to manage complexity, reduce costs, increase reliability in complex systems
+identify functional clusters of similarity in systems, group into mini systems called modules
+motorcycle example
+instead of rigid manufacturing chain, where everyone develops to exact specs, give broad params and freedom to improvise/innovate. suppliers will find ways to cut costs and improve quality
+however, modular systems can be complex and hard to manage. most systems slowly modularize as a product matures
+galls law: complex systems come from simple systems
+ 
+ORIENTATION SENSITIVITY
+certain line orientations are more easily processed and discriminated than others
+lines differing <30 deg from background are difficult to detect
+compositions where primary elements are vertical/horizontal are considered more aesthetic than diagonal
+oblique effect: ability to more accurately perceive line orientations that are close to vertical and horizontal
+pop out effect: tendency of certain elements to pop out as figure elements, and as a result be quickly and easily detected, esp when it differs >30 deg from background
+important in designing gauges/displays. provide visual indicators at 30 deg increments, with horizontal/vertical anchors
+ 
+REDUNDANCY
+using back-up or fail-safe elements to maintain system performance in the event of failure
+primary method of preventing catastrophic failure
+redundancy can add weight and complexity, which can compromise performance and reliability. use right kinds of redundancy to manage these tradeoffs
+4 types of redundancy
+additive: use multiple elements of a single type. simple to implement and maintain, susceptible to single cause of failure. ex. many strands make up rope
+    when probable causes of failure can be anticipated
+diverse: multiple elements of diff types. resistant to single caose of failure, complex to maintain/implement
+    when probable causes of failure cannot be anticipated
+active: application of redundant elements at all times. distribute load across elements, allows for element repair, failure, substitution with minimal disruption of system. ex. poles holding up building
+    for when systems must maintain stable performance in event of element failure
+passive: apply redundant elements only when active element fails ex. spare tire. siplest, most common kind of redundancy, for non critical elements that result in system failure
+    for when interruptions in performance are tolerable
+can use multiple to increase factors of safety
+ 
+SATISFICING
+in certain circumstances, roughly satisfying design requirements is more productive than optimally satisfying them
+problem solving strategy
+3 situations to consider satisficing
+    very complex problems
+    time limited problems
+    problems for which anything beyond a satisfactory solution yields diminishing returns
+aka most problems.
+MVP
+ 
+SCALING FALLACY
+designing a system at one scale, then assuming it will work on a diff scale
+ex. flight. flapping works for smaller birds, larger birds rely more on soaring
+two assumptions in particular to consider
+    load: forces and materials act the same when a design changes scale
+    interaction: people will interact with a design the same way at diff scales
+avoid scaling fallacy by...
+    verifying assumptions, research
+    educating team members
+    factors of safety to offset scaling effects
+ 
+SHAPING
+breaking down a complex behaviour into a chain of simple behaviours, which are trained one by one until the complex behaviour is achieved
+training pidgeons to guide bombs, physical rehab, etc
+superstitious behaviours: irrelevant behaviours accidentally reinforced during training
+use to train behaviours in games, learning environments/procedures, refining complex motor tasks, and cognitive tasks too
+learn new things or stop old patterns
+ 
+STORYTELLING
+attach stories to brands, products, interfaces... anything... and in doing so, make things more compelling
+setting, characters, plot, mood, movement
+suspension of disbelief: the audience knows the story may be fiction, but are willing to suspend disbelief and get lost in the story anyways
+engage audiences with a design, immerse them in it, evoke an emotional response
+its what makes things more than what they are. there is a story
+ 
+WAIST TO HIP RATIO
+preference for particular ratio of waist to hip in men and women
+divide circumference of waist to circumference of hip
+use this ratio when designing. coca cola's bottle
+feminize with ratio 0.7, masculine 0.9
+ 
+ZEIGARNIK EFFECT
+tendency to experience intrusive/interruptive thoughts about a task that is interrupted or left incomplete
+rubiks cube, 15 puzzle
+when unsolved, people experience a strong sense of dissatisfaction/unrest
+long for closure. can't focus on other things
+motivation is a factor too
+leave people hanging
+said to be that it is the subconscious that hangs onto undone things/keeps working on it when interrupted/undone. these benefits are lost after finishing the task
+ex. waiters who forget the details of an order after its been paid
+ex. students who do take breaks and do unrelated activities remember material better
+ 
+AFFORDANCES
+physical characteristics of a thing that influence its function/use
+good affordance: affordance of an obj aligns with how it should be used
+bad: does not align
+norman doors. a class of design defects that...
+    lead people to use something incorrectly
+    lead people to blame themselves for the error, instead of the designer
+unconscious. placing push/pull signs on doors, does not work. we act on the affordance of the handle w/o thinking about it
+    don't try patch the defect. the sign just makes the user feel stupid. fix the affordance!
+trying to deter graffiti. flat, big spaces of wall naturally afford graffiti, and painting over them resets this affordance. plants however will deter graffiti
+perceived affordances: visual characteristics of a thing that imply its fxn/use
+    ex. a square made 3d looks like a button. affords clicking
+ 
+BLUE EFFECTS
+we are attracted to clear, blue water
+blue is the worlds most popular color
+general context: blue/cool colours fosters openness and creativity (vs hot colors, which increase anxiety, neutral colors: no effect)
+    effects are small but significant
+social contexts: in all positive dimensions, blue shirt with navy pants was rated highest
+    signals friendliness, approachability, peacefulness
+productivity contexts: blue enriched white lights improves productivity, but is not good at night
+use blue when you want a generally popular color, but avoid it in food related contexts (blue/black looks like spoiled food)
+aligns well with positive, aspirational messages, but not avoidance messages (ex. cavity prevention)
+ 
+FEEDBACK LOOPS
+cause and effect chain that forms a loop
+designing a system to increase output/growth: think in terms of positive feedback loops
+designing a system that needs to moderate/self-manage/stabilize, think in terms of negative feedback loops
+games: balance of both loops
+ 
+FIVE TENETS OF QUEUEING
+1. occupied time feels shorter than unoccupied time
+    mirrors by elevators. people are distracted and complain less
+2. people want to get started
+    waiting in lobby at doctors, then waiting in room. basically a second waiting room, but illusion of progress
+3. anxiety makes waits seem longer
+    ex. assign seats, people at end of line won't fear not getting good seat
+4. uncertain waits are longer than known, finite waits
+    "we'll be right back" is longer than "be back in 15"
+5. unfair waits are longer than equitable
+    rather wait in single line for multiple checkouts than each checkout having their own line (sucks picking the slow line)
+walt disney park queues: hidden switchback queues. wrapping around walls/scenes, conceal true length of line and entertain visitors as they wait. queues become like an interactive preshow
+ 
+GREEN EFFECTS
+our eyes can discriminate between more colors of green than any other color
+color of choice for creating associations with nature
+approach motivation: green tends to make us want to approach things, intrinsically appealing/inviting
+green reduces stress/anxiety, opens mind, frees our thinking. increases performance vs urban/concrete walks/images
+use to reduce stress/mental fatigue, ex. hospitals
+good for places like schools, offices
+use green signage/controls to indicate safe passage/non dangerous functions
+can use green, plants, or nature scenes
+if attractiveness is important, don't wear green! a person in green is rated less attractive than all other colors except yellow
+ 
+NUDGE
+method of modifying behaviour without restricting options/changing incentives
+ie. fly in mens urinal to help with aim
+1. smart defaults: clear best options for the chooser, make these options default selection
+2. clear feedback: clear goals and visible performance feedback
+3. aligned incentives: to preferred behaviours and avoid incentive conflicts
+4. structured choices: provide means to simplify/filter complexity to facilitate decision making
+5. error mitigation: assume people will make errors
+6. good mappings: enable users to predict consequences of their actions
+    intentional bad mappings: using points in a casino, conceal how much money people are spending
+ 
+
+
+
+
+
+

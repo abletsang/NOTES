@@ -1,0 +1,292 @@
+Version control: save diff versions, compare, undo, good for collabing on projects
+Git - version control system
+Github - codesharing and collaborating platform
+ 
+SVN, CVS, mercurial: other version control software
+ 
+Auto compare files
+Windows. Navigate to where file is first    FC 1stfile 2ndfile
+mac/linux:     diff -u 1stfile 2ndfile
+ 
+1st file should be earlier file and 2nd your later file
+-u means unified diff format
+ 
+The diff results that print, - means it was removed and + means it was added
+ 
+Subl filename        launches file with sublime
+ 
+Use short lines and remember to press enter. If too long, can have problems comparing. Most use max character length 80-120
+ 
+Commits: user created checkpoints where a new version is saved
+Auto saving may save where code can’t even be compiled. Doesn’t make sense, not meaningful
+Save with commit message. Why saved, what changed
+ 
+Seeing commit messages
+Go to correct directory
+Git log
+ 
+Each commit has an ID, author, date, time
+ 
+Git diff gitid1 gitid2
+See diff between commits
+ 
+Make a new commit per logical change. Only ONE, or else separate them
+ 
+Tracking across multiple files
+Git calls this a repository that tracks the multiple files
+Saves version of every file
+ 
+Git log --stat
+Gives stats about what files have changed
+ 
+Q to get out of something
+ 
+Downloading a repository (not just collection of most recent files)
+    Git clone URLofdepository
+ 
+Colored output
+    Git config --global color.ui auto
+ 
+Git checkout: restoring a previous version
+    Git checkout commitid
+ 
+Detached HEAD state
+Head is most recent commit
+Just means you’re looking at an older commit
+ 
+Viewing git log from detached head will give you the git log from that time
+ 
+* In command line by commit id means there were changes that haven’t been saved to a new commit yet
+ 
+-n    new window
+-w    wait
+ 
+File with a . in front of it's name on your computer are hidden, won’t show up. Usually for files that the user doesn’t really need to interact with
+Can rename without a . to see it
+Need to rename it with . again after to automatically start up when needed
+Or can run ls -a to see hidden files
+ 
+Git repositories has a hidden .git folder that stores metadata
+ 
+Initializing a repository
+Git init
+Can run ls -a to see the new .git folder
+Starts with 0 commits. You have to do it yourself
+ 
+Git status    shows what files have changed since last commit
+ 
+Staging area. A place where you can put file(s) before committing together
+Git add filename    adds file to staging area
+Can run git status to see that it's moved over
+ 
+Removing files from staging area
+Git reset filename
+ 
+Git commit
+Text editor will open up. Write commit message, save and quit. Files in staging area have now been committed.
+Can also run git commit -m “commit message”
+ 
+Write commit message as if they were commands
+Ex. add instead of added, adds
+ 
+Git diff
+Without arguments will show changes between files in working directory and staging area
+For when you’ve forgotten what changes you’ve made
+ 
+Git diff --staged
+Show diff between stage files and commits in repository
+ 
+Git reset --hard
+Discards changes in working directory and staging area
+ 
+Git checkout master
+Back to latest commit
+ 
+Branches - branching out of linear commits
+Master is the default, main branch
+Great for working in teams. New branch for every bug fix or new feature, so that things aren’t changing in the meantime
+When finished, can add back to master, merge with other updates, point to tip as new master… etc
+Common branches: experimental, unique feature, etc. good for playing around
+ 
+Merging: combining 2 commits
+ 
+Git branch
+Views current branches. The one with * is the one checked out
+ 
+Create new branch
+Git branch newbranchname
+ 
+To change branches
+Git checkout branchname
+ 
+If you have a colleague working on a branch, you won’t see it when you run git branch. But if you know the name, you can still check it out
+Will say remote branch, meaning you didn’t create it
+ 
+To see a graph between different branches and the changes
+Git log --graph --oneline branch1 branch2
+ 
+Commits store info from their parent file (the one you had checked out when you saved the new commit)
+Doesn’t care about branch name
+ 
+Git log shows latest commit until last commit that doesn’t have a parent (typically the initial one)
+ 
+Reachability: if you are at an older commit (detached head) and make changes, and commit, it is not on the original branch. If you checkout back to the master and don’t write down the ID, you won’t be able to see that file when you use git log
+However you can create a new branch while in that older commit to retain those new commits
+    Git checkout -b newbranchname
+    Same as running both git branch newbranchname and git checkout newbranchname
+ 
+Merging branches
+If no further changes had been made to master, can just update the other branch so that it's now the master
+ 
+How git merges simple files
+Will compare the two heads of the branches with a file of where they diverged, and keep all code that matches between files, all code that has been added in by either branch, and delete original code if one branch has deleted it, even if the other hasn’t touched it
+ 
+Goal typically is to get x branch into master branch, so can now update new tip as master branch
+Merging x branch into master branch
+Merging 2 files will create a new commit, which will store info about both it's parents
+New master can access commits from both branches. They will appear sorted by timestamp
+ 
+Merging x to master is diff from taking last commit of x and merging with master. You wouldn’t get the history of the x branch
+ 
+Deleting branches: basically like deleting commits because it becomes unreachable
+However if it has been merged, you’re essentially just deleting the label, because the merge makes it reachable from master
+ 
+After merging, the commits won’t be in the linear order from before. If you want to run git diff, make sure to find the correct parent commit
+Running a git diff on a file without actually know the parent commit id
+Git show fileid
+ 
+Merging branches
+Check out master, or the branch you want pointed to
+Git merge master xfile        order here doesn’t matter. What you have checked out matters.
+Type in commit message (or use their default message)
+ 
+Deleting a branch
+Git branch -d branchname
+ 
+If you are in branch1, then merge branch2 and branch3, will merge all 3
+Because it will merge in the branch you are in, technically you could just write git merge branchname
+ 
+To abort a merge
+Git merge --abort
+ 
+Merge conflicts
+New line characters between windows and unix systems
+Whenever we hit enter, we are actually entering an invisible character to indicate a new line
+Unix adds 1 character called linefeed or \n
+Windows adds carriage return, a linefeed or CRLF or \r\n
+Merging files made with diff systems, the diff newline characters can cause issues/merge conflicts
+window users can set… to fix this
+    Git config --global core.autocrlf true
+ 
+Conflict detection
+Between the 2 commits, if there are changes in the same general areas, git will alert you so you can go and see what should be kept
+Better than git guessing by itself
+ 
+Resolving conflicts
+After getting the conflict message, open the file
+Conflicts are shown with << >> ===
+They separate the code into 3 parts: the head (the branch you’re pointing to), the common ancestor, and the other file
+Edit it to what you want, being sure to delete those characters git put it to show you where the conflict is
+Save file
+Run git status. Should show both modified
+Add to staging area
+Git status should now show conflicts fixed, but still in merging
+Use git commit to conclude merge
+Commit message with default
+ 
+Github
+Way to share repositories
+Free for public opensource repositories. Charge for private
+Anyone can make changes, but authors can choose if they want to combine. Can also keep your own version
+ 
+Password caching: autofill on computer so you don’t have to type it in everytime you send changes to github
+ 
+Syncing repositories
+Only sends commit history, not staging areas/working directory
+Doesn’t sync automatically--may not want things public too fast
+ 
+1st, create a new repository on github
+ 
+Remote repositories aka remotes
+Store location of a repository that you will want to send/receive commits to/from
+Can push/pull data
+Your own local clone is a remote to the online one
+Typically specify a branch to send, will send what is reachable and what isn’t already on github
+ 
+Only initialize repository with readme if you haven’t already created comment
+If you create with readme, commit = 1. Need atleast 1 commit to clone a repository
+ 
+Git remote
+View remotes
+ 
+Git remote add nameofremote URL
+Adding a remote. If only 1 remote, standard to name it origin
+ 
+Git remote -v
+V stands for verbose
+Checking the link is correct
+Will show link for fetch and push. These links are typically the same
+ 
+Git push remotename branch
+ 
+Can edit and make files on github
+ 
+Pulling changes from github to local git
+Git pull remotename branchname
+ 
+Forking a repository
+Makes a copy of a repository for yourself on github. Links back to orig
+Fork your own copy first, then clone onto your machine
+ 
+When you clone a repo from github, it automatically sets up remote connection
+ 
+When you connect with remote, you get a local copy (like a marker) showing the last known position of that branch on the remote.
+Name of remote and branch separated by slash ex. origin/master
+ 
+Running git log origin/master
+Won’t show you commits that are on your machine but not on github
+ 
+Conflicting collaborations
+What if both local and github have new commits?
+ 
+Merging remote changes
+Git fetch remotename
+Will get message that branch and origin/master have diverged
+This updates localcopy of branch. Now can use git diff and log to see whats diff, before deciding to merge when ready
+ 
+Git pull will merge as well. Same as running both
+    Git fetch origin master
+    Git merge master origin/master
+ 
+Git status compares master to your local copy of origin/master, as it runs without internet
+However, if you connect to github, then it can compare to github.
+ 
+Fast forward merges: when you merge 2 commits where one is an ancestor of another
+Won’t create another commit… not really needed since 1 came from the other. Just updates the label by moving it forward
+The two file smust be reachable tho
+ 
+Collabing on github
+Changes you’ve made: do in a diff branch from master, so it doesn’t affect master before being approved. Can be reviewed and merged when ready
+ 
+Pull request: a request for the other user to pull your info. Aka to merge your changes with master
+By default, github thinks you want to merge with orig repo. If not, change base fork to what you want
+ 
+If you get pull request
+If after review, not ready--can leave comments so they can update the request
+Github will show a green merge pull request button if it can be merged w/o conflict
+Else if conflicts exist, the requester should merge the master to her test branch first so you can see how it resolves
+Pushing a branch onto github with an existing pull request will automatically update the pull request
+ 
+Conflicting pull requests
+Merging with the button on github will always create a commit, even if it could have been a fast forward one
+Github requires you to pull the commits and merge before pushing back to pull request
+Don’t merge to master--merge to the test branch. Else when you push it, it will update master without letting others see the change first.
+ 
+**When working with others, never make changes to master w/o a pull request. Else things would change in master without notification
+ 
+Git log -n 1
+Will pull up only 1 reesult
+ 
+After forking and cloning our fork, our local clone has remote connection to origin
+Also want to add orig fork as remote. Typically call this remote upstream.
+If you make a pull request but the master in upstream has since been updated, you can pull in the updated master and merge locally to update the pull request

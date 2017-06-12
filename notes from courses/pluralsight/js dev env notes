@@ -1,0 +1,341 @@
+EDITORS
+look for...
+    strong es6+ support
+    parse es6 imports
+    report unused imports
+    automated refactoring
+    framework intelligence
+    built in terminal
+recommended: atom webstorm, brackets, vscode
+editorconfig - see their website. may need plugin to use with your editor
+have a .editorconfig in root dir of project
+tells editor how to handle tabs, white space, etc
+everyone can use diff editors but this will config files to be the same
+ 
+package security
+retire.js, node security platform
+call nsp check to run... many places to call, best at npm start
+ 
+WEBSERVER options
+    http-server:lightweight, simple
+    live-server: lightweight, live reloading
+    express: comprehensible, configurable, production grade
+    koa: express competitor. strong use of generators
+    hopi: express competitor
+    budo: works well wth browserify. hot reloading
+    wepback dev server: built into webpack. serves from memory. hot reload
+    browsersync: dedicated IP for sharing work on LAN
+        all interactions remain in sync on diff devices (good for cross device/brwoser testing)
+*only express is production grade
+ 
+sharing work in progress
+    local tunnel: npm install localtunnel, start your app. lt--port 3000
+        can make a script for this
+    ngrok: sign up, install ngrok and authtoken. start app. ./ngrok http 3000
+        more secure, can pw protect
+    now: deploy to cloud. with node.js. more permanent, can be used for production
+        npm install, create start script. 'now'
+localtunnel and ngrok punch a hole thru firewall
+ 
+AUTOMATION
+grunt: original. config over code. many plugins
+gulp: faster than grunt, doesn't write to disc. code over config, many plugins
+npm scripts: in pkg.json, directly use npm pkgs. avoid separate plugins
+    support pre/post hooks (anything pre/post will run before/after script of same name)
+ 
+multiple scripts @ a time
+npm-run-all --parallel <scripts....?
+then just run npm run scriptname
+ 
+TRANSPILING
+soooo many options...
+babel: standardized JS, full JS ecosystem, experimental features earlier
+typescript: autocomplete, readability, safe refactoring
+elm: not jS, compiles to jS. clean syntax, immutable data structures. friendly errs (all errs at compile time), interops with JS. but need to learn new language
+ 
+babel config styles
+.babelrc file in root. not npm specific, easier to read
+in package.json: 1 less file, in a babel section
+all you have to do is add "presets": ["latest"]
+ 
+avoid transpiling when its not necessary
+node plugin babel-preset-es2015-node
+ 
+buildscript JS style
+es5: faster (no transpiling)
+transpiled: latest features, consistent coding style, same linting rules everywhere
+ 
+BUNDLING
+Why bundle?
+    packages use commonJS format - doesn't work in web browsers
+    improve node performance - require can be slow
+    can intelligently pkg into files (bundle splitting)
+ 
+module formats
+    IIFE, AMD (async module def), commonJS (require) // getting out of date
+    es6 module *
+        easy to read (has named and default imports)
+        statically analyzable
+        tree shaking (remove unused code)
+ 
+requireJs - first popular bundler
+    used and popularized AMD pattern
+browserify - bundle code and packages for web
+    common JS patterns
+    plugins based
+    simple
+webpack - bundle splitting, hot module reloading
+    webpack 2 will have tree shaking
+    bundles more than JS
+    comprehensive
+    import CSS, images, etc
+roll up    - tree shaking
+    faster loading production code
+    quite new
+JSPM - systemJS, universal module loader
+    can load modules at runtime
+    uses roll up
+    has own pkg manager
+ 
+webpack.config.js
+    devtool - many, choose between compilation speed vs quality (higher quality prefer in production)
+    noInfo - turn on in production, but provides info to command line
+    output - define where to place bundles, misleading because no physical file. serves build from memory
+    loaders - tell webpack how to handle diff file types
+ 
+sourcemaps: how to debug transpiled, bundled, minified code
+    maps back to orig src
+    dwlded only if you open devtools
+we used inline-source-map during dev
+in your code, can create breakpoint on a line by typing <debugger;>
+hit f5 to refresh in network in devtools to see this
+ 
+LINTERS
+enforce consistency, avoid mistakes
+JSLint - original. no longer popular
+JSHint - improves on JSLint
+ESLint - de facto standard now
+TSLint - for typescript
+ 
+eslint decisions
+1. config format
+    1 of the 5 supported config file names, or put into pkg.json in section "eslintConfig"
+2. which rules? decide as a team
+3. warnings or errors?
+    which rules are important enough to throw an error?
+    what is more important? speed vs robustness
+4. which plugins?
+    many diff ones for diff frameworks
+5. use a preset?
+    can use one, tweak as see fit
+    can also use someone else's preset (airbnb, standardJs (not standard at all), XO)
+ 
+eslint doesn't watch files
+eslint-loader w/ webpack. relint all files on save
+eslint-watch: not tied to webpack. can lint tests, scripts too
+also doesn't support experimental features (has es6 and es7 support, and obj spread)
+babel-eslint: lints stage 0-4 features
+ 
+.eslint.json file
+json ext now needed
+rules section: 0 off, 1 is warning, 2 means error
+if your editor has built in linting, turn it off or may override. if .eslintrc in user dir, delete it
+ 
+TESTING AND CONTINUOUS INTEGRATION
+testing styles: we cover unit testing only
+its the most used, focus on single fxn/module
+other types:
+    integration: interactions between modules
+    UI: automate interactions w/ UI
+ 
+unit testing decisions
+1. framework
+    mocha* - very configurable
+    jasmine
+    tape - leanest
+    ava - some speed improvements
+    jest - from fb
+2. assertion library (some have built in ones)
+    assertion: declare what you expect
+    chai*, should.js, expect
+3. helper library?
+    JSDOM library - simulate DOM of browser, can run test w/o browser
+    cheerio lib = jquery for the server
+4. where to run tests?
+    browser - not recommended. slow
+    Headless Browser (no visible UI)
+        phantomJS
+    in-memory DOM
+        JSDOM. lighter than phantom JS
+5. where do test files go?
+    centralized (in root folder)
+    alongside (in src folder): recommended, easy to see file with its test file
+6. when should tests run
+    everytime you hit save
+ 
+Mocha - reporter. how output is displayed. recommended 'progress'
+ 
+continuous integration (CI Server)
+ensures code works on other machines when someoen commits smth new
+catches things like...
+    forget to commit new file/update pkg.json
+    commit doesn't run cross platform
+    node version conflicts
+    bad merge
+    didn't run tests
+ 
+what a CI server does
+    run automated build (w/ records of who made commits)
+    run tests
+    check code coverage
+    automate deployment
+ 
+choosing a CI server
+    travis CI - linux based, hosted
+    appveyor - windows
+    jenkins - host on your own
+    also circleCI, senaphore? snapCI
+ 
+used travisCI and appveyor to ensure it runs on both platforms. just need to push, will show results on site
+ 
+HTTP CALLS
+approaches
+Node - http, request*
+Browser: XMLHttpRequest, jQuery, framework based, fetch* (most future friendly. lacks some features tho, needs polyfill)
+node & browser - isomorphic-fetch, xhr, superagent, axios
+ 
+centralize api calls! in 1 spot...
+    config all calls
+    handle errs and preloader logic
+    single seam for mocking
+ 
+selective polyfilling
+    polyfill.io
+ 
+MOCKING HTTP
+    unit testing
+    instant response
+    rapid prototype
+    keep working when services are down
+    avoid inter team bottlenecks
+    work offline
+ 
+nock - returns what you specify. for day to day, use a more robust option
+statis json in a file
+create dev websrever
+    api-mock
+    JSON server - fake db. works with static JSON, actually updates data
+    JSON schema faker - generate random data
+    express, etc. from scratch
+ 
+suggested:
+json schema faker, generate random data with faker.js, chance.js, randexp.js
+with diff data, help catch edge cases
+json server, supports CRUD, most realistic
+ 
+may need to hit ctrl c multiple times, now that diff processes running at same time
+ 
+DEMO APP
+provide examples of...
+    dir structure, file naming
+    framework usage
+    testing mock API
+    auto deployment
+    interactive example
+    codify decisions
+ 
+proj structure tips
+1. js in js files. if in html, can't test, lint, reuse, transpile
+    if you need code to respond diff to diff users, inject JSOn from server (aka config obj pattern)
+    don't use server side to generate JS! generate JSON for JS to use instead
+2. organize by feature (for larger files, instead of by file type)
+    ex. /authors, /courses.
+    by filetype is more MVC kind, ex /data /models /views
+3. extract logic in POJOS (plain old JS objects)
+    no framework specific code
+    ex. react. JS logic outside react components easier to switch frameworks in the future, easier to test
+ 
+PRODUCTION BUILDS
+minification: speed page loads and bandwith
+    shortens var and fxn names
+    remove comments and whitespace
+    some dead code elim/tree shaking
+    debug via sourcemaps
+ 
+DYNAMIC HTML GENERATION
+why needed in production?
+    reference bundles automatically, with dynamic bundle names
+    inject production only resources
+    minify
+ 
+referencing bundled assets in HTML
+    can hard code
+    manipulate via node
+    if using webpack, html-webpack-plugin
+        import and list in plugin. w/ inject: true, can remove script tags as it will do it for us
+ 
+BUNDLE SPLITTING
+CommonsChunkPlugin
+speed initial pg load, avoid redwlding all libraries everytime code changes
+ 
+CACHE BUSTING
+webpack-md5-hash
+    save on http requests
+    force requests for latest files
+1. hash bundle filenames
+2. generate html dynamically (as file name changes)
+ 
+ERROR LOGGING
+what to look for
+    good error metadata
+        stack trace
+        prev actions
+        custom api for enhanced tracking
+    analytics and filtering
+    notifications & integration
+    pricing
+track.js, sentry, new relic, raygun
+configured to use only in production
+ 
+PRODUCTION DEPLOY
+separating UI and API
+    simple, low risk, UI only depoys
+    separate concerns
+        separate teams, less to understand
+        scale back end separately
+    cheap ui hosting
+    serve UI via CDN
+    use the api tech you like
+ 
+cloud hosting
+    amazon web service
+    microsoft azure
+    heroku
+    firebase
+    google cloud platform
+    netlify, github pgs, surge // static pages only
+ 
+cors package: allows cors
+require, then app.use(cors());
+ 
+heroku deployment
+app.json - provide some fields to describe app to heroku
+profile - declare command that heroku should run
+use new heroku link on baseUrl.js instead of just "/"
+ 
+development - npm start
+production build - npm run build
+production deploy - npm run deploy
+ 
+approaches to updating starter kits after having used it already
+1. yeoman generator
+    make your own or use existing generator
+2. github
+    fork starter kit for new proj. pull changes from master
+3. npm
+    encapsulate kit in npm package, update npm package to receive latest
+    easy to update, harder to tweak
+    can separate parts into diff packages
+ 
+looking for premade starter kits
+search for framework name + dev environment/boilerplate/starter kit/starter project/seed

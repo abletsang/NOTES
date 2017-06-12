@@ -1,0 +1,277 @@
+Syntax parser: program that reads your code and checks for valid grammar and implements it in a way the computer can understand (may not always return what you think)
+ 
+Lexical environment: where smth sits physically in the code you write (where it's written and what surrounds it)
+JS cares about this, not all languages care
+ 
+Execution context: a wrapper to help manage the code that is running
+Many lexical environments. Which are currently running is managed via execution contexts
+Can contain things beyond what you’ve written in the code
+ 
+Base execution context: the global execution context
+Creates some things for you: global obj and ‘this’ by JS engine, link to outer environment (code outside the fxn. If global, outer environment = null);
+Global obj = this
+Happens when program is run
+ 
+Global: not inside of a fxn
+Global vars and fxns are part of the global obj
+Global fxns are recognized, but does not go inside (needs to be invoked to create that execution context)
+ 
+Hoisting: how fxns and vars are to some degree available even before the place they’ve been written
+The execution context is created in 2 phases
+Phase 1: creation phase: Recognizes where you’ve created fxns and vars, and sets up memory space for them (aka hoisting)
+Not really moving code up, rather just know about it
+With vars tho, it sets up space for it but doesn’t actually know it's value until it executes the code, first set to undefined (and stays that way unless you change it)
+ 
+Undefined: just means value is not set. Not same as not defined. Best to never set something to undefined yourself, always let it mean I never set this value. Helping for debugging code (use null instead)
+ 
+Phrase2: execution phase. Code is run line by line
+ 
+Single threaded: one command at a time
+Not exactly single threaded under the hood of the browser, but for the most part, JS behaves this way
+Synchronous: one line at a time, in order
+Invocation: running a function. In JS with ()
+ 
+When you run a program, the global execution context is created. When you call a fxn, a new execution context is called and placed on top. Aka execution stack
+Each new one will have it's own space for vars, fxns, a this and object
+If more fxn, continues to stack/unstack as finished
+Like CS50 call stack
+ 
+Variable environment: where the vars you’ve created live, and how they relate to each other in memory
+ 
+Scope chain: all the continuous references to outer environments in search of a var
+Scope: where a var is available in your code (is it the same var or a copy?)
+Call a fxn twice, 2 diff execution contexts, diff vars even tho looks the same
+ 
+LET - ES6. can be used to declare a var
+The var is still placed into memory, but can’t be used until that line of code is run, else error
+Declared inside blocks { here }
+Only available inside that block, at that period of time
+In loops, is a diff var in a diff place in memory
+ 
+How JS deals with asynchronous
+Works in browser because other engines do stuff for us
+They place it on the JS engine’s event queue. This queue gets looked at when execution stack is empty
+Not really executed asynchronously
+Long running fxns can disrupt events being handled
+ 
+Dynamic typing: you don’t tell the engine the kind of data a var holds. It figures it out while running
+Vars can hold diff types of values because it's all figured out during execution
+ 
+Primitive type: type of data that reps a single value (not an obj), 6 built into JS
+Number type is floating point. The decimals can make math weird
+Symbol is a new primitive type in ES6
+ 
+Operators: a special fxn, written syntactically diff from others, generally takes 2 params and returns one result
+The arithmetic operators, comparison, . [] etc
+Infix notation: fxn name sits between the 2 params (also prefix/postfix)
+Operator precedence: which operator fxn gets called first, are called in order of preference (higher wins)
+Operator associativity: what order a operator gets called in (L to R) left associativity or R to L (right associativity) when fxns have same precedence
+Can see list on MDN
+This is hwo order of operations is accomplished
+ 
+Some quirks. 
+3 < 2 < 1     // false
+3 < 2          // false
+False < 1 // gets coerced. Number(false) = 0
+0 < 1 // true
+1 < 2 < 3 // true
+1 < 2 // true
+True < 3 // true
+Number(true) // 1
+Hence coercion and precedence can lead to unexpected values
+ 
+Use triple equals by default. Double only if you are aware you want coercion
+Object.is is ES6, pass in 2 params can also be used for comparison
+ 
+|| operator will return first option that can be coerced to true
+Can be used to set a default param’s value in case none is passed in (JS doesn’t care if not all params are passed in, the param gets a space made for it in memory anyways and is set to undefined)
+ 
+Function greet(name) {
+    Name = name || “<Your name here>”;
+ 
+Much faster than if statement. Will return 2nd part if name is undefined, but have to be careful of 0, it coerces to falsey
+ 
+libraries/frameworks you include are treated as if it's all one file
+In the case library names collide, can also provide back up
+window.libraryName = window.libraryName || “Lib 2”;
+ 
+Objects: think of smth in memory, w/ references to properties and methods sitting elsewhere in memory
+Obj literal: declaring a new object shorthand with {};
+Can create obj when passing an arg to a fxn
+ 
+Namespace: a container for vars and fxns, to keep things with same names separate
+JS doesn’t have/need this, can use objs
+ 
+JSON vs obj
+JSON properties must be wrapped in quotes (doesn’t matter in obj), no fxns as values
+JSON.stringify - change obj to JSON notation
+JSON.parse - change to JS obj
+ 
+First class functions: everything you can do to other types, you can do with fxns
+Can assign to a var, pass as an arg, create on the fly
+Fxns are special types of objs, with same features. Can attach primitives, objs, other fxns, with an optional name (can be anonymous) and a code property (the code you write isn’t the fxn, just a property of the fxn obj), which you can invoke
+Expression: a unit of code that results in a value, doesn’t have to be saved to a var. If saved in a var, doesn’t need a name (var holds address in memory). But if saved in a var, anonyGreet() can’t be run before it's actually written
+Statement: just does work w/o returning a value. Always starts with function. Gets saved in memory but nth returned.
+a===3 returns a value, but if (a===3) does not
+ 
+Statement
+Function greet() {
+    console.log(“HI”);
+}
+Expression
+Var anonyGreet = fxn() {
+    console.log(“HI”);
+}
+ 
+Variables: by value or by reference?
+ 
+By value. Primitive types
+A = 3, b = a
+Gets a copy, 2 diff places in memory
+By reference. Objects (incl fxns)
+A = { … }
+B = a
+No new copy. Point to same address, even when passed as a param to a fxn
+ 
+Mutate: to change smth
+Immutable: can’t be changed
+ 
+We know that this points to global unless in an obj, however
+A fxn inside of a method in an obj, points to global
+Workaround: var self = this; then use self instead of this. Don’t have to worry about it
+ 
+JS arrays; of anything (mix types, objs, fxns)
+If arr[2] is an obj, can do arr[2].name
+If arr[3] is a fxn, can run arr[3](); and can pass params too
+ 
+Arguments and spread (ES6)
+When execution context is created, also makes argument keyword, containing a list of the arguments (nothing if not passed)
+Arguments.length
+Arguments is becoming deprecated
+ 
+Function overloading
+If you have a fxn and want an option to call it with fewer params, create a seaprate fxn to call that will call that orig fxn with some default params
+ 
+Don’t use auto ; insertion by the parser, can create problems
+When creating a block, don’t always have to start on sale line, but for return can ensure no problems
+Return     // auto insert a ;    return { // now no problems
+{ ….     // doesn’t reach here
+ 
+Whitespace: invisible chars that create literal space in your code (tab, space, carriage return)
+JS is very liberal with whitespace
+ 
+IIFE: add () at end to invoke immediately. Can add params too
+If you invoke immediately, the var it's equal to will hold the fxns return value, can’t use that var to invoke the fxn anymore
+ 
+These expressions are valid syntax, altho it does nothing
+3;    “string”;
+ 
+For a fxn expression, need to wrap in brackets (or else will think it's a statement (because it starts with function) and demand a name)
+This is the more classical version of IIFE
+ 
+Libraries are often wrapped like this to hide vars and avoid clashes
+ 
+Closure works because the JS engine makes sure that fxns have access to vars in their scope chain, even if the execution context is already gone
+However if you are doign smth and looping over i, when it goes back to look at i, will return the last value
+ 
+Function buildFunctions() {
+    Var arr = [];
+    For (var i = 0; i < 3; i++) {
+        arr.push(function() {
+            console.log(i);    // this isn’t run, i is not saved
+    Return arr;
+ 
+Var fs = buildFunctions();
+Fs[0], fs[1], fs[2]     // 3. Last value o fi
+ 
+Workarounds:
+Es6: use let j = i;
+    console.log(j)
+Let is scoped to that block, creates a diff memory spot for j each time
+ES5: need to make a parent scope (made by immediately executing that fxn) to save that var. Then when it runs, just goes out 1 to find j, don’t have to go out into for loop
+    arr.push((function(j) {
+        Return function() {
+            console.log(j);
+        }
+    })(i);
+ 
+Function factories: a faxn that helps us make other fxns. 
+ 
+Callback fxn: a fxn you give to another fxn, to be run when the other fxn is finished
+ 
+Fxn currying: creating a copy of a fxn with some preset params, very useful with math
+Function multiply(a, b) {
+    Return a* b;
+Var multiplyByTwo = multiply.bind(this, 2); // this, don’t care what it points to, not used here
+Bind returns a copy to multiplyByTwo with one permanently set param
+ 
+Functional programming: take advantage of 1st class fxns
+How can i give and return fns from fxns to greater simplify into tiny pieces?
+As you break down the work into smaller pcs between fxns, best not to mutate data. If you do, do it as high up in the chain as possile, or don’t change and just return smth new
+ 
+Check out _.js or lodash, well documented libraries
+ 
+Prototypal inheritance: one obj gets access to properties and methods of another obj
+Inheritance differs depending on language
+JS is prototypal, another one that is classic and popular and well known is classical inheritance
+ 
+Never set __proto__ of an obj yourself. It’s written this weirdly so you don’t try to do it
+ 
+In a fxn, this point to the object originating the call
+ 
+Reflection: an obj can look at itself, listing and changing it's properties and methods
+JS objs can do this, & use to implement extend
+For in loop    ex. For (var prop in obj)
+Looping over properties in an obj, will also grab stuff off prototype chain
+To not go down the proto chain, use if (obj.hasOwnProperty(prop))
+ 
+Extend: not built in to JS, many libraries write their own
+Taking props of other objs and adding them all to another
+_.extend(John, Jim, Jane)    John gets Jim and Jane props
+Don’t use for … in loops for arrays, will also loop thru anything you’ve added on the prototype
+ 
+Built in fxn constructors
+Var a = new Number(3)
+A becomes an obj
+Same with String, Data, etc.
+Looks like primitive but not. Can be confusing, esp when comparing, coercing, etc. useful to add features but best not to use unless you must
+When using methods on primitives, JS engine auto wraps it up in it's obj so you can use the properties and methods. However JS engine does not auto convert numbers to Numbers
+ 
+Moment.js is a great library for dealing with dates
+ 
+Another way to make objs w/o trying to mimic other languages with classes
+Object.create()
+Creates an empty obj, with the prototype as the obj you passed in
+Then override whatever you want, add own props/methods. In this way it's a slightly freer, flexible appraoch
+The obj you pass in typically holds the methods and some default properties
+ 
+ES6 and classes
+In othe rlangs, class is not an obj, just says what an obj should look like
+In JS, it is an obj
+Class InformalPerson extends Person {    // extends sets the prototype to person
+    constructor (firstName, lastName) {
+        super(firstName, lastName);    // super calls the prototype
+    }
+    greet() { return “Yo “ + firstName); }
+ 
+Instance of is for checking if an obj has another obj in it's proto chain
+console.log(john instanceof Person);
+ 
+“Use stict”;
+@ top of file or top of fxn
+Diff JS engines may implement strict differently
+If you concat and minify JS files together, and one has strict, may affect others
+ 
+Method chaining: calling 1 method after another, and each method afects the parent obj
+Ex. $(“.selector”).addClass(“new”).removeClass(“selector”);
+This is done by ending methods with return this;
+ 
+Setting up a library
+Wrap in an IIFE.
+Can start with a ; just in case another library on top doesn’t properly end theirs with a ;
+Check for global object
+And at the end expose the object with all the methods
+ 
+Transpile: convert the syntac of a lang to another
+TypeScript - from Microsoft. Can provide types for vars
+Traceur - can use in rowser to see how it changes your code.

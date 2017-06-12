@@ -1,0 +1,147 @@
+THE KEYWORD THIS
+Determined by how a fxn is called
+4 rules
+ 
+ONE
+Global context: when seen outside of a declared object, it refers to the global object (in the browser, that is the window)
+All global vars are part of global object
+ 
+console.log(this)     // window
+Function what() {
+    Return this;    // window
+}
+Var person = “Elie”;
+This.person = “Elie”;
+ 
+In strict mode, this becomes undefined in functions
+ 
+TWO
+implicit/object
+When it is inside a declared object, it belongs to it's closest parent object (will not travel out of the closest object if it is nested)
+ 
+THREE
+Explicit binding. Ways to attach a value to this. 3 methods: call, apply, bind
+ 
+Fxn name
+parameters
+ 
+call()
+thisArg, a, b, c ….
+thisArg: what you want this to be
+Unlimited vars after that
+Invoked immediately
+apply()
+Just like call, but 2 params only
+thisArg, [a, b, c] 
+2nd arg is an array
+Invoked immediately
+bind()
+thisArg, a, b, c...
+Just like call, but returns a fxn expression
+Can save fxn with a diff value of keyword this to invoke at a later time
+ 
+Ex. of call. Often used to avoid duplicating code. Aka function borrowing
+Var colt = {
+    firstName: “colt”,
+    sayHi: function() {
+        Return “Hi” + this.firstName
+    }
+ 
+Var elie = { firstName: “Elie” }
+colt.sayHi.call(elie)
+Could have used apply too. Those 2 fxns are only diff when you have more args
+ 
+Common case use of bind: when we don’t know all the args to a fxn yet
+Partial application: want to return a fxn with some of the parameters set
+Still need extra set of () to call it later
+Only need to know what we want the value of the keyword this to be
+ 
+However this inside a fxn of setTimeout becomes part of global. setTimeout is a global method, and the wait turns it global
+ 
+FOUR
+New: is used with a fxn to create a new obj. Inside of that fxn, it refers to the new obj
+ 
+OBJECT ORIENTED PROGRAMMING
+Programming model based around objects, and blueprints that create objects
+We call these blueprints classes, and the objs created from these are called instances
+Strive to make classes easily reusable
+JS does not have built in class support, but can mimic it
+ 
+Instead of writing out similar objs many times, can create a constructor fxn to help us create these objs
+Function Dog(name, age) {    // capitalize!
+    This.name = name;
+    This.age = age;
+    This.bark = function() {
+console.log(this.name + “ just barked!”);
+ 
+Var firstDog = Dog(“Rusty”, 3)    // undefined. Fxn doesn’t return anything
+Var secondDog = new Dog(“Poopie”, 12)    // works!
+ 
+What the new keyword does
+Create an empty obj
+Sets this to the empty obj
+Add a return this to the end of fxn (so new obj can be returned), as long as you don’t add a return statement to the fxn constructor (or the return statement includes the this somewhere)
+Add the __proto__ property onto the empty obj (aka dunder proto)
+ 
+If you have similar constructors (ex. Dog, Cat), instead of duplicating code, can define one and borrow it for the other
+Can call Dog inside of Cat, however have to change value of this (will refer to obj in Dog instead of Cat)
+Function Cat(name, age) {
+    Dog.call(this, name, age)
+Can also do
+    Dog.apply(this, [name, age]) OR
+    Dog.apply(this, arguments)
+Arguments is a special keyword that lists all args passed into a fxn (not technically an array)
+ 
+PROTOTYPES
+Every constructor fxn has a property on it called prototype, which is also an object. Prototype has a property called constructor, which points back to constructor fxn (the constructor property won’t be used much, but is importan part of inheritance
+Properties & methods placed on .prototype can be accessed by any obj created from that constructor fxn w/ word new
+These instances access the prototype obj through __prot__
+Actually all fxns have .prototype, is empty unless you’re using it as a constructor
+Elie.__proto__ === Person.prototype // true
+ 
+PROTOTYPE CHAIN
+Var arr = [];    is shorthand for var arr = new Array;
+A built in constructor in JS
+Arrays are a kind of obj. Has __proto__ to lead to Array, which has __proto__ leading to Objects
+ 
+How JS looks for methods/properties. Looks in obj, then to proto, then in that obj, then to proto again…
+Everything goes back to Object prototype, who’s __proto__ is null (where the chain stops)
+ 
+Why prototype is so useful
+Instead of placing a method on a constructor fxn and declaring that fxn for every instance, can define that method on prototype once and every instance can access
+ 
+CLOSURE
+A fxn that makes use of a variable defined in outer fxns that have already returned
+ 
+Function outer() {
+    Var a = 2;    
+    Return function inner() {
+        Var b = 3;
+        Return a+b;
+ 
+Here calling outer() returns inner() {....
+But inner still has access to a, after outer has returned
+ 
+For this to work, have to return the inner fxn
+Can call inner fxn right away like outer()() or store the result in a variable (similar to bind)
+ 
+Inner fxns can be anonymous
+Function outer(a) {
+    Return function(b) {
+        Return a+b;
+ 
+outer(5)(5)     // 10
+Var storeOuter = outer(5)
+storeOuter(10)    // 15
+ 
+Cases when closure is great
+Private variables: in other languages there is support for vars that can’t be modified externally, not built into JS
+ 
+Function counter() {
+    Var count = 0;
+    Return function() {
+        Return ++count;
+ 
+Var c = counter();
+c()     // 1
+In this scope, no one can access count

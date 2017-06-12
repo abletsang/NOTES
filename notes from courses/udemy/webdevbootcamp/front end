@@ -1,0 +1,330 @@
+Sublime shortcuts
+Html + tab sets up html doc
+Type tag name then tab, will auto complete the < >
+Lorem + tab will get lorem paragraph
+Command shift D? Highlight text and will copy paste for you
+Command click, create multiple cursors
+Command right - end of line
+Command d with something selected. Select all instances of the highlighted text
+ 
+Query string. The stuff after the ?
+?key=value&key=value …
+ 
+Error driven development: write smth you know doenst work, then make it work
+ 
+Attribute selector
+input[type=radio] {..
+ 
+Unit called rem. Set by root element and not by parent element, don’t have to worry about whats nested in what
+ 
+Bootstrap CDN - not in machine, hosted online, same thing as the dwlded file
+class=”form-group”     wrap corresponding label and input together for optimum spacing
+Form control        with form-group, makes forms look good/bootstrappified
+Help block: tips for filling in input
+Form-inline    use this for inline forms
+ 
+Bootstrap is not semantic. UI semantics is more so, but less used
+ 
+Navbar classes
+Nav navbar navbar-default
+    Div container    // for spacing
+        Div navbar-header
+            A navbar-brand
+        Ul nav navbar-nav    // links next to brand
+        Ul nav navbar-nav navbar-right
+ 
+jQuery before bootstrap JS file
+ 
+Hamburger navbar -- the stuff you want in the header that you want hidden while in mobile size, put into a div with class=”collapse navbar-collapse” id=”matching”
+The hamburger part. The button element class=”navbar-toggle collapsed” id=”matching”... span span span (each span is line in hamburger); place just before navbar brand.
+ 
+**rmb the meta viewport tag in head too, for mobile responsive
+ 
+Grids need to be in a container
+Grid sizes
+    Set layout depending on viewport size
+    If you don’t specify large, will take on the next one you do specify (usually md)
+    Typically also don’t specify xs, want it to take up whole column
+Don’t have to do separate rows, just one, bootstrap auto knows to wrap when you’ve already taken up the 12 columns
+ 
+Can wrap imgs in a div with class thumbnail
+ 
+JAVASCRIPT
+ 
+Undefined: var declared but not initialized
+Null: doesn’t exist/explicitly nothing
+ 
+clear() clear console
+alert()
+console.log() only prints to console, not to the user
+prompt() just for getting input in early exercises
+ 
+Interesting cases of comparsion
+True == “1”    // true
+0 == false     // true
+Null == undefined    // true
+Nan == Nan     // false
+ 
+A ! outside the brackets flips the value
+Ex. var x = 3;
+!(x==3);    // true so false
+ 
+Checking truthy falsey
+Put a ! in front and the opposite is true
+Or !! to double negate and get the answer
+“False” string is true
+ 
+DRY code aka don’t repeat yourself
+ 
+Functions. Like a variable of several lines of code
+Must declare first then call it
+typing a fxn name without the (), console will give you what the fxn is
+If fxn doesn’t return anything, will say undefined
+Fxn expression: when you assign a fxn to a variable
+If you declare a fxn in a file, even if you don’t run it, console has access to it and can use it
+ 
+Scope
+If you have global var x = 0
+Declare x = 1 in a fxn
+X changes to 1, because it was accessed and changed in the fxn. However,
+ 
+Declare var x = 1 in the fxn instead
+Global var x still = 0; the x = 1 is a new variable that was declared in that scope
+ 
+Higher order functions: take a fxn as an argument or returns another fxn
+If using a fxn as a param, don’t need (), as the fxn is executing it, not us. If we put (), would run right away
+ 
+Ex. fxn that takes a function and number. Function setInterval(sing, 1000);
+If you don’t want to name a fxn (maybe only call it once) can define the fxn write in the params
+Function setInterval(function() {
+    // … code
+)}, 1000);    // 1000 being the second argument
+ 
+Can initialize arrays in 2 ways
+Var friends = [];
+Var friends = new Array();    less common, using a fxn to make the array
+ 
+Can see in console that many fxns return things, ex push returns str length, pop returns value it removed, indexOf returns only first one it finds
+ 
+Slice method. Pass in where to make the cut. Ex 1, 3, will slice us elements 2, 3
+ 
+arr.forEach(function(input) {
+    // anonymous fxn    // declare fxn first, then plug in fxn name later w/o the ()
+});
+ 
+Or arr.forEach(function(x, y) ….
+X was each item in array, y auto becomes it's index
+ 
+Anonymous fxn on it's own does not run, can’t even access again any sort of reference. Need to put () at the very end to run
+(function() {
+    // ….
+})()    // executes here
+But not needed if passed into another fxn, as the other fxn will call it
+ 
+Writing our own forEach
+Array.prototype.myForEach = function(func) {    // now can use on all arrays
+    For (var i = 0; i < this.length; i++) {    // using this to refer to the array it's acted on
+        func(this[i]);
+    }
+}
+ 
+Objects
+Diff between [] and . notation
+. notation can’t be used if the property name starts with a #, has a space in it, or with a var that holds the property name (need to use [] without the “”)
+ 
+Ways to make objects
+Var person = {};    // empty
+Person.name = “Able”        // filling the object like this
+ 
+Declaring all at once (know this one already)
+ 
+Can also declare as var person = new Object():    // using a fxn to make it
+ 
+Objects have no order. Sometimes called dictionary in other languages
+Key usually doesn’t have quotes around it
+ 
+Many arrays of objects and objects of arrays, ex. To store blog posts, comments, etc
+Ex. posts[1].comments[1]
+ 
+JS methods: a fxn that is a property inside an object
+Ex. var obj {
+    Add: function(x, y) {
+        Return x + y;
+    }
+}
+To call. obj.add(a,b); like console.log, console is an object
+ 
+Namespace collision: conflict from things with the same name
+Benefit of methods: organize code, stuff grouped logically together, avoid namespace collision, nothing cluttering the global space
+    Ex. may need a delete method for users, a diff delete for comments, etc
+ 
+Underscore.js is a really popular JS library with lots of fxns
+ 
+A way of using this, really common
+In an object with data and methods, can share the data with the methods so they can use them
+comments.print = function() {
+    this.data.forEach(function(el) {    // here this refers to the obj it's in
+        console.log(el);
+    });
+}
+ 
+DOM: interface between JS and HTML/CSS
+The browser turns every HTML tag into a JS object we can manipulate
+console.dir(document) to see the dom of a page
+ 
+DOM selectors
+getElemenById: takes string arg and returns element with matching ID
+Var tag = document.getElementById(“highlight”);
+What it returns looks like HTML, but is actually a JS object
+getElementsByClassName: takes string arg, returns list of elements as an obj
+Var tag = document.getElementsByClassName(‘bolded”);
+The list it returns is a node list, technically not an array. Does not come with functions like forEach
+getElementsByTagName: works like above, ex li, h1
+querySelector: returns first element that matches a CSS style selector
+Var tag = document.querySelector(“#hightlight”);
+Great that, if used on smth like the body, can use right away. If you used getElementsByTagName, would have returned a list, need to select first with [0]
+querySelectorAll: list of elements that matches a CSS style selector, returns list even if just one element in it
+ 
+DOM MANIPULATION
+Separation of concerns: styles should be done with CSS, even if you can change in JS
+Better to declare a class and turn that class on and off
+ 
+Style property - every CSS property
+Tag.style.colour = “blue”;
+Tag.style.border = “5px solid pink”;
+ 
+classList: not an array
+tag.classList.add(“someclass”);
+    .remove
+    .toggle
+ 
+textContent: will rewrite html elements inside of it, will render HTML as text
+tag.textContent     // returns text inside element
+tag.textContent = “blah blah”;
+ 
+innerHTML    // return string with the HTML in an element, will recognize and render HTML
+ 
+getAttribute
+tag.getAttribute(“href”);    // returns url, only works on individ elements
+ 
+setAttribute    takes 2 args. Attribute name, what to change it to
+tag.setAttribute(“src”, “corgi.png”);
+ 
+EVENTS
+Select an element and attach an event listener
+element.addEventListener(type, fxnToCall);
+Fxn can be anonyous, or pass in name
+ 
+For (var i = 0; i< lis.length; i++) {
+    lis[i].addEventListener(“click”, function() {
+        This. …    // here refers to the item that was clicked
+    });
+}
+ 
+Input.value    for grabbing what someone types in input box
+ 
+Math.random() 0 to not quite 1, good for random numbers. Times it by the range you want, floor/round it, and + 1 if you don’t want 0
+ 
+Specificity. Ex. target a div w/ ID, even targetting tag span inside div is more specific because it's actually targetting the element, not inheriting it
+ 
+Outline: none; this will turn off blue click link outlines
+ 
+Condition ------------------------- if, do this -- else
+this.textContent === “Easy” ? mode = 3: mode = 6;
+ 
+structure/design patterns
+Module design pattern: add properties into objects and fxns, nothing floating around
+ 
+Jquery: DOM manipulation library. The most popular
+Good to put external libraries in separate folder
+Can type $ in console to see if loaded
+CDNs take a little longer to load
+ 
+Selecting elements    $(“selectorGoesHere”)
+Only need one, works with all CSS style selectors, returns all matching elements in a list (even if just one matches)
+Ex. $(“li a”);
+ 
+.css(“property”, “value”);    an also put into an object and pass the object, or declare the object right in there
+Can style the whole list at once, no need to loop
+$(“li”).css({
+    fontSize: “100px”,    in JS/jQuery, camel case the properties unless it's in “”
+    Border: “purple”
+});
+ 
+.text()    works like textContent. Can change content of several without looping through
+ 
+.html() like innerHTML
+ 
+.attr() can get val of an attr or set with 1+ attr for every matched element
+Can use an object like .css
+ 
+.last(), .first()    to selecting last/first
+ 
+.val()    for extracting val from input/anything with value attribute
+Can also pass arguments to put something into the input (usually for clearing content)
+ 
+.addClass    can assign multiple classes to selected list
+.removeClass
+.toggleClass
+ 
+Getter setter paradigm: like jQuery functions, can get smth without an arg or set smth too
+ 
+jQuery EVENTS. Many
+.click()    pass in a callback fxn
+#(“button”).click(function() {
+ // ….
+});
+ 
+Jquery version of this is $(this), use theirs to work
+ 
+.keypress()    can capture which character was entered (ex. A, while keydown/keyup would capture shift + a)
+ 
+$(“input”).keypress(function(event) {
+If (event.which ===13) { …    //13 is code for enter
+Above we passed in an event object (can be called anything), which will save what happened. The event is passed in everytime, just not being captured
+Which is one of the properties that hold the codes
+ 
+.on() most used of all, like addeventlistener
+Can specify type of event, all events can be done with this
+Will also add listeners to potential future elements too, click() only adds to existing elements
+ 
+jQuery EFFECTS
+.fadeOut(), .fadeIn(), .fadeToggle()
+Can pass a function to run after the fading is finished, often to delete the element
+Ex. $(this).remove();
+Code not wrapped in the fxn will not wait for the fadeout to finish before running
+ 
+.slideDown(), .slideUp(), .slideToggle()    can also pass in callback fxn
+ 
+File structure
+File - assets - css
+Js - lib
+ 
+TODO LIST NOTES
+Can’t use .css(“color”) === gray, it converts to rgb colours
+ 
+Event bubbling: be careful of how events layer and trigger each other (esp if it's nested in elements that also have event listeners)
+    To prevent, can pass in obj (the event one mentioned before) and then run in callback
+        event.stopPropagation();
+.append() for adding text and HTMl to end of an element
+ 
+How to make on work for new elements
+$(“ul”).on(“click”, “li”, function() ….
+Can only add listeners to existing elements, bit of nuance here, listen to ul for when a li (2nd argument) in it is clicked
+ 
+Uigradients for finding gradients and getting CSS code
+ 
+Put a 3px solid rgba(0,0,0,0) border on a input so that it would sit flush
+Organized CSS by specificity
+ 
+PATATAP NOTES
+Paper.js animations library
+<script type =”text/paperscript” canvas=”canvas”>
+Paperscript only works with paper.js, a domain specific language just for them
+ 
+Canvas is an html element that acts as place to do animations. Must have same id as cavas in script
+Have to include js file in script, would not work in external file due to CORS
+ 
+Instead of randomly generating x y coordinates, look for a method that goes by size of current viewing area
+Put data in obj so you don’t have 26 if statements
+To get rid of CORS errors in console, need to run a local HTTP server from your proj’s directory and load the html file from there

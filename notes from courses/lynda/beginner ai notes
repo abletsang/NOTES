@@ -1,0 +1,321 @@
+File formats
+CS3 - lose artboards
+Cs4 - raster effects (ex. Drop shadows) are embedded imgs
+Cs6 - likely won’t lose stuff, best bet for cross compatibility
+ 
+Ctrl W to close all docs
+N - no, y - yes, esc - cancel
+ 
+Artboard tool ctrl o
+Click to select one, but if you click again, creates another artboard inside to fit whats inside
+Drag to move
+Some gotchas--if elements overlap artboards, can drag along other stuff
+Can choose to move artboards w/o moving the content
+ 
+Drag to create a new artboard
+Click on center and hold control, will size it around center
+ 
+Alt - double cursor, will copy
+ 
+Creating an artboard containing the artboards
+Shift and drag so you make a new one instead of altering existing ones
+Newest boards are on top. To reach one underneath, click on title (good habit to do)
+ 
+Artboard panel from windows
+Can drop them up/down the list to change its order in the stack
+Easy place to rename artboards
+To zoom in on an artboard, click on it's #, not it's name
+ 
+No way to resize multiple artboards at once
+Double click artboard to fit it to artwork
+ 
+Changing where 0, 0 is on the ruler
+Can click on an artboard, then double click where rulers meet, will go to top L corner
+Or drag out from ruler intersection
+ 
+- Values go left and up
+In artboard mode, global ruler always. Outside of that, can switch. View - ruler - change to global rulers
+ 
+Command 0 - center
+Command 1 - actual size (100%)
+Ctrl spacebar - zoom in tool
+al t spacebar - zoom out
+Alt with mouse scroll
+Can also drag R or L with zoom key
+    Need animated scrolling. Under rocket ship btn, can draw marquee to zoom in
+ 
+Preview in GPU
+New feature, preview is faster/smoother, but can have problems, on vid card
+If buggy, switch back to preview on CPU
+ 
+Hand tool. Hold spacebar
+Also mouse scroll works up and down. Ctrl to move L and R
+ 
+Fastest - navigator panel
+Ctrl tab. Move between open files
+Can view multiple docs at once
+ 
+Setting up own workspace
+Essentials - new workspace. Save
+ 
+Screen modes. F key, twice to go full screen
+Bottom of left toolbar
+Tab - hide toolbars but not menu
+ 
+GUIDES
+Shift and drag - move tick by tick on ruler
+Double click - creates one at that spot
+Drag and alt - switch 90 deg
+Ctrl and drag from intersection -- create 2 guidelines at a time
+Can align guides
+ 
+LINES
+Alt key - the point you first click becomes center instead of an end
+Shift - lines of multiples of 45 deg, also for dragging
+ 
+Command D - duplicate (repeat transformation/do again)
+Or alt after shift to duplicate
+Shift while dragging, lines in multiples of 45
+ 
+Move tool - press enter if on any arrow tool
+Arrow shortcuts a and v
+Shift x - switch fill and stroke colours
+ 
+F - flip key (arc tool, flip direction)
+While drawing/holding an arc, can press up and down arrows
+Ctrl will bring back last used arrow
+ 
+Rectangular grid tool
+Use arrows to +/- rows/columns
+Make guides - convert anything to a guide
+Sometimes smart guides mess stuff up
+ 
+Polar grid tool
+Up and down arrows - add circles, L/R - add wedges
+Usually used as guides
+ 
+Spiral
+r key - reflect
+up and down to add segments
+alt when drag - will add/- as see fit
+ctrl - collapse
+ 
+ctrl K - preferences
+arrow increment - use 0.1 or 1 px
+shift will move it 10x
+ 
+command J. join but mess up levers
+command shift
+ 
+if you accidentally draw on wrong layer - select, then move the lil box in layers panel
+click alt to copy and move it
+ 
+if align doens't quite seem to be working - use preview bounds
+ 
+ellipse
+spacebar and drag - reposition the shape
+ctrl & drag - stays along where you first clicked for alignment
+alt click - original point becomes center
+ 
+ctrl C, then ctrl F to paste in front
+ 
+compound paths - make
+for cutting holdes out of stuff
+ 
+rectangles
+corner widgets - can change border radius. double click for transform box
+ 
+pentagon and star
+auto draws from center
+up/down to add sides/spikes (least is triangle)
+shift - upright, keep certain angles
+ctrl on star - can make more pointy
+alt - opposite spikes align
+ 
+copying smth and paste on another layer
+make sure, in layers, paste remembers layer is turned off, so it goes onto the right layer
+ 
+group isolation mode
+double click on item you want
+can isolate smth stuck in compound path
+ 
+can also paste in back
+can also scale by something with its stroke
+ 
+tilde - draw severl line/shape at once
+flare tool - special effects
+ 
+inkjet - use RGB, they expect RGB
+CYMK for professional print, commercial production. toner based, much less bright
+ 
+HSB is a lot easier to work w/ in RGB
+hue: core colour, measured in degrees as if colours were in a circle
+saturation: intensity, in %
+brightness: also a %
+ 
+the color panel spectrum
+good for getting base color, but missing a lot of colors. need to modify manually
+ 
+global swatches - linked to objects. change the color, all the objs update too
+in swatches, has a lil white wedge on bottom
+select similar objs - fill colour - select global in swatch options
+bug right now, add global swatch first before can change the name
+ 
+suggest dragging swatches to save in order
+x switches between stroke/fill
+can double click on fill, search swatches
+look for swatches you made -- search with e or a, will get most of them
+can select all unused swatches and delete them (doesn't work 100%)
+saving swatches you've used in document
+    marquee objs w/ these colours and Add Selected Colours
+    or just Add Used Colors
+    auto cecomes global
+ 
+eyedropper shortcut "i"
+lifts both stroke and fill on selected obj
+shift click - replace the active attribute with whatever colour you clicked on
+alt - becomes a colour squirter
+Doesn’t lift some things, like arowheads. Press enter for options to change that
+ 
+dragging colours - shape doesn't have to be selected
+affects current attribute
+or shift drag, affects opposite attributes
+swatches are saved in documents--but are just ai files. can grab in library
+ 
+compound paths - provide uniform stroke/fill
+often used for text, ahnddrawn and otherwise
+stroke aka line weight
+0.25pt (hairline), thinnest an output device can render
+ctrl H - remove view of segments and points
+ 
+can change how stroke aligns (inside, outside, center is default)
+only works with closed shapes
+cap - open path line sonly, affect ends
+corners - affects joins
+ 
+save selection
+ex. grab all letters, save, now can select all those at a time. list under select tab
+ 
+dashed lines
+2nd icon - allows AI to adjust to make corners & endpoints look better
+ 
+changing width profiles on strokes
+width tool (shift w)
+click to create width pts (or find 1 if non std width)
+drag handles to change width
+can drag width points down the path
+path does not need to be selected
+opt - can do assymetric width (only 1 side of path changes)
+technically a reg 20 pt line is 10pts on either side
+can flip profiles
+double click to do it alterically
+alt and drag - duplicate width pt
+can choose to 'adjust w/ neighboring width pts'
+    more precise way to align stroke, esp open path
+can add custom width profiles. these are saved globally
+ 
+apperance panel
+can add multiple strokes, see how things are stacked.
+stroke and fill can be in front of/behind each other
+ 
+creating appearnce of depth
+can select a stroke, go up to distort/effects, transform, move slightly skewed
+also drop shadows
+also duplicating something, makeing it darker, offsetting it
+ 
+TEXT
+AI not a page editor -- do own margins as a rectangle guide
+paste on all artboards
+ai does not spell check welll...
+better to do typing elsewhere and ctrl place it in
+a red + sign at bottom of text - overflow text, extra text not fitting into box
+click on it, will load up your mouse to put elsewhere
+will show links of how its threaded together
+ 
+area type options - rows/columns for text, can also offset position of text
+control panel - doc setup - type. specify quote conventions
+smart punctuation - replace/fix special chars/broken type
+ 
+point vs area type
+point does not overflow. not like an obj. is default with type tool, centered around a dot/point. good for single lines
+can switch between types with lil ball widget on R
+area type will adjust to teh box, overflow. best for large text
+bounding box is confusing when with pt text.
+ 
+join tool - where pencil tool is
+great for joining what doesn't exactly touch. need to select the appropriate paths
+ 
+object - path - outline stroke
+changing a stroke to a path outline
+ 
+shape builder tool
+enter for options
+used reset and then pick color from artwork
+need to select, drag through
+has a + sign on mouse. alt to get it to - (remove shapes instead of add)
+if you just click, will divide all the shapes up
+can also use shift to marquee your shapes to add/- them
+ 
+path offset - make a path a lil smaller/bigger
+ 
+page icon - usually means duplicate selection)
+text - create out line. turns into obj
+ 
+shapebuilder options
+gap detection - can choose hwo big, will connect and fill gaps for you. not perfect tho
+merge mode - click to split paths
+ 
+shaper tool: also under pencil tool
+fixes your hand drawn ugly shapes...
+certain angles though
+can also combine shapes - make sure everything is deselected, draw zigzag over it
+    if you start zigzag from outside, will subtract
+the shapes become a "shaper group"
+dbl click to access a pc and do a diff fill
+"constructor mode" click on down pointing arrow widget on box. allows you to move paths around
+also works as a selector tool
+ 
+PENCIL TOOL
+enter for options
+    fidelity - accurate or can make smooth
+    does not auto close paths - can choose to close paths when ends are within x pixels
+    can choose edit selected paths, to combine paths
+fixing the path
+    can use pencil to redraw (if closed, will auto use the new part)
+    smooth tool - draw line, the segment between the 2 pts will smooth out
+    path eraser - delete path between 2 pts
+can connect 2 paths, use pencil tool, allow edit selected paths, select the things you wanna connect and draw connection
+shift with pencil - that selection will be straight at some 45 deg angle
+alt - straight with any angle
+ 
+in layers, can choose to make smth a template. will dim it out
+ctrl click a layer to turn it into outline mode
+ 
+PEN TOOL
+smooth pt - ensures segments on either side are smooth
+shift - handles are within 45 deg
+spacebar and drag - move the point
+ctrl - other control bar doesn't move with it
+rule of 3rds - for smooth curve, 2/3 of length should be control levers
+while drawing, use ctrl to alter the path w/o losing the path
+cusp points (corners) . alt drag
+    or click again on pt to get rid of extra control handle
+make sure curves have 2 handles
+when you first start, get use to get a control ba first
+adding anchor points - will be cusps if straight line, smooth if curve
+    ctrl to move the pt
+anchor tool
+    drag from a point to get control handles
+    control click a handle to remove it
+if drawing things where overlap - make sure its deselected (shift ctrl a) so it draws new line instead of connecting
+lil closed circle = close, / is continue, * is new path
+ 
+blob brush
+great coloring tool
+auto joins paths in same color
+can fill in messily, send it to back
+    make sure path is not compound. R click, release compound
+    if group, ungroup and deal with culprit
+use eraser tool. will only delete from selected things
+ 
+ 

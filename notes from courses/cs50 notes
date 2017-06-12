@@ -1,0 +1,1651 @@
+WEEK 0
+ 
+Computers use binary system. Read only 0 and 1, using power of 2
+Each column is called a bit, 8 bits is a byte
+Transistors turn off and on to represent the bits
+Hardware is for storing info long term
+The 0 and 1s are used to represent the alphabet (see ascii or unicode), numbers (like rgb values), which create images and videos
+ 
+Smallest # rep with binary system is 0, so we start counting from 0
+ 
+Algorithms
+Divide and conquer problems
+ 
+Conditions aka branches
+ 
+Multithreading - having things run at the same time
+ 
+WEEK 1
+ 
+\n moves cursor to new line
+ 
+Lists -> arrays
+ 
+The main function is the primary reason the software was written. Usually place near the top so people can see what the main purpose of the code is, gets run by default
+ 
+Printf aka print format
+ 
+Intel is biggest producer of CPUs, which read the patterns of 0 and 1
+Operating system depends on computer…
+ 
+Some things run in cloud vs on machine
+Linux. Operating system, open source, widely used
+ 
+Cs50.io
+File area, coding area, and a terminal window with command line interface (type to open and close things, run and compile stuff, etc)
+$ sign by convention is a prompt
+Less that happens, prob more correct
+A.out is default program name. The . means it's in the directory
+./ command to run program
+When you change something in the file, you need to save and run thru compiler again
+ 
+Compiler: software to convert source code to machine code. Allows us to not have to deal with lower levels of coding.
+4 steps in compiling
+Preprocessing - before compiling. Accesses the #include <cs50.h> stuff you have at the top of your file
+Compiling: source code to assembly code
+Assembling: assemble code into machine code, binary
+Linking: link libraries, combine together, to make the file
+Clang is our compiler
+ 
+Make hello
+Will compile and name file in one step
+ 
+Ls see files in directory
+Deleting files rm a.out then y for yes
+Cd change directory
+Mkdir make folder
+Rmdir remove folder
+Clear or ctrl L to clear screen
+ 
+Executable code: code has been run thru compiler. Shown in cs50 with * by file name
+ 
+Cs50 is providing functions for us to use, like training wheels, take off later
+%s act as placeholder for string, %i for integer
+Ctrl C cancel
+ 
+Lots of errors? Focus on it's first output.
+:5:5 means 5th line 5th letter. Often 1 mistake will make it all choke
+ 
+% modulo meaning find remainder
+ 
+When working with integers. 0.1 is a real # not integer, if asking for integer when answer is a float (has decimals), will give closest integer
+ 
+Syntax highlighted
+Need to give file name with file extension to do this
+ 
+Diff types in C have diff sizes and bytes it can take up
+ 
+Finite amount of space and RAM
+RAM is where programs live while running. Is faster if in the RAM
+ 
+Integer overflow
+If you have 8 bits, and you are already at 11111111, to add one, everything would carry over to 100000000, but no space… so will end up as 00000000
+In very big numbers (or long decimals), will eventually run out of bits
+ 
+Floating point imprecision
+Can’t use finite resources to represent the infinite
+Even 0.1 can’t be represented properly, def not 0.3.
+Real problems for things like planes, military
+ 
+Need to tell C what to expect in variable by type
+Like javascript,  /r for carriage return, /h for tab….
+ 
+Strings need double quotes “” around them, char (one character) uses single ‘ ‘ quotes
+ 
+If (c == “y” || c== “Y”) in case of caps lock
+ 
+Switch: executes all unless u say break.
+ 
+If you are using a function in main that is not declared until later in the file, need to put first line of created function above the main function so that clang knows that it is later in the file
+ 
+Void: do something but don’t give it back.
+If not giving input, just () is fine
+But if making a function and no plan for input, then ex. cough(void)
+ 
+Bad design: make a variable and then use right away. Or not use the variable again.
+ 
+Hierarchal decomposition: take code and factor stuff out
+ 
+WEEK 1 SHORTS
+COMMAND LINE
+~ means home directory
+History - see last several commands
+Files in linus are case sensitive
+Help50  get help reading error messages
+Check50 2016.file file.c         check a file. Green is good
+ 
+In ide we are using ubuntu, flavour of linus
+Linus often graphic based (GUI - graphical user interface) mouse based, what we are used to
+These commands can be used on any unix based OS
+Windows is not unix based
+. current directory
+.. parent directory
+PWD - present workign directory. Tells us where we are
+ 
+Ls list directory
+Blue - directories we can get to
+Green- executable code
+Black - text file or source code
+Cd .   goes to current directory
+Cd .. go to parent directory
+Cd ../.. Move up 2 directories
+Just cd goes to tilde
+Cp fileyouwannacopy filenametosaveto   - copying files
+Cp -r origfolder newfolder     for copying directories
+Rm -f    force delte. Won’t ask if you’re sure
+Rm -r    delete irectory and everything inside
+Mv filename.c newfilename.c    renaming files
+More linux commands to come
+ 
+DATA TYPES AND VARIABLES
+More modern languages won’t have data types
+C is older. Must declare data type of every variable when it is created
+Don’t redeclare variables after declaring them, will cause problems
+Built in types
+Int - integer
+4 bytes, 32 bits. Limited by what can fit inside
+Range -2^31 to 2^31 -1, need spot for 0
+About -2bil to 2 bil. Half stored in neg, half in positive
+Unsigned integers --is a qualifier, more qualifiers exist, this qualifier works on other variables too
+    Double range of values by not using negatives. 0 to 2^31-1. About 0-4bil
+Char - variable that stores single characters
+1 byte, 8 bits. -2^7 to 2^7 minus 1. 127
+0-127 maps letters on keyboard
+Floating point/real number. Have decimals
+4 bytes. 32 bits
+Double. Real #s
+    Double precision. 8 bytes, 64 bits. Double the float
+ 
+Void - a type, but not a data type
+Can’t create variable of type void
+Functions can have void return type - doesn’t return value
+    print f doesn’t capture and store result. Prints smth to screen as a side effect
+Int main(void) doesn’t take parameters/arguments
+A placeholder for nothing
+ 
+CS50 build in types. Not built into C
+Bool
+String
+ 
+Later, stuff like
+Structures: group int and string into 1
+Defined type: create own data type
+ 
+Variables
+Declare like this      int letter;    aka type name;
+Declaring multiple of same type    int number1 number2;
+Declaration    int number;
+Assignment    number = 17;
+Initialization    int number = 17;
+ 
+OPERATIONS
+= assignment variable
+- * / work as expected
+Variables change value as code progresses
+% modulus - get remainder. Good for stuff like number generator
+ 
+Shorthand
+X = x * 5     x *= 5
+X = x + 1    x += 1        x++
+ 
+Booleans: comparing values, true or false
+In C, don’t necessarily have to declare type boolean
+0 is false. Non zero value is true
+ 
+2 types of boolean operators
+Logial operator
+Logical and &&
+Both operands need to be true, or else false
+Logical or ||
+One needs to be true, else false
+Logical not !
+Reverses value of operand
+! also known as bang, not, exclamation
+Relational operator
+< <= > >=
+Equality == inequality !=
+ 
+CONDITIONALS
+Allow for program to make decisions
+Aka branches
+If (boolean expression {}
+Also if else
+Or if, else if, else if, else if, else (mutually exclusive)
+Can do some non-mutual. If, if, if, else. Only exclusive is last if and else, else binds to nearest if
+Switch
+Switch (x) {
+    Case 1:
+        Printf…;         don’t have to do breaks. Ex for counting down
+        Break;
+    Case 2:
+        Etc…;
+    Default:
+        printf…;
+Ternary operator ?: simulates if else in shorthand. For small quick decisions
+Int x = (expr) ? 5 : 6;
+Same as if (expr) x=5, else x=6
+ 
+LOOPS
+4 major kinds in C
+Forever
+While true {}         true always true. Ctrl C to cancel infinite program
+While (boolean-expr)
+For unknown number of times, or not at all. Ex control flow of game
+Do while (boolean-expr)
+Unknown number of times, but atleast one. Executes loop first then checks
+Ex. want to run loop atleast once to ask fo rinput
+For (int i=0, i<10, i++)     for specific # of times, even if you don’t know the # yet
+ 
+WEEK 2
+ 
+Eprintf function in cs50 library
+Plug into code, will print out value in every iteration
+ 
+Debug50 - built in graphical debugger in IDE
+Compile code first, then run debug50 ./filename
+GDB GNU debugger name of underlying software. If it exits, all is well
+Need to show it where - click line # so red dot shows up. Will stop before that line
+Can step over and step into lines of code
+Call stack refers to functions currently in motion
+ 
+Rubber duck debugging
+ 
+Cryptography
+Encrypting: Key and plaintext into box -> cipertext
+Decrypting: cipertext and key into box → plaintext
+ 
+strlen() get length of string. Need to #include <string.h>
+In other languages, length of a string is a property. Here strlen literally counts each time.
+Better design to store something like that in a variable then do it everytime.
+ 
+Bracket notation. String[] to get index you want to print
+ 
+Functions may not always return what you expect. In particular string, too long of a value and not enough bits can return a value called null
+Put condition in where program should only continue if string is not null
+ 
+Can declare multiple variables in a loop
+ 
+Design style
+Comment succinctly to explain chunks of code. Help to tell the story
+Don’t even have to look at code then to skim through a program
+Also good for you when you have to look back in the future
+ 
+Typecasting - changing data types
+Can specify explicitly. Ex. (char) i. Make int a char
+Implicit. Ex. printf(“#c is #i\n”, i, i);    program automatically sees you want it as a char
+ 
+Printing letters. Can use numbers to access letters, or letters to access numbers.
+Ex. for (a=’A’; a < z, a++);
+ 
+to upper() make upper case. #include <ctype.h>
+ 
+Can look up manual in linux. Command is man, follow by what you want to look up
+Man toupper
+Also reference.cs50.net
+ 
+Strings in memory storage end with \0 (literally 8 zeros) to show the end. Literally 0 or nul (not same as null). Can use \0 as condition for end of string
+Strings are diff than other data types in that others have fixed bytes… strings you don’t now how much you will need
+ 
+Command line arguments: taking words at terminal prompt
+argc=argument count. # of words you entered at command line, including program name
+When you run a program @ the command line, the OS automatically gives program all the words the user types
+Way of getting input at command line, instead of waiting for user to run program and get prompted with smth like get_string
+argv=argument vector. Synonym for array, still declare as string
+    List of values in memory stored back to back, generally of same type
+String technically an array of characters, with \0 at end
+ 
+Int main(void) or int main(int argc, string argv[])
+Int because of the C version we are using
+Anytime you write a program, main returns something. Convention is if all goes well, return 0
+If returns non 0 number, something has gone wrong. Aka error codes
+ 
+Can tell program what error codes to return.
+If… return 1;   program quits.
+Return 0; all is good.
+These may not show to user, more for programmer
+ 
+In linux, can see what exist code a program exited. Command is echo $?
+ 
+SHORTS
+ 
+FUNCTIONS: aka procedure, method, ..
+0 or more inputs, 1 out put
+“Black box” don’t always know how a function works under the hood, as we didn’t write it ourselves
+Why functions?
+Simplify. Don’t put everything in main
+Organization: break up a complicated program
+Reuse, even in other programs
+Function declaration - showing compiler at top that you will declare after main
+Return-type name(argument-list);
+Argument list is comma separated, each with type and name
+Function calls: using the fxn. Just pass appropriate arguments, assign return value to another variable          int z = add_two_ints(x, y);
+Function with no output has void return type. Also void argument list, like main often does
+ 
+VARIABLE AND SCOPE
+Scope: from where a variable can be accessed
+Local: within the function where it was created
+Global: not created in a function, all functions can access
+    Be care of how this variable is changing throughotu the program
+ 
+In general, local variables in C are passed by value
+Meaning the function receiving the variable receives a copy of the passed variable, not the variable itself. The variable is unchanged unless overwritten after
+Scope can be an issue when people work on a proj together
+ 
+ARRAYS
+Always count from 0
+Last element is n-1 (n being number of elements in array)
+Segmentation fault: when you try to access something out of bounds of the array, depending on what is supposed to be stored there (ex. [5] of an array with only 3 strings)
+Array declarations:
+    Type name[size];
+Assigning the arrays
+    Ex. 3rd element is false
+    Arrayname[2] = false;
+Array initialization
+    Bool truthtable[] = { false, true, true };    don’t even have to enter number, compiler will see how many you are putting in
+    Can also use a loop to enter in values
+More than 1 dimension arrays. Ex. bool battleship[10][10]
+    Can think of a 10x10 grid
+Can’t treat entire array as variable. Ie. can’t assign 1 array to another with = operator
+Must use loop to copy elements 1 at a time.
+Int foo[5] = {1, 2, 3, 4, 5};
+Int bar[5];
+    For (int j=0; j<5; j++) {
+    Bar[j] = foo[j] }
+    Just using bar=goo works in some other languages
+Arrays are passed by reference. Callee (function calling it) receives actual array, not a copy of it.
+ 
+COMMAND LINE ARGUMENTS
+Int main(int argc, string argv[])
+Last element of argv @ argv[argc-1]
+Remember: if you say argv are all strings, a # passed through will get saved as a string too
+ 
+MAGIC #S
+Constants directly written in code are called magic numbers
+Generally want to avoid this
+Ex. code for playing cards
+for(int = 0; 1 < 52; i++)    better → int deck_size = 52; for (int i = 0; i < deck_size, i++);
+But this can create problems if constraint changes….
+ 
+Preprocessor directive (aka macro)
+#include is one too
+Remember not to end with ;
+#define name replacement    ex. #define DECKSIZE 52
+    Can go through code and replace values for you
+By convention, constraints are put in CAPS
+ 
+Psets more functions
+Atoi changes string value into another value.
+    String num = “50”;
+    Int i = atoi(num);
+isalpha() return true if it's alphabetical
+isupper() true if caps
+islower() true if not caps
+‘A’ in single quotes can be treated like an integer
+ 
+WEEK 3
+ 
+Recursive call: for a function to call itself
+Like defining a word with the same word
+Bad, unless you keep doing it on smaller and smaller problems
+ 
+Running time of algorithm. Could be in minutes, steps, comparisons
+The more efficient an algorithm, the less resources you will need
+ 
+Breaking up arrays into 1, where by definition, 1 is already sorted
+ 
+Sorting functions
+Bubble up method
+Going through adjacent pairs and sending the larger one to the back. The larger one “bubbles up” to the end every time
+Insertion sort
+Take first one as anchor, the sorted one, then as you go through each additional element, place it on the correct spot on either side of the first element
+Selection sort
+Go through the array and find the smallest one each time, and switch it to the front. 
+Merge sort
+Sort left half
+Sort right half
+Merge two halves
+This one takes up more RAM
+Recursion
+Keeps breaking into halves
+ 
+SHORTS
+COMPUTATIONAL COMPLEXITY
+How do algorithms scale as we throw more and more data at it?
+ 
+Complexity, aka time/space complexity
+Big O: worst case scenario, what we normally refer to with complexity
+Big Omega. Best case scenario, when dealing with perfect set of data.
+Capital theta. When Big O = Big Omega
+ 
+Data set: whatever makes most set in context. Could be strings in fxn that processes strings, kb for file processing, etc
+ 
+Measure amount of resources a fxn takes up
+We don’t care about the precise answer to this, we care about it's tendency, it's highest order term, especially as the number of elements are so big, the little pieces become negligible
+f(n) where n is number of elements in data set
+ 
+From fastest to shortest
+O(1) constant/running time. Not necessarily 1 step, but constant # of steps
+O(log n) logarithmic time
+O(n) linear time
+O(n log n) linearithmic time
+O(n^2) quadratic time
+O(n^c) polynomial time
+O(c^n) exponential time
+O(n!) factorial time
+O(infinite) infinite time. A stupid random sort equation
+ 
+Bubble sort and insertion sort
+O(n^2), omega(n) (already sorted, just go thru all elements once)
+ 
+Selection sort
+Theta (n^2). No matter what, have to go through 
+ 
+Merge sort
+Theta (n log n). Still has to do same whether the data is already sorted or not
+ 
+Binary
+Worst O(log n)
+Best: O(1) finds what it's looking for on first try
+Linear
+Worst: O(n) target element at end
+Best: omega(1) target is first one
+ 
+PSET NOTES
+ 
+As programs grow, the make command will have a harder time knowing how to compile, esp if there are multiple source files
+ 
+Makefiles - configuration files, tells make what to do
+ 
+find: find.c helpers.c helpers.h
+    clang -ggdb3 -O0 -std=c11 -Wall -Werror -o find find.c helpers.c -lcs50 -lm
+ 
+Here find is the target file. Before clang must be a tab
+-Werror means to treat warnings as errors
+Files find.c helpers.c helpers.h are dependencies, needed for compiling. Changes to these files will prompt make to rebuild next time it's invoked for this target
+ 
+Ctrl D → EOF → end of file
+ 
+Can use 1 file\s output as input to another
+./generate 1000 | ./find 42
+ 
+Can redirect output into a file
+./generate 1000 > numbers.txt
+ 
+Can redirect file into a program as input
+./find 42 < numbers.txt
+ 
+This line in Makefile
+All: find generate
+Means you can compile find and generate with command ‘make all’
+ 
+Clean:
+    Rm -f #.o a.out core find generate
+Allows you to delete all files ending in .o, or called core, find, or generate by executing ‘make clean’
+ 
+Prototype for search
+Bool search(int value, int values[], int n) where n is size of array (this needs to be passed in. can’t infer)
+ 
+Prototype for sort
+Void sort(int values[], int n)
+ 
+Good idea to organize programs in multiple files
+Esp utility files you can use again
+ 
+Binary search pseudocode
+While length of list > 0
+    Look @ middle of list
+    If found, return true
+    Else if # is higher, search left
+    Else if lower, search left
+Return false (not found)
+ 
+Including another file you have
+#include “helpers.h”
+ 
+Selection sort pseudocode
+For i = 0 to n - 2 (to 2nd last one)
+    Min = i
+    Find smallest element from i to n - 1
+    If min != i
+        Exchange smallest element with element at i
+ 
+WEEK 4
+ 
+When you declare a variable without a value, it will by definition have an undefined value, a so called garbage clue, in a memory location with remnants of what was previously stored
+ 
+How get string works
+String s = get_string()
+String s just means we need a memory location big enough to store a string variable called s
+Get_string actually stores the memory address of the first letter
+Thus s doesn’t store the string but the string address
+So now string is the same as char *, as string is defined by address of it's first character
+There is no such thing really as string
+ 
+Char *t = malloc((strlen(s+1)*sizeof(char));
+Strlen(s) + 1 because we also want to copy the \0, which will show the end of the string
+sizeof(char) literally tells them how much size char needs
+Malloc returns position of first byte and stores it in t. But it doesn’t come with the length, so the programmer needs to remember it and make sure not to go over it
+This is one of the most common bugs in C
+ 
+Copying a string
+Now for (int i = 0; n = strlen(s); i <=n; i++
+I <= n because we want to copy the \0
+ 
+This swapping function only works inside the function, working with copies
+Void swap(int a, int b) {
+Int temp = a;
+A = b;
+B = temp; }
+ 
+This one points to addresses, thus actually changes the values in memory
+Void swap(int *a, int *b) {    here with int means give me their addresses
+Int temp = *a;        here means go to these addresses
+a* = b*;
+b* = temp; }
+ 
+Syntactic sugar: features of languages that are easy to use/read but not actually needed to express yourself
+printf(“%\n”, s[i]);     same as    printf(“%c\n”, *(s + i))
+Aka pointer arithmetic. Doing math with pointers
+ 
+Assignment (=) between 2 pointers makes them point at the same thing
+ 
+Pointers point to pointees. Remember to set up pointees
+ 
+Valgrind: debugging tool for once you start dynamically allocating memory
+Valgrind ./programname
+Valgrind --leak-check=true ./programname
+Size of… talking about bytes
+Leak summary
+ 
+Memory in the stack is disposed when a function is done. This does not happen in heap
+ 
+Stack, heap, and buffer overflow
+Bad things happen if you are messy with the way you use the memory on your computer… as we now have ways to manipulate it
+Ex. common way of hacking, stack overflow. Can lose control of your computer
+Need to do error checking to prevent unintended things from happening
+Ex. you let the user input as much as they want, but you only allocate x amount of space for it. The overflow could overwrite your own memory, and if they are injecting their own code…
+In particular, there is a return address in the memory, used to get back to the function that called the memory. If you overflow and they rewrite in their own return address…
+Requires some trial and error
+ 
+All jpegs start with the same first 3 bytes 255 216 255 (in base 10 decimal numbers)
+    0xff 0xd8 0xff in hexadecimal, which is often used in file management
+ 
+Deleting files: generally devices forget where they are, not actually deleted right away
+ 
+What makes file formats diff?
+Files are all made up of 0 and 1s, but follow a certain pattern at the start
+ 
+Can write code that scans memory card from beginning to end looking for those beginnings of files to restore deleted pics/files
+ 
+Define new data types, ex new data type student
+Typedef struct {    aka define a type for me that is a structure
+String name;            as we know now could be written as char *name; char *dorm;
+String dorm;    with 2 fields
+}
+Student;    call this type student
+ 
+#define STUDENTS 3
+Declaring a constant, doesn’t change
+ 
+C has data type called FILES
+FILE *file = fopen(“students.csv”, “w”);
+Meaning data type file, make variable named file to store pointer to that file, fopen opens students.csv file, w meaning write mode (can open and save)
+Fprintf - same as printf, but into a file
+CSV file: comma separated file
+ 
+Now can manipulate and write files!
+ 
+SHORTS
+ 
+HEXADECIMAL
+A shorter, more concise way of expressing binary, as binary is difficult to parse
+Uses base 16, a power of 2, each corresponding to 4 bits
+0 1 2 3 4 5 6 7 8 9 a b c d e f
+Where a-f represent 10-15 in decimal (base 10) numbers
+Prefix hexadecimal numbers with 0x, just to distinguish from regular base 10 numbers
+To switch binary to hexadecimal: group into groups of 4 from right to left (add extra 0s to left if needed, use chart to convert
+Memory addresses are often represented in hexadecimal
+ 
+POINTERS
+So far we’ve only talked about passing in value--aka only pass a copy of that data
+Saw in swap function, we could change the values in swap function, but because they were only copies, the values didn’t change in the original function
+Pointers provide a way to pass actual data between functions, the actual variable itself, so if we change it in 1 function, it will take effect in another function
+ 
+Every file in your comp lives in disk drive (prob HDD hard disk drive or SSD solid state drive)
+Disk drives are just storage space, can’t work there. Can only work in RAM, random access memory
+When we turn off the computer, RAM is destroyed. Hence need hard drive to keep files
+Anytime we talk about memory in CS50, referring to RAM
+ 
+All the data types weve been working with take up diff amounts of RAM
+Can think of memory as an array. Instead of index we have addresses
+Will find that values are not necessarily stored back to back. Often stored in multiples of 4
+ 
+Pointers are just addresses to locations in memory where variables live, a data item where
+Value is a memory address
+Type describes the data located at that address
+ 
+Int k = 5;
+int* pk;
+Pk = &k;
+ 
+Pk gets address of k, where to find k, int* meaning that what you’ll find at pk is an int
+ 
+Simplest pointer in C,  a null pointer. Points to nothing
+If you create a pointer and don’t set it's value immediately, make sure to set it to null.
+Can check if null with ==
+ 
+Can create pointer to an existing variable’s address with address extraction using &
+&x is the address of x
+ 
+An array is actually a pointer too
+Thats why when we passed in an array’s value as a parameter, the contents would change to both the callee and caller
+ 
+Dereferencing: go to reference and change value
+If we have a pointer to char called pc
+    *pc is the data that lives at the memory address stored in pc
+    *pc = D will change the char there to D
+In this context, * is known as dereference operator, as well as part of type name
+Here can think of * as actually going to the address to interact with the variable
+ 
+If you try to dereference a pointer whose value is null, will get segmentation fault
+A good thing, prevents you from accidentally messing with some other memory. Better your program crash then mess up another program
+ 
+Another important thing about *: if trying to declare several at once, * is a part of both type name and variable
+int* px, py, pz         will give 1 pointer to px, and 2 reg ints py, pz
+int* px, *py, *pz     will give 3 pointers
+ 
+String is an alias for char*, pointer to a char
+ 
+Size of string and all pointers depends on what system you use.
+4 bytes if using a 32 bit machine, 8 bytes if 64 bit machine
+The xx bit machine just means all their memory slots are that length.
+ 
+DYNAMIC MEMORY ALLOCATION
+Declaring a variable, then declaring a pointer to that variable, creates a problem, because then we need to know exactly how much memory we’ll need the moment our program is compiled
+    Not easy to know all the possible variables we’ll encounter and need
+ 
+Dynamic memory allocation helps us get around this by using pointers to access memory that is allocated as a program is running, at a pool of memory called the heap
+Previously we used memory called the stack
+Generally, variables with names live in stack, no name lives in heap
+Heap and stack are actually from the same pool of memory, just on opposite sides
+Can run out of memory if either gets too big
+ 
+Function malloc: make a call to it and pass in how many bytes of memory you want. Ex. 4 bytes, malloc(4). Or enough for a int, malloc(sizeof(int))
+Mallock will look through heap and return a pointer to available memory in that size
+If it can’t give you memory (you’ve run out), will return null pointer. ALWAYS CHECK TO SEE IF THE POINTER GIVEN BACK IS NULL
+ 
+Statically obtaining an integer (in stack)
+Int x;
+Dynamically obtain an integer
+Int *px = malloc(sizeof(int))
+Gets us 4 bytes (size of int) and gives us pointer to it
+Can dereference px to access that memory
+ 
+Array of floats in stack    float stack_array[x]
+Array of floats in heap        float *heap_array = malloc(x * sizeof(float));
+                        Enough room for x amount of float values
+Arrays are already pointers, but here we also create a pointer to a chunk of memory for us to work with
+ 
+Problem with dynamically allocated memory
+It's not auto returned to the system for later use when the function it's created in finishes execution. Non dynamic is freed up for other use when it's done
+It is released when you quit, but good practice not to allow it at all
+Must explicitly tell program when you are done with it to free it
+If you don’t return it, you run out of memory, becomes a memory leak. Bad for system performance
+Some browsers/other apps are notorious for memory leaks, leave open too long, everything gets too slow
+ 
+Freeing memory. Free fxn, accepts a pointer to memory     ex. free(px)
+ 
+3 rules to using dynamically allocated memory
+Every block of memory you malloc must be free()d
+Only memory you malloc() should be free()d
+Don’t free() memory more than once
+ 
+Remember, pointera = pointerb means they both point to pointerb’s address now
+Pointera = &pointerb is where pointera would point to pointerb
+ 
+If you’ve freed up a malloc then try to dereference it, will get segmentation fault
+ 
+CREATING DATA TYPES
+structures/struct provide way to unify several variables of diff types into a single new variable type which can be assigned it's own type name
+Like a super variable, contain other variables in it
+ 
+Struct car {        struct name is now the data type
+    Int year;        what is inside the {} are the fields/members
+    Char model[10]
+};    need to end with a ;    this is not a function declaration
+ 
+Generally declare structures globally at top of programs, maybe in separate h file, as it's usually used in many functions
+ 
+Now if you want to create a new variable of that data type
+Struct car mycar;    struct car is data type, mycar is new varialbe name
+ 
+Dot operator to access various fields
+    mycar.year=2011;    already defined as an int inside of strut car earlier
+    strcpy(mycar.plate, “CS50”);
+ 
+Structures, like data types, don’t have to be on the stack. Can dynamically allocate memory at runtime if required
+    In that case, to access fields, need to dereference the pointer
+    Struct car *mycar = malloc(sizeof(struct car));
+        *mycar is pointer to a structure called mycar
+    (*mycar).year=2011;
+    strcpy((*mycar).plate, “CS50”);
+ 
+Shortcut arrow function ->
+Can do those 2 steps (dereference pointer in the left side of the operator, and access field on right side) in just one
+    mycar->year=2011;
+    strcpy(mycar->plate, “CS50”);
+ 
+DEFINING CUSTOM DATA TYPES
+Typedef: a way to create shorthand or rewritten names for data types
+Can rewrite what already exists or your own
+ 
+Typedef oldname newname;
+Ex. typedef unsigned char byte;     unsigned char is now called byte
+In CS50 they used typedef char* string;
+Much shorter than writing struct car, struct whatever
+Can declar structure in type def at same type
+Typedef struct car {
+    Fields…
+}
+Car_t;
+ 
+Variable declaration is now car_t mycar;
+ 
+RECURSION
+Calls itself as part of execution, often seen as elegant
+ 
+Ex. in a factorial n! Function
+fact(n)                fact(n) = n * fact(n-1)
+fact(1) = 1            fact(1) = 1
+fact(2) = 2 * 1            fact(2) = 2 * fact(1)
+fact(3) = 3 * 2 * 1        fact(3) = 3 * fact(2)
+2 parts of recursive functions
+    Base case: some trigger that will stop the recursive process (so it doens’t go on forever)
+    Recursive case
+Can have more than 1 of each case
+ 
+Int fact (int n) {
+    If (n ==1 ) {
+        Return 1;    base case. fact(1) is 1 anyways
+    }
+    Else {
+        Return n* fact(n-1);    recursive case
+    }
+}
+ 
+If single line loops or single line conditional branches, can get rid of curly braces
+Int fact(int n) {
+    If (n ==1)
+        Return 1;
+    Else
+        Return n * fact(n-1);
+}
+ 
+In general but not always, recursive fxns replace loops
+ 
+Collatz example (finding how many steps it takes to get back to 1)
+Int collatz(int n) {
+    If (n == 1)            base case. 1 is already 1
+        Return 0;
+    Else if (n % 2 = 0)        for even numbers
+        Return 1 + collatz(n/2);
+    Else                for odd numbers
+        Return 1 + collatz(3 * n + 1);
+}
+ 
+CALL STACK
+ 
+When you call a function, the system sets aside space in memory for that fxn to do it's work
+Referred to as fxn/stack frames
+When another fxn is called within a fxn, a new frame is pushed on top and becomes the active frame (can only run 1 fxn at a time)
+When a function is done, it's frame is popped off and the 1 below is active again
+ 
+^ |    fact(1)        ex. Of call stack of prev factorial function with
+| |    fact(2)        int main(void) {
+| |    fact(3)            printf(“%i\n”, fact(5));
+| |     fact(4)        }
+| |    fact(5)
+| |    printf()
+|\/    main()
+ 
+FILE POINTERS
+Ability to read data from and write data to files is primary means of persistent data, data that does not disappear when your program stops running
+In C, abstraction of files is in data structure FILE
+Typically we work with pointers to files FILE*
+ 
+Functions that work with files live in stdio.h
+All accept FILE* as parameter except for fopen(), which is used to get a file pointer
+ 
+Common file input/output (I/O) functions
+ 
+fopen()    opens file and gives you pointer
+    Always check return value != NULL
+    Ex. FILE* ptr = fopen(“filename”, “operation”);
+    Ptr being generic name for file pointer
+    Operations “r” for read
+        “W” for write (will overwrite existing files)
+        “A” for append (add to end of file)
+ 
+fclose(filepointername)
+    When closed, can no longer perform I/O fxns to it. Need to open again
+ 
+fgetsc() reads next character from file it's pointed to (1st char if 1st time calling the fxn)
+    Aka file gets char
+    Operation passed in when file pointer was opened must be r for read, else error
+    Char ch = fgetc(filepointername)
+Linux command cat short for concatenate: print file into terminal window
+    Char ch;
+    While ((ch=fgetc(ptr)) != EOF)
+    printf(“%c”, chr);
+ 
+If you want to read and write from sale file, need to open 2 separate file pointers, 1 for reading, 1 for writing/appending
+ 
+fputc() write or append a character to pointed to file (make sure you have right operation)
+    fputc(‘char’, filepoitnername);
+Ex. copying files (like linux command cp)
+    Char ch;
+    While ((ch = fgetc(ptr)) != EOF)
+        fputc(ch, ptr2);
+ 
+fread(buffer, size, qty, filepointername);
+Basically fgetc but allows us to get any amount of info
+Stores what it's reading temporarily into memory in a buffer (usually an array)
+    Buffer: pointer to location of where to store array
+    Size: how large each unit of info
+    Qty: how many units of info
+File to get it from
+ 
+Ex. int arr[10]        lives in stack
+fread(arr, sizeof(int), 10, ptr);
+Ex. dynamically allocated on the heap
+double* arr2 = malloc(sizeof(double) * 80);
+fread(arr2, sizeof(double), 80, ptr);
+ 
+Can use fread() as fgetc()
+    Char c;
+    fread(&c, sizeof(char), 1, ptr);
+ 
+fwrite()    like fread() but for writing, works same way
+Make sure the pointer operation is w or a
+ 
+Many more fxns available!
+ 
+WEEK 5
+ 
+If you keep on adding frames to the stack by having a fxn that keeps on calling other fxns, you will run out of memory and collide with the heap
+ 
+Problem with arrays - need to declare size in advance
+Can’t grow it after, atleast not in C
+ 
+Realloc fxn - copy an array and move it elsewhere with more space. Still, inefficient, tkaes time
+ 
+Primitives - built in. non primitive, not built in
+ 
+What if we relaxed the constraint so data doesn’t have to be stored back to back, but anywhere where there is space?
+ 
+Linked list: linked via pointers
+Needs a pointer by itself at the start to point to the first node of the list. Often called first
+Need a null pointer at the end, can’t just point it into forbidden areas
+Searching a linked list: have to follow pointers to find your way there. O(n), no random access like arrays
+Insert - if you care about keeping it sorted, O(n). if don’t care, can insert to the front, O(1)
+Deleting parts O(n)
+Need to be careful with order of operations when changing pointers, freeing nodes, etc. Need to keep in memory where the list is, or could lose it
+Can grow and shrink lists, no need to declare huge array unnecessarily, but at a price--slower when doing other operations
+ 
+Bool search (int n, node *list) {    // int n = number we are looking for. *list, pointer to list
+    Node *ptr = list;     // duplicate of pointer. Can’t lose the orig pointer!
+    While (ptr != NULL) {         // last pointer in list
+        If (ptr->n == n)     // -> accesses the data inside of the node
+            Return true;
+        Ptr = ptr->next;    //kind of like i++
+    }
+Return false;
+}
+ 
+Thematic of comp sci -- trade offs
+ 
+Stack data structure
+Push things on and pop things off
+Just store stuff with no regard
+LIFO - last in first out. Limited in this aspect
+Good to keep track of what was done most recent.
+ 
+Type def struct {
+    Int *numbers;        // could use array, but like this, no need to predetermine capacity
+    Int size;         // as array. VALUE array[CAPACITY], where CAPACITY is #
+}                defined at start
+Stack;
+ 
+Queue data structure
+Enqueue: add element to end
+Dequeue: remove oldest element from start
+FIFO
+Array would not work well here--first person in line is done, everyone has to be shifted up, a lot of work
+But if linked, no need to move, just keep track of where the first person in line is
+ 
+Typedef struct {
+    Int front;
+    Int *numbers; // can also implement as array. VALUE array[CAPACITY];
+    Int size;
+}
+Queue;
+ 
+Now we can implement abstract data, like stacks of cafeteria trays or queue line of people
+ 
+Tree data type
+1 root node. Like family, tree, parents have children, those without children are called leaves
+Binary search tree: for every node in the tree, it's left child is < than it and it's right child is > than it
+Can implement with nodes, each with 2 pointers, L and R
+N elements of this tree, height is log n
+A way of more efficiency when working with it, divide and conquer
+However tree needs to be balanced… built in right way, deleting/inserting algorithms
+ 
+Art of compression - making something smaller w/o losing information
+ 
+Hoffman coding
+A system where you use as few bits as possible for encoding and compressing text. A reusable algorithm for diff texts, the most used letters using the fewest bits
+To figure out how each letter is encoded, need % that the letter is used in a text
+    Write all those %s with the letter as separate circles
+    Take the 2 smallest and combine with new root. Left child is 0, R is 1. Repeat
+    Follow the paths for the code for each letter
+Optimal
+Need to put in the file the tree or some cheatsheet to decode
+Small files might get bigger with the cheat sheet -- algorithm should not compress at all
+Possible to compress again and again, but at some limit before info gets destroyed
+ 
+Typedef struct node {
+    Char symbol;         // the alphabet letter
+    Float frequency;    // the %
+    Struct node *left;
+    Struct node *right;
+}
+Node;
+ 
+Linear probing: trying to hash to some bucket (ex. A) but it already has something, so probing further into data structure looking for a place to put it
+If we have buckets A-Z and only 26 people, O(1), else more like O(n)
+ 
+Hash table data structure
+Think buckets
+An array that stores pointers to linked lists
+Ex. the blue books example, 26 trays of each letter
+Even if those each get really long, still 1/26 of the problem
+When we talked about n^2, we didn’t care about the little parts, but even n^2 divided by 2 is a big improvement
+ 
+Trie data structure
+Short for retrieval
+Tree where each node is an array
+Good for stuff like dictionaries
+Search running time, inserting, removing, depends on the length of a word, regardless of amount of data. Constant time
+ 
+SHORTS
+ 
+LINKED LISTS
+ 
+Arrays: a lot of work to sort through, inflexible, have to declare size at start
+ 
+A data structure that can grow and shrink a collection of values w/o wasted space. Like a chain
+Made up of nodes, a special kind of struct w/ 2 members
+    Data of some data type
+A pointer to another node of the same type
+ 
+A singly linked list
+Typedef struct sllist {        // need a temporary name need to make the pointer
+    VALUE val;        // aka a self referential data type
+    Struct sllist* next;
+}
+Sllnode;    // permanent name
+ 
+Creating a singly linked list
+Malloc space for new sllnode
+Check != NULL
+Initialize node’s val field, then next field
+Return a pointer to newly created sllnode
+Declaration may look like… sllnode* create(VALUE val);
+Using it may look like… sllnode* new = create(6);
+ 
+Inserting a new node
+Malloc space for new sllnode
+Check != NULL
+Populate and insert node at start of list
+Return ptr to new head of list
+Declaration like… sllnode* insert(sllnode* head, VALUE val);
+    Returns a ptr to new head of list, takes input of orig head of list and value we want to insert
+Remember order: point new one to head of list first, then change the head to the new one. Don’t orphan your list! 
+ 
+When travelling down things linked by pointers, ALWAYS keep the orig head. Use a separate trav pointer to traverse down the links
+ 
+Deleting an entire linked list
+Recursive fxn
+If reach null ptr, stop        // base case
+Delete rest of list
+Free current node
+Fxn look like… void destroy(sllnode* head);
+Recursively call fxn til it hits last one. Then delete it backwards til front of list to avoid memory leaks
+ 
+Can’t go backwards in singly linked list. Deleting single node is doable, but messy
+ 
+Doubly linked lists: use if you ever need to delete a single node. Takes up bit more memory
+Adds 1 more detail to each node to go back and forth
+Use like singly linked list, except inserting and deleting a single element will be a lil diff
+Typedef struct dllist {
+    VALUE val;
+    Struct dllist* prev;
+    Struct dllist* next;
+}
+Dllnode;
+ 
+Inserting node
+1 extra step before returning a ptr to new head of list: fix prev pointer of old head!
+dllnode* insert(dllnode* head, VALUE val);
+ 
+Deleting a node
+Fix ptrs of surrounding nodes to skip over target
+Free target
+Void delete(dllnode* target)
+Fxn takes input of exact ptr to the one you want to delete
+ 
+Linked lists are O(1) for insertion and deletion, but accessing is O(n)
+ 
+STACKS
+After defining, use like regular data type
+Declare    stack s;    if declared globally, no need to pass into fxn
+Can be implemented as an array or linked list
+ 
+As an array
+Push()         ex. Void push(stack* s, VALUE data);
+Accept pointer to stack and data to add to the stack
+Add that data to top of stack
+Change where top of the stack is (increments as you stack higher)
+pop()        ex. VALUE pop(stack* s);    int x = pop(&s)
+Accept pointer to stack
+Change location of the top to the stack. Decrement
+Return the value that was removed from the stack
+Not actually deleting the value, just ignoring it. When we push another value on, it gets overwritten
+ 
+As a linked list
+Basically a linked list, just we restrict ourselves in only dealing with the top of the stack that makes it a stack
+Make sure to maintain pointer to head of linked list!
+push() like before. Adding to front
+pop() find 2nd element w/ separate ptr, delete first one, move head.
+ 
+QUEUE
+Implement like stack, but FIFO instead of LIFO
+ 
+Array based implementation
+Declare queue *q;
+Enqueue ()        void enqueue(queue* q, VALUE data);    enqueue(&q, 28);
+Accept ptr to queue, data to be added
+Add that data
+Change size of queue
+To determine where next element goes, add front + size (as front will change as things get dequeued. Also need to %, so that it wraps around capacity)
+ 
+dequeue()         VALUE dequeue(queue* q);        int x = dequeue(&q)
+Accept ptr to queue
+Change location of front to queue
+Decrease size of queue
+Return value that was removed from queue
+Full if size = capacity
+ 
+As linked list
+Can use either singly or doubly
+Maintain ptrs to head and tail of linked list
+Enqueue
+Malloc new node
+Set next ptr = NULL, set prev ptr to tail
+Set tail’s next ptr to new node
+Move tail ptr to new node
+Dequeue: like pop
+ 
+HASH TABLES
+Combine random access ability of an array with dynamism of a linked list
+Insertion, deletion, and lookup tend towards O(1)
+Not good for ordering and sorting data. Don’t use if thats important
+ 
+2 components
+    Hash fxn: returns a non neg integer value called hash code
+    Array
+ 
+Run data thru has fxn, store the data in the element of the array represented by the hash code
+Int x = hash(“Paul”);        // want to put Paul in, run thru hash fxn
+// returns x = 6
+Hashtable[x] = “Paul”;
+ 
+Many ways to write, best to find a good one on net and use it. Remember to cite!
+ 
+Collision: when 2 pcs of data, when run thru the hash fxn, yield the same code (and you aren’t linking and are using linear probing)
+Clustering: problem where when there’s a miss/collision, 2 adjacent cells contain data, likely the cluster will continue to grow
+ 
+node* hashtable[]
+ 
+TRIES
+What if keys for lookup were guaranteed unique, and the value could even be a simple Boolean?
+No collisions, no 2 pcs of data (unless identical) have same path
+Like a roadmap, if you can follow data, it exists
+Like a tree of nodes, starts with a root node
+Tradeoff: huge, lots of data flying around
+ 
+Ex. a trie of universities by founding year.
+Year is 4 digits, each digit with 10 possibilities
+Each node here has 10 ptrs for the 10 possibilities, with a string if the year has been mapped, for the university name
+ 
+Typedef struct _trie {
+    Char university[20];
+    Struct _trie* paths[10];    //the 10 ptrs
+}
+Trie;
+ 
+PSET5
+ 
+defines a variable called CC that specifies that make should use clang for compiling.
+CC = clang
+ 
+defines a variable called CFLAGS that specifies that clang should use these flags
+CFLAGS = -ggdb3 -O0 -Qunused-arguments -std=c11 -Wall -Werror
+ 
+defines a variable called EXE, the value of which will be our program’s name.
+EXE = speller
+ 
+defines variable called HDRS, the value is a space-separated list of header files used by speller.
+HDRS = dictionary.h
+ 
+defines a variable called LIBS, the value of which is a space-separated list of libraries, each of which should be prefixed with -l. (Recall our use of -lcs50 earlier this term.) Odds are you won’t need to enumerate any libraries for this problem, but we’ve included the variable just in case.
+LIBS =
+ 
+defines a variable called SRCS, the value of which is a space-separated list of C files that will collectively implement speller.
+SRCS = speller.c dictionary.c
+ 
+defines a variable OBJS, the value is identical to SRCS except each file’s extension is .o not .c 
+OBJS = $(SRCS:.c=.o)
+ 
+define a "target" using these variables that tells make how to compile speller.
+$(EXE): $(OBJS) Makefile
+    $(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+ 
+specifies that our .o files all "depend on" dictionary.h and Makefile so that changes to either induce recompilation of the former when you run make.
+$(OBJS): $(HDRS) Makefile
+ 
+define another target for cleaning up this problem’s directory.
+clean:
+    rm -f core $(EXE) *.o
+ 
+WEEK 6
+ 
+Internet: just interconnection of many diff smaller networks
+On top of this runs the world wide web, and all those applications
+Underwater cables in oceans
+ 
+Router: DCHP protocol software connects computers to internet by assigning all devices IP addresses
+ 
+IP: internet protocol
+#.#.#.#, IPv4. 4 bytes/32 bit, each # between 0-255
+Also IPv6 now, much longer, to accommodate growing number of devices
+ 
+TCP/IP together: set of conventions about how computers talk to each other over internet
+TCP is in charge of guaranteeing delivery, keeps track of all the packets with instructions on how to put back together, and getting a missing piece redelivered
+Not so good for live streaming when you want it to just go ahead w/o waiting for lost data
+Also identifies type of service via port #s
+    80 HTTP web stuff
+    443 HTTPS
+    21 FTP unencrypted file transfer protocol
+    25 SMTP email
+    Etc
+Ports often are blocked to restrict access, ex in office/public wifi. Block 25, no email
+ 
+Access point: where you get wifi
+ 
+UDP protocol: better for live streaming, just forge ahead w/o waiting
+ 
+DNS: domain naming system. Instead of typing IP addresses in the URL, much human friendlier way
+DNS server: in networks, purpose in life is to convert between IP and DNS
+ 
+Name service lookup. Look up IP at command line
+Nslookup www.website.com
+ 
+Traceroute -q 1 www.google.com
+    1 query at a time
+    See the routers you have to pass through to get to google
+ 
+Firewall: software that keeps packets you don’t want going out, or packets you don’t want coming in
+Ex. workplace blocks social media, parental blocks
+Configure routers to block certain addresses (packets are encrypted, can’t look in to see what it is)
+ 
+VPN: software allows you to connect via some protocol and some port to your company/home network in an encrypted way
+Routes everything out of 1 specified place first before going out, and thru there before coming in
+Takes longer, but can pass firewalls
+ 
+Switches: lots of ethernet jackets for physical cables, can intercommunicate
+ 
+HTML: not programming language, mark up language
+The language that comes back when you ask a web for info
+ 
+HTTP: an application layer protocol, dictates how clients request web pages and how servers return that to clients
+GET: how you get google search queries
+Input same as putting in URL bar
+POST: for sensitive info, not in URL bar
+ 
+Status codes
+200: ok    dont really see this one
+404: not found
+301: moved, can use to redirect
+ 
+Can use IDE like browser
+Telnet: program, connect to remote server specifically on certain port
+ 
+GET / HTTP/1.1
+Host: www.whatever.com    open site in HTML
+ 
+Curl -I http://google.com    opens HTTP headers w/o the html
+ 
+Indented HTML is pretty and easy to understand, but in big companies, even an extra letter, with 1 bil page views, is an extra 1 bil bytes!
+ 
+WEEK 7
+ 
+Machine learning
+Machine just an algorithm
+    Search engines, image recognition, voice recognition, natural language processing
+Training data: for a machine to figure something out by itself, needs this
+    Ex. many images of horses to img recognize a horse
+Nearest neighbor classifier algorithm: input image looks closest like what?
+Minimum distance calculated by coordinates
+ 
+Go beyond 3D, 4D is just 4 coordinates, etc
+A 8x8 pixel image has 64 coordinates, 64D
+Can use pythagorean formula to calculate distance
+ 
+Python
+Module is same thing as library in C, use word import, needs to be preinstalled
+Set up python interpreter by typing python, can type line by line
+No need to declare variables, or to call compiler
+No curly/brackets, but need indentation (4 spaces)
+ 
+Markdown type notebooks: can group lines of code together
+ 
+Slicing syntax: extract elements from an array
+ 
+Supervised (provided training data) and unsupervised learning (just given a set of points to deal with) in machines
+Deep learning algorithms: don’t just look at pixels, group them together and look at patterns, and see stuff like edges, eyes, see a face, etc
+ 
+WEEK 8
+ 
+Main function not required in python, although by convention sometimes still used
+ 
+Prev print world function is now just
+print(“Hello World”)        no need for \n
+print(“Hello World”, end=””)    use this if you don’t want built in newline
+ 
+Def fxnname():        // Can declare fxns like this
+    ….
+ 
+While True:        // Forever loop. Booleans are capitalized
+    ….
+ 
+For i in range(50):    // for loop, range fxn gives sequence here 0 - 49
+    ….
+ 
+Variable types still exist, but don’t really need to worry about
+ 
+If x < y:        // conditions. Notice the elif for else if
+    ….
+Elif x > y:
+    ….
+Else:
+    …..
+ 
+Lists: arrays
+No need for low level memory allocation stuff anymore
+Instead of arg[0], sys.argv[0]. Sys object for getting command line arguments
+ 
+Python hello.py will compile python source code into byte code and interpret, though compiling part not always needed
+ 
+Python is both a language and a program that understands the language (interpreting)
+Between python 2 and 3 right now, lots of users with both, but is diff, so be careful
+ 
+Cs50 library comes preinstalled in IDE.    import cs50
+Cs50.get_char, also float, int, string
+ 
+Some more python features
+Complex: represent complex/imaginary numbers
+Tuples: xy coordinates
+Set: collection of objects, good for checking stuff
+Dict: dictionary, basically a hash table
+ 
+If you do have a main fxn, they do not automatically run. Need to include these lines to ensure it runs
+If __name__ == “__main__”:
+    main()
+Prev with C, we had main fxn at top and later further declarations above it so that clang would know that those fxns would be declared later
+Python also reads top down left to right. Declaring main and having those lines allows python to see all your code before reaching the end and then calling main
+Technically you could go without main fxn, but you’d have to move all the other fxns you call above, and that gets messy
+ 
+Technically, a fxn within an object (ex. cs50.get_string) is a method
+ 
+printf(“hello %s\n”, s”); is now print(“hello {}”.format(s))
+ 
+String is an object now, has built in extra functionality
+ 
+Instead of get_string can do s = input(“name: “)
+print(“{:55f}”.format(1/10))     prints 1/10 to 55 decimal places. Still inprecise
+ 
+// does division between integers and returns answer that is floored to closest integer below. Else, dividing two integers (ex. 1/10) will return it in decimal
+ 
+Comments start with #
+Use or and and instead of || and &&
+No such thing as char, that would be a single letter string
+ 
+No do while in python. Pretty common to use infinite loop
+Def get_positive_int():
+    While True:                # notice you worry less about scope here
+        Print (“n is “)            n is reachable throughout whole fxn
+        N = cs50.get_int()
+        If n>= 1
+            Break
+    Return n                n can still be returned here
+ 
+Fxns taking parameters
+Def main():
+    cough(3)
+    sneeze(3)
+Def cough(n):
+    say(“cough”, n)
+Def sneeze(n):
+    say(“achoo”, n)
+Def say(word, n):
+    For i in range(n):
+        print(word)
+If __name_….
+ 
+Instead of strlen, we have len, which can be used on objects, lists, data structures, etc
+print(len(s))    would print length of a string
+ 
+Ascii
+For i in range(65, 65+26):
+    print(“{} is {}”.format(chr(i), i))        chr here formats to letter
+ 
+Command line arguments. Not declared as part of main
+Import sys        # needs to be declared to do command line stuff
+If len(sys.argv) == 2:
+    print(“hello, {}”.format(sys.argv[1]))
+Else:
+    print(“Hello, world”)
+ 
+Argc can now be done as    for i in range((len(sys.argv)):
+Sys.argv is a list, like array
+ 
+For s in sys.argv:        # iterating over each string in argv
+    For c in s:        iterating over each char in string
+        print(c)        print out character by character
+    print()
+ 
+Returning exit codes        exit(0)
+Use return from methods and fxns
+ 
+Python doesn’t have pointers
+Prev in C, comparing string2 and string1 doesn’t work because thats same as comparing the addresses. Don’t need to worry about that in python!
+ 
+With get_string, instead of checking != NULL, check !=None (no value, similar)
+ 
+Python is an object oriented programming language, in that it supports objects
+C just had structs, which contain data
+Objects can have data and built in functionality
+ 
+Strings in python are immutable. Once it's created, can’t change it
+When you use methods like .capitalize, will make copies to change it
+ 
+Swapping    x, y = y, x
+Tuples! Comma separated list
+ 
+If a fxn returns 2+ values, can assign like this…
+A, b, c = foo()
+ 
+From student import Student        # create own module student, inside will be class Student
+Students = []                give empty list to students, which are mutable
+For i in range(3):
+    print(“name: “, end=””)
+    Name = cs50.get_string()
+    print(“dorm: “, end=””)
+    students.append(Student(name, dorm))
+For student in students:    iterating over list of students
+    print(“{} is in {}.”.format(student.name, student.dorm))
+ 
+Creating the module student: just new file, save as student.py
+ 
+Creating a struct in python, actually called a class
+Convention first letter is capitalized
+Class Student:
+    Def __init__(self, name, dorm)    # define standard method called init (initialization)
+        Self.name = name        1st parameter conventionally called self
+        Self.dorm = dorm        then any other parameters
+When passed parameters, saved as instance variables inside of self
+ 
+To keep permanently
+File = open(“students.csv”, “w”)
+Writer = csv.writer(file)        import csv    built in feature called csv module
+For student in students:
+    writer.writerow((student.name, student.dorm))    double brackets because it's a tuple
+File.close()                            aka comma separated
+ 
+Technically variables in python are references to objects bound in memory
+ 
+Instead of compilation errors, will get actual runtime errors. May not catch until partway thru
+ 
+Python speller implementation
+Class Dictionary:
+    Def __init__(self):
+        Self.words = set()    # python fxn, returns empty set. Collection of values
+                    With O(1) look up and insertions
+    Def load(self, dictionary)
+        File = open(dictionary, “r”)
+        For line in file:         # for each line in file
+            self.words.adds(line.rstrip(“\n”))    access set words, add to line I’ve
+        file.close()                    just encountered, stripping off \n
+        Return True
+    Def check(self, word):
+        Return word.lower() in self.words    return true or false, whether the lower case
+    Def size(self):                    version of given word is in my own word set
+        Return len(self.words)
+    Def unload(self):
+        Return True        nothing to unload. Python does memory mgmt for you
+ 
+Design pattern MVC (model view controller)
+Describes where data lives and how you access it
+Model: where data comes from
+Controller: brains of the website. Users request info from here
+View: aesthetics of website. Responds to user requests for info here
+ 
+Python comes with built in web server functionality
+Web server: when run, listens to internet on your computer’s IP address on TCp port 80 for incoming HTTP requests and responds
+If you want web server to listen to everything, have it talk on IP address 0.0.0.0, shorthand for saying all
+Computers have a local host address of 127.0.0.1, to refer to itself
+ 
+Frameworks: collections of code by other people, an borrow
+Flask is a popular one for Python
+App = flask(__name__)    give me flask application ased on this file
+__name__ is a symbol for this file
+@ referred to as decorator
+@login_required can prevent people from going to pages before logging in
+@app.route(“/”)    / being default route, also /register, /etc
+With method ex. GET, POST
+Flask run --host=0.0.0.0 --port=8080
+Templating language, allows you to dynamically plug values into HTML
+Less copy and paste of all that HTML between pages that have more or less same layout
+Use python to render html templates
+ 
+WEEK 9
+CSV can be opened in excel but it's tedious to work with, parse, etc
+ 
+SQL; structured query language
+Works in many enviroments
+MySQL, Oracle, Microsoft Access, SQLite etc
+3rd party for biz, need server (SQLite is a web based version, data can live in same server as your code, don’t need all the extra stuff)
+CRUD: create, read, update, delete
+Tables: sheets
+‘Result set’
+Sql statements: the stuff you type to give commands
+ 
+Best to have unique IDs, and to not reuse them even if that person gets deleted… their data may still exist elsewhere
+ 
+Column indexes
+Primary key: this field uniquely identifies all my rows. No one will have identical (ex. No names, email addresses are okay)
+Not null: must have value
+Unique
+Foreign key: related to another table
+ 
+Normalizing database: factoring out commonalities that can be uniquely identified more simply to save memory (super important if huge database)
+Can programmatically reconstruct data
+Ex. indexed addresses and gave zip codes index numbers
+ 
+Want to protect against data that shouldn’t be there
+scrubbing/sanitizing inputs before storing in database
+ 
+Be careful or drop table (deleting data!)
+ 
+Sqlite3 filename.db
+.help        gets all the SQL commands
+ 
+Instantiate database connection
+Db = SQL(“sqlite:///filename.db”)
+Placeholders in SQL    :name, :dorm, etc
+ 
+Models - feature of frameworks
+Flask - SQLalchemy - python library
+Object relational mapper (ORM): if you don’t want to think of data as row and tables, use this to make them into objects/entities
+Helps you deal with SQL stuff, because altho typing SQL statements yourself offers more control, it's low level and tedious
+ 
+SQL injection attacks, hacking
+Always want to use library because they have built in protection
+Malicious users could put in input that tricks your database into executing their code
+ 
+WEEK 10
+JS - past code was mostly server-side (written in server) and although JS is sometimes server-side too, mostly client-side (in the browser)
+Gives ability to change sites in real time (ex. Google mail comes in, fb notification)
+Can run in browser indefinitely, waiting for events then responding
+ 
+Iterating over object:
+For in loop
+For (var key in object) {
+    // use object[key] here
+}
+If you only care about values…
+For (var key of object) {
+    // use key here
+}
+ 
+In JSON (JS object notation) double quotes matter! Use on both sides
+ 
+DOM: document object model, like a tree. Recall tree diagram of HTML elements
+ 
+Callback: fxn that gets called when smth happens
+ 
+Anonymous fxn/lambda fxns: great for fxns you only use once
+If you name a fxn then call it immediately one time--why name it at all?
+ 
+There is a document object in JS with lots of fxns
+Can dynamically change HTML and CSS
+Local storage object in JS: stores info longterm in a browser w/o going to the server or offline, as long as the page was loaded
+Document ready: don’t run til page is loaded
+ 
+jQuery is a super popular JS library
+Put link in head
+$ synonym for global object called jQuery
+ 
+Libraries bootstrap x2
+Cdnjs one for pretty form validation based off bootstrap
+Still, not an alternative to security checks to validation of data on server, JS is easy to turn off in the browser
+Use and get to know libraries! Why write the code again?
+ 
+HTML5 can invent own attributes
+ 
+AJAX prev. Aka asynchronous JS in XML (JSON used more than XML now)
+Ability to make additional HTTP requests from browser to server w/o having to reload the page
+uses existing features in browsers that allow you to query from a browser to get more data even after page is loaded
+ 
+Can make HTTP request in URL
+ 
+Have JS in separate file
+<script src=”scripts.js></script>
+ 
+SHORTS
+JAVASCRIPT
+Adblocking often done by killing the JS
+Objects: basically everything in JS is some sort of object
+Have properties that can’t stand on their own
+Have methods (functions that can only be called with it's object)
+Not function(object) but object.function();
+ 
+Ex. array is an object, has methods like array.push, array.map (apply a fxn to every element)
+Ex. doubling an array called nums
+Nums = nums.map(function(num) {
+    Return nums * 2;    // also an anonymous function
+});
+ 
+Events: where something specific has occurred on webpage. Ex HTMl attributes onclick, onhover, onload, etc
+JS can support an event handler: a callback (often anonymous) fxn that responds to a html event
+Ex. <button onclick=”alertName(event)”>Button 1</button>
+    When event onclick happens, create an event object that knows which button got clicked and pass it to alert name
+Function alertName(event) {
+    Var trigger = event.srcElement;     // which element was pressed?
+    alert(‘You clicked on ‘ + trigger.innerHTML);    // what was in the button tag
+}
+ 
+DOM
+In an object, even it's properties can be other objects and inside those other objects...
+We have object that refers to entire webpage and it's element (document just giant object)
+Can see a site’s DOM by running console.dir document, look inside the childNodes
+ 
+Can change page without reloading and without going to a server
+ 
+Some cool DOM properties: innerHtml, id, nodeName, parentNode, childNode, attributes, etc
+Some DOM methods: getElementById(id), getElementByTagName(tag), appendChild(node), etc
+ 
+jQuery is not JS, it's library written by JS programmers to help with DOM manipulations because they are so damn wordy… but JS is cryptic looking
+ 
+AJAX
+To use ajax, need to create special JS object XMLHttpRequest
+Ex. var whatever = new XMLHttpRequest();
+Then need to define it's on ready state change behaviour, typically an anonymous fxn called when asynchronous HTTP request is complete, define what is to change on the site
+ 
+When you request a page, these steps happen..
+0. Request not sent
+Request sent
+Request acted upon
+Request sent back
+Page fully loaded
+ 
+2 important XMLHttpRequest properties
+Ready state: 0 - 4 values, the ones above
+Status: status code (hopefully 200 for OK)
+ 
+Ex. doesn’t have to be all in one function like this tho
+Function ajax_request(argument) {
+    Var aj = new XMLHttpRequest();
+    Aj.onreadystatechange = function() {
+        If (aj.readyState ==4 && aj.status == 200)
+            // do something on page
+    };
+    aj.open(“GET”, url, true);
+    aj.send();
+}
+ 
+BOOTSTRAP
+3 diff options
+Precompiled
+Source code (needs compiling, twitter compiling?)
+SASS only version for RAILS
+Go dwld from their site and save in folder
+Can also install in terminal
+    Npm install bootstrap@3
+    Need node.js and grunt client
+Also check out their templates and themes on site. Not in precompiled folder
+ 
+The downloaded bootstrap folder
+3 folders: CSS, fonts, JS
+Minified files (.min): no need to include multiple files for diff features (has all the libraries), use!
+Use CSS as style sheet, JS as script
+ 
+Using bootstrap
+Use a boilerplate template w/ specific cell set ups so you can use bootstrap
+Chmod permissions ni folder (so apache can deal with it)
+Apache50 start dir // on IDE, hosted site
+Aside from linking in head, in body part need scripts to access plugins (jquery and bootstrap)
+
+ 
+ 
