@@ -1,0 +1,74 @@
+Client: browser
+Servers: computers dedicated to storing and giving content
+Callback: instructions you do when a response from a server arrives
+Asynchronous: doesn’t block other things from happening while waiting for response, and requests are fired off at any time
+ 
+Ajax requests can be made in diff ways… may require API key, o-auth, or nothing
+ 
+Data we receive back can be diff too
+XML - used mostly in the past, less common now. Where ajax names comes from
+JSON - most popular
+HTML - to dynamically insert into page
+ 
+Ajax request needs at min a URL. in general things in [] are optional (see documentation)
+POST will prob also have data to send to them
+GET will prob have some callback fxn and maybe data
+ 
+$ is a ptr to a jquery obj
+Ex. var $nytElem = $(“#nytimes-articles”);
+nytElem now represents a jquery object of nytimes articles
+ 
+We’ll be using 2 methods, .ajax and .getJSON
+ 
+Error handling .fail();
+Can test by purposely messing up link or turning off Internet to ensure you have smth in your code to handle when things are not working
+ 
+Chaining: adding method to end of another method
+}).error(function() { …
+ 
+CORS: cross origin resource sharing
+Works around only strict browsers trying to prevent malicious activity
+Enabled server side
+Same origin policy: prevent malicious scripts from untrusted domains to run
+Some APIs don’t support CORS.
+Workarounds: use JSON-P (error handling not built in tho) or change content type headers (server wraps response in a fxn to get injected when back to client)
+ 
+.getJSON abstraction of .ajax which is abstraction of asynchronous JS request
+ 
+Send request
+Iterate thru response
+Inject into HTML
+ 
+Separate generic and unique HTML requests for speeding up pages
+ 
+Error handling
+setTimeout: stop request if it runs too long
+Var wikiRequestTimeout = setTimeout(function() {
+    $wiki.Elem.text(“failed to reach wiki”);
+}, 8000);    // 8000 means 8 seconds
+Then include in the success area… to cancel error handling if it's successful
+clearTimeout(wikiRequestTimeout);
+ 
+FROM CODE ACADEMY
+ 
+When something follows REST principles (representation state transfer) just means that navigating site by clicking links = state transition, next state of application
+Said to be RESTful
+ 
+4 verbs: get post, put (updates), delete
+ 
+3 parts of a HTTP request
+Request line: type of request and resource you’re looking for
+Header: sends additional info
+Body (data for when you’re posting/putting info
+ 
+Endpoints: API defined locations where particular data is stored
+You’ll GET smth diff at each one
+ 
+HTTP response similar to format of request, but with status code
+ 
+Var xhr = new XMLHttpRequest;
+xhr.open(“GET”, “url”, false);
+    False here means wait for server response
+xhr.send();
+ 
+To check.. Can console.log() xhr.status or xhr.statusTest

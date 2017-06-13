@@ -1,0 +1,103 @@
+He recommended jetbrains webstorm ide for nodejs
+New proj. Choose static web
+    .idea and .iml file has jetbrain settings. Don’t touch it
+    New -> JS file -> app.js, our main file
+    R click and run. Console at bottom
+Edit configs    choose how you want the program to run
+    browser/live edit tab
+    Check ‘after launch’ open in chosen browser, and give it a site (ex. http://localhost8888)
+In a diff ide than webstorm, may need to install node.js plugin to turn off err messages
+    Enable under frameworks and likes
+ 
+Modules: what the diff files in your program are called (breaking code out in organized parts to keep program from getting long)
+When requiring modules, never incl the file extension. Can get weird as browser does not have access to your files
+ 
+Can choose what to export
+    Module.exports = printAvatar;    // printAvatar being a function
+Then var movies = require(./movies);
+Then can use movies.printAvatar();
+Module.exports is just an obj. Can also declare stuff directly in there
+Module.exports = { … }
+ 
+Shared state of modules
+Can require modules w/o saving to a var
+Default behaviour is that modules are shared by reference, not a new copy
+If you need new copies, use an object favtory fxn
+ 
+Core modules: already built into node. No need for path, just name
+ 
+Fs is a file system module, allows reading/writing files
+Var fs = require(‘fs’);
+fs.writeFileSyn(path,data, options)
+    Path: path/file you want to write to (creates for you)
+    Data: what we are writing
+Options: optional
+fs.readFileSync(path, options)
+ Ex. console.log(fs.readFileSyn(“corn.txt”).toString());
+ 
+Path module: working with file paths
+Var path = require(‘path’);
+Helps normalize slashes in path depending on OS (\ or /)
+path.normalize(<path>);
+path.dirname(<path>)    // give path w/o file name
+path.basename(<path>) // file name
+path.extname(<path>) // file ext
+ 
+Along with __dirname, can do __filename (dirname with filename)
+ 
+Creating a basic server
+Var http = require(‘http’);
+http.createServer(requestListener, listen(port#);
+    requestListener is the callback to run when a user makes a request
+Ex. pass in fxn onRequest, always takes in 2 params (res, req)
+Function onRequest(req, res) { …
+    // res.writeHead(statusCode, reason, obj);
+    res.writeHead(200, {“Content-Type”: “text/plain”});
+    res.write(“blah blah”);
+    res.end();    // sends it off
+ 
+Every time a user makes a req, you get 2 requests. 1 to the page they're looking for, another for the favicon
+ 
+Creating a simple web file server
+Take above template then add/change…
+Also include fs
+Set up 404 response
+    Function send404Response(res) {
+        res.writeHead(404, {“Content-Type”: “text/plain”});
+        res.write(“Error…:);
+        res.end();
+Change contents of onRequest entirely
+If (req.method == “GET” && req.url = “/”( { // don’t do anything for the req for favicon
+    res.writeHead(200, {“Content-Type”: “text/html”});
+    // need a readable stream for sending back a html file
+    fs.createReadStream(“./index.html”)>pipe(res);
+    // pipe means pipe it out, thru res obj
+    } else {
+        send404Response(res);
+ 
+Server framework called connect. Npm install it
+Var connect = require(“connect”);
+// create connect dispatcher. Whenever a user makes a req, will look here to see how to handle
+Var app = connect();
+http.createServer(app).listen(port#); // at end of file
+ 
+app.use (middleware)
+Why use connect: can stack middleware
+ 
+Can also do app.use(pathname, callback) // callback could be an obj, ex from requiring a module)
+Ex. app.use(“/profile”, profile);
+    Function profile(req, res) {
+ 
+Using express w/ a jetbrains ide
+New proj - node.js & npm - node.js express app
+    Template engine: EJS
+Will help you config and install express’s dependencies
+Go to bile bin, click www, r click and run. Set to port 3000. If you see welcome to express page, it's good
+    This is the start up script for express. Kicks off app.js
+    Auto requires bunch of stuff for us (view engine set up, app.use, etc)
+Public - stuff that users can access (jss, stylesheets, imgs, etc)
+Exploring the www file
+    Var logger = require(‘morgan’); // module for logging info to terminal
+    Cookie Parser // for cookies
+Have 2 error handlers - 1 for development (prints stack track), 1 for production (for users, a more friendly error message)
+    

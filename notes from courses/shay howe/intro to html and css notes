@@ -1,0 +1,717 @@
+SHAY HOWE INTRO TO HTML AND CSS NOTES
+ 
+HTML: hypertext markup language
+Gives content structure and meaning by defining context
+Ex. headings paragraphs etc
+ 
+CSS: cascading style sheets
+Presentation language. For styling, apperance of content
+ 
+The 2 languages are separate, write in diff documents
+ 
+HTML terms
+Element: designators that define structure and content
+Ex. h1 to h6, a, div, strong
+Tags: the <> around an element makes a tag
+Usually pair of opening/closing, between tags is the content
+Attributes: properties tha tprovide extra info about an element
+Id: identify
+Class: classifies
+Src: specify source for embeddable content
+Href: hyperlink ref to a linked source
+    Define attributes in opening tag, attributename=”value”
+ 
+HTMl doc structure
+Plain text doc with .html extension
+Need plain text editor (not rich text ex. Word)
+Most popular: dreamweaver, sublime text
+Free: notepad++
+ 
+Setting up structure
+<!DOCTYPE html>     tells us what version of html
+<html>   signify beginning of dog
+<head>    top of dog, incl metadata (info about the page, is not displayed, also links to external files. </head>
+<body> all your visible stuff </body></html>
+ 
+Common self enclosing elements: br, meta, img, embed, input, hr, link, etc
+ 
+Code validation: help scan work for mistakes
+ 
+Inside <head>
+<title>
+<meta charset=”utf-u”>
+ 
+CSS terms
+Selectors: designate which element or elements to target
+Followed by {} which encompass the style to apply
+Type ex. Div {}
+Class ex  .classa {}        html: class=”classa”
+Id ex. #classb {}             html: id=”classb”
+More advanced selectors exist, these are most common
+Properties: once selected, properties determine which style to apply
+Ex. font-size, color, padding
+Value: determine behaviour of the property (ex. White; or 13 px;)
+ 
+Referencing CSS
+Put into a single external style sheet and reference from html in <head>
+Also possible to ref CSS with internal/inline styles--frowned upon, updating later is annyoing
+Use text editor, save plain text file main.css and put in same folder. In html <link rel=”stylesheet” href=”main.css”>
+If main.css is not saved in same file (aka root directory) and is in a subfolder/subdirectory, need to redirect in href ex href=”folderZ/folderL/main.css”
+ 
+CSS resets
+Every web browser has diff default styles for diff elements
+Resets provide unified style across browsers. Usually remove/tone down stuff
+CSS reads top to bottom, put this at top of document
+Many diff ones exist, incl Eric Meyer’s
+ 
+Testing cross browser: sites should look closely similar, need to decide which browsers to support
+ 
+Made assets folder which keeps imgs, videos, etc, also folder for style sheets
+ 
+Semantics: practice of giving content on the page meaning and structure by using the right element
+Many benefits to organizing properly
+ 
+2 elements with no semantic property. Div and span act as containers for styling purposes only
+Block level element (div)
+Begin on new line
+Larger pcs like paragraphs
+Take up any width
+Stack, nest each other, wrap inline
+In line level (span)
+Don’t begin on new line
+Smaller pcs
+Line up 1 after another
+Take up width of their content
+May be nested, but not wrap block level
+ 
+Usually with class or id for styling. Use a name to describe content
+ 
+Bolding
+<strong> gives strong importance to text
+<b> for stylistcally offsetting text
+ 
+Italicizing
+<em> stress emphasis on text
+<i> alternate tone/voice
+ 
+Structurally based elements: block level, can be used multiple times, no implied position/style, just structural semantics 
+<header>   falls into body, do not confuse with <head>
+<nav> section of major navigational links
+<article> section of independent, self contained content, can stand on it's own elsewhere
+Ex. blog post, newsletter, article
+<section> breaks up content in a page, typically with a header
+<aside> content that relate to nearby content
+Ex. sidebars, inserts, explanations
+Block width, can reposition to a side
+<footer>
+Choosing between…
+<div> for grouping content solely for styling purposes
+<article> can be independently redistributed
+<section> 
+ 
+Encoding special characters ex. Accented letters, symbols, some punctuation
+If typed directly, can be misunderstood, thus need encoding
+All begin with & and end with ;
+See list of character encodings
+ 
+Links - identify by their paths
+Relative path: link to page of same site
+Doesn’t need domain, just file name ex. About.html or folder/pages/about..html
+Absolute path: to another site
+Needs full domain
+ 
+Making email link
+Use mailto: inside href with address
+Can also put in subject, body text, etc
+Use a ? to bind first parameter to hyperlink
+Multiple words need %20 instead of spaces
+Line break encode with %0A
+Binding further parameters use &
+Ex. <a href=”mailto:me@self.com?subject=Hey%20there&body=What’s%20up?”>Email me</a>
+ 
+Open link in new window target=”blank”
+ 
+Linking to parts of the same page
+Give destination section an id ex. <body id=”top”>
+Link with <a href=”#top”>
+ 
+CSS the cascade
+A selector’s specificity and placement in the cascade will determine which styles get rendered
+ 
+Specificity from low-high
+Type 0-0-1 low
+Class 0-1-0 med
+Id 1-0-0 high
+The 3 columns, each one counts individ selector
+The higher the weight, the more superiority in a styling conflict
+ 
+Combining selectors:
+Read from right to left. Furthest right is key selector, to the left are prequalifiers
+Ex. .hotdog p {}   grabs paragraphs with class=”hotdog”
+      .hotdog p.mustard {}     grabs paragraphs with mustard color with class=”hotdog”
+Space between selectors. P mustard has no space between. Prefix class to type. Best not to do this, select with just class. Ex. just use .hotdog .mustard
+ 
+Specificity with combined combined selectors
+.hotdog p 0-1-1
+.hotdog p.mustard 0-2-1 WINS
+ 
+Keep eye on specificity weights. Too high, cascade likely to break
+1 way to keep it low is to use multiple classes to layer styles
+ 
+Common CSS property values
+Colour
+Keyword colours (see list @ CSS specifications)
+Hexadecimal 
+#000000 2 red 2 green 2 blue. 0 is black, F is white
+0-255 from base 16
+Rgb (0, 0, 0)
+Rgba (0, 0, 0, .5) a for alpha/transparency, .5 = 50% opacity
+HSL hue, saturation, lightness ex. hsl(24, 25%, 50%)
+Hue: 0-360, rep colour wheel
+Saturation: a %, 0=grayscale, 100 full saturation
+Lightness: a %, 0=black 100=white
+Or hsla, use like rgb
+ 
+Lengths
+Absolute lengths
+Pixels. 1/96”. Varies between screens
+Relative length
+%
+Em: relative to elements font size
+    1 em = font size
+    If size not stated, relative to closest parent element
+ 
+Display property: determines how things are displayed
+Every element has a default display value, but they can be overwritten
+Display: block, inline, inline-block, none
+Inline block: behaves like block but display inline. Accepts box model properties
+None: hides the element
+ 
+Box model concept: every element is a rectangle box. 
+With width, height, padding, margin, borders
+Properties that determine size of box
+Core of box by width and height, which are determined by display, element contents, or specified width/height
+padding/border/margin expand box out from width and height
+We might set width: 400px; but actual width incl margin, border padding
+Width
+Block level default 100%
+Inline and inline-block: accomodate content
+Inline level can’t have fixed size
+Width and height only relevant to non-inline
+Height
+Default determined by content
+For non-inline elements only
+Browsers often apply default margins/padding to help with legibility. Resetting lets us decide ourselves
+Margin
+Space surrounding element, outside of border
+Transparent: shows parent element background
+Inline level does not accept vertical (top/bottom) margins
+Padding
+Space inside border, gives element space
+Transparent, show background of element
+Works vertically on inline, tho may blend into other elements
+Margin and padding values
+Same on all 4 sides   padding: 20px;
+top=bottom and r=l     padding: 20px 10px;
+ 
+Border: 6px solid green;
+Or longhand use border-width, border-color, border-style (solid, none, dashed, etc)
+Can do individual border sides. Border-bottom, etc
+Even more specific. Border-left-colour; etc
+ 
+Border radius: round corners of an element
+Use px or %
+Same on all 4 corners    border-radius: 20px;
+topL=bottomR, topR=bottomL       border-radius: 20px 30px;
+Border-top-left-radius for more specific
+Moves clockwise from top L corner
+ 
+Box-sizing property: allow us to change how box model works and how element sie is calculated
+3 primary values
+Content-box: default value (additive, where width/height and then add padding, margin, border)
+Padding-box: includes padding with width/height
+Ex. width 400px; padding 20x; width still remains 400px. As padding goes up, content size will shrink
+Still need to add border and margins
+Border-box: best option. Includes border and padding
+Still need to add margin
+ 
+Browser specific properties/values: as CSS was introduced, browser sslowly supported diff properties/values via vendor prefixes. As new browsers came out and CSS finlized, this became less relevant. But still need them to support old browsers, esp for newer features
+Most common
+Firefox -moz-        -moz-box-sizing:
+Windows explorer -ms-
+Chrome/Safari -webkit-    -webkit-box-sizing
+And still need just box-sizing: 
+ 
+Developer tools: most browsers have this, can inspect an element on a page, see where it is in the html doc, what properties/values are applied, computed size in box model diagram
+Can learn a lot from looking at other code
+ 
+Universal selector * selects every imaginable element
+Universal pseudo elements *:before and *:after
+Use like this
+*,
+*:before,
+*:after {
+}
+ 
+Positioning with CSS
+With floats
+Property allows us to take an element, position it R or L of it's parental element or to edge of the page, and then have everything else flow around it
+Ex. float: left;
+Can use to create columns
+Width defaults to content--may be preferable to set to a width (for reusable code) and use margins to keep columns from touching
+Floats may change an elements display value
+Ex. float on in-line, changes to block, accept height and width
+If 3 columns--can float all left
+Pitfalls: originally meant for images not formatting layout. Things may wrap funny
+Ways to deal with this
+Clearing floats
+Clear: left; right; both;
+Applies to element after the float, the one trying to wrap
+Containing float
+Floated elements must be in a parent element
+Parent acts as container. Flow outside like normal
+Technique called “clearfix” or cf. often seen on other sites
+.group:before,         pseudo element dynamically generates above and
+.group:after {        below element w/ class of group.
+    Content: “”;         no content. Table level display
+    Display: table;
+}
+.group:after {       clearing floats w/i class of group in element
+    Clear: both;     only after cuz don’ need to do ones before it
+}
+.group {
+Clear: both;         scaling content. Non-standard, old, but some
+*zoom: 1;            browsers still support
+}
+Keep track of all your floats to make sure they work… or else
+2. Inline block display property
+Take advantage of box model w/o clearing floats
+If the last inline gets pushed to a new row, can reduce width or remove white space between
+ 
+Some methods of removing white space
+Put new opening tag on same line as last closing
+</section><section>
+Comment out white space between closing and next opening tag
+</section><!--
+--><section>
+ 
+Preferable to use inline-block to create grid/layout, and floats for when wrapping is needed
+ 
+Giving same properties to 2+ selectors:
+    .col-1-3,     use comma
+    .col-2-3 {
+ 
+Adding padding to columns
+Will have double width in the middle
+Solution: place all columns within new class grid, add that padding to the grid
+ 
+Need to organize larger parental elements so that you maintain consistent width on page
+Ex. An element with columns and padding within an element with padding may not align proportionately
+ 
+Precisely positioning elements
+Position property: determine how smth is positioned and whether it will be in the reg flow of the document. Use with…
+Box offset property (top, right, etc)
+Identify where by pushing element from a direction
+Default position is static, meaning in normal flow and does not accept box offset
+ 
+2 major values to overwrite position: static;
+Relative: normal flow of page, preserves original space, other elements do not move, so may overlap
+Absolute: not in regular flow. Orig space is not preserved, moved in relation to closest parental element
+ 
+Typography
+Typeface: artistic impression of how text looks, feels, reads
+Font: file that contains a typeface
+ 
+Can change all font colors from html type
+Font based properties
+Font-family: “Helvetica Neue”, Helvetica, sans-serif;
+Declare in order of preferences, if name is 2+ words then wrap in “”, last one should be either serif or sans-serif
+Font-size: in pixels, en, etc
+Font-style: normal or italic or oblique or inherit
+    Normal: return text to normal style
+Font-variant: normal, inherit, or small-caps (uppercase letters at size of lower case)
+Font-weight: in keywords (normal, bold, bolder, lighter, inherit) or by numeric value (100, 200, to 900, where normal is 400 and bold is 700)
+Not all fonts come in every weight, will default to closest one
+Line-height: accept any general length, 150% or 1.5 is good for legibility. 
+Can also be used for vertically centering text/things like buttons, just apply to that class an equal height and line-height value
+ 
+Entering properties in shorthand
+Font: font-style font-variant font-weight font-size/font-height font-family
+No commas except between font names in font family
+Values except for size and value are optional
+ 
+CSS pseudo classes: style elements in unique states
+Ex. a:hover for hovering over links
+ 
+By default browsers render headings as bold (not after reset tho)
+Also resets default styles for strong, cite, en. Need to add it back
+Strong {font-weight: whatever}, cite, en { font-style: italic }
+ 
+Text properties
+Text-align: left, right, center, justify, inherit
+Text-decoration: none, underline, overline, line-through, inherit
+Add multiple with space between
+Margin-bottom has more control than underline (ex. colour)
+Text-indent: all length properties, indent 1st line only
+Text-shadow: horizontal offset, vertical offset, blur radius, color
+Ex. text-shadow: 3px 6px 2px rgba(0,0,0.3)
+3px right, 6px down, blur 2px off all. Use negative for other direction
+Can add multiple shadows, just separate with commas
+Text-transform: 
+None: returns inherited values back to orig
+Capitalize: first letter
+Also uppercase, lowercase, inherit
+Letter-spacing (aka tracking
+Positive #: push further, and vise versa
+Relative length measurement helps with correct spacing in case of font size change
+word-spacing
+ 
+Box-shadow: same as text-shadow but
+Optional first inset value: place shadow inside instead of outside
+Optional 4th value (before color): spread of shadow (positive larger than element, vice versa)
+ 
+Web-safe fonts… see list
+ 
+Embedding fonts
+@font-face {
+Font-family: “giveName”
+Src: local(“giveName”), url(“giveName.woff”) format(“woff”);
+ 
+Uploading fonts--might be licensed. Make sure you have permission
+One word named embeddable fonts should still be wrapped in quotes in CSS
+From Google fonts, paste link into head
+ 
+Citations and quotes (3)
+<cite> for creative works, authors, resource. 
+Usually a title of work, author or URL ref, optional a
+<q> short inline quote, diaglogue or prose. Will automatically put quotes around it for us
+Optional cite=”url” attribute, does not show but adds value
+<blockquote> for multi line
+Optional cite attribute (won’t show) and/or <cite> element to provide resource for readers
+ 
+Backgrounds have a significant impact on the design of a website
+In CSS, element backgrounds can be a color, image, gradient, or a combo of these
+ 
+Background-color: accepts strictly colors
+If using RGBa or HSLa, provide a backup color as not all browsers support transparency
+    Use cascade effect to our advantage to set up back up
+    Div {
+Background-color: #000000;
+Background-color: rgba(0, 0, 0, 0.3)
+    }
+    If rgba doesn’t run, it will have run the backup
+ 
+Background-img: url(“alert.png”)   watch out for directories. In parentheses and quoted
+On it’s own, the img will repeat to fill space
+Background-repeat: 
+    Repeat: default value
+    No-repeat
+    Repeat-y will repeat vertically
+    Repeat-x repeats horizontally
+Background-position: horizontaloffset vertical offset
+    Default position is top left
+    If only enter one value, vertical offset defaults to 50% (center)
+    Can use words top, left, center etc or 0, 0 top left, 100, 0 top right, 0, 100 left bottom, etc
+ 
+Shorthand: can vary, but typically
+Background: Background-color background-image background-position background-repeat
+ 
+Gradient backgrounds: supported by modern browser, treat like background image.
+Most browsers have since eliminated need for vendor prefix, but still not a bad idea to use them
+ 
+Linear gradients
+    Background-color: #000000;              backup
+    Background: -webkit-linear-gradient(#239090, #3n3n3n);
+    Background: -moz-linear-gradient(#239090, #3n3n3n);
+Background: -ms-linear-gradient(#239090, #3n3n3n);
+Background: linear0gradient(#239090, #3n3n3n);
+First number is starting color, 2nd is end color
+Default goes top to bottom. Can change orientation like this. Words or by degrees
+Background: linear-gradient(to right bottom, #FFF, #555);
+ 
+Radial gradients
+Background: -webkit-radial-gradient(#FFF, #KKK); etc
+Colour starts inside to outside
+Can be quite complicated, many diff values. An use a CSS3 gradient generator
+ 
+Color steps: adding multiple colors to gradient
+Background: -moz-linear-gradient(to right, #FFF, #999, #000);
+Colors are proportionate. Can change proportion with length value. Place after number
+Background: -moz-linear-gradient(to right, #FFF, #999 75%, #000);
+ 
+Multiple background images. Separate values with comma
+Ex. background: url(“foreground.png”) 0 0 no-repeat, url(“midground.png”) 0 0 no-repeat, url(“background.png”) 0 0 no-repeat
+ 
+3 new background properties
+Background-size: width height. Accepts length and keyword values
+If by percent, it is to the element’s size
+If only setting 1 of the 2 values, the other automatically preserves ratio. Or can fill as auto
+Cover: resizes to completely cover element while preserving ratio. Will prob crop image
+Contain: resize to fit in element while preserving ratio. Prob not fill perfectly
+Background-clip: specify surface area a background image will cover
+Default: border-box
+Background-origin: specify where background position should originate
+Default: padding-box
+ 
+Background-clip and origin values
+Border-box: extends into element’s border
+Padding-box: extends into padding
+Content-box: doesn’t enter padding
+ 
+Lists - 3 types in HTML
+Unordered <ul> <li>
+Default: add vertical margin and padding to element, precede deach <li> with solid dot called the list item marker
+Ordered <ol> <li>
+Uses #s
+Some unique attributes
+    Ex. <ol start=”4”> start attribute, any integer to start list at
+    Ex. <ol reversed> use to count backwards
+    Ex. <li value=”9”> for changing individual li elements. The following li elements adjust accordingly
+Description list
+Used to outline terms and their descriptions. All are block level elements...
+<dl> parent
+<dt> description term
+    <dd> description element
+    Can have multiple meanings for a term and vice versa.
+    Dt goes verse. Order matters
+    Dl defaults vertical margins, dd a left margin
+ 
+Nesting lists: only <li> can be inside a <ul or ol>, so nest the list inside of a <li>
+Depending on how deeply something is nested, the list item marker may change
+ 
+List item styling
+List-style-type: none, square, roman, etc…
+    Using an image as list item marker
+    Li {
+        Background: url(“arrow.png”) 0 50% no0repeat;      set it as background
+        List-style-type: none;         remove orig marker
+        Padding-left: 12 px;         put space between pic and words
+List-style-position: outside, inside, or inherit
+    Default is outside. Inside will allow words to wrap around the marker
+ 
+Horizontally displaying lists
+-give li elements display: inline or inline-block. Inline block easier as can take on spacing values
+    Doing so will remove list item marker
+-floating - float all li left to horizontally align with no space between
+    Marker will sit on top of li element next to it. Solution: add horizontal margin or padding
+    Remember to clear floats!
+ 
+Navigation often an unordered list, made horizontal by one of the methods above
+ 
+Li:last-child pseudo class. Last of the list
+Reset right margin=0 to remove space, like how we commented out space between each li
+CSS reset may take away some of the default formatting
+ 
+ADDING MEDIA
+ 
+<img> the alt=”” attribute helps search engines by conveying the purpose of the image, and is displayed if for some reason the image is unavailable
+Supported image formats
+    Most common: gif, jpg, png
+jpg : quality images, high colour count, decent file size for quick load. Photos
+Png: image with transparencies and low color counts. Icons and backgrounds
+ 
+Sizing images: tell browser this before page loads
+Width and height properties in HTML as attributes in <img> tag
+Some semantic value in doing this in HTML (shows images orig size) but not if you have several images of same size
+In CSS. if both are used, CSS > HTML
+Specifying 1 (width or height) will have the other adjust accordingly
+Max-width: 100%; then it won't’ exceed width of column
+ 
+Positioning images
+    Default: inline-level
+    Use float, display, padding, border, margin
+    Typically make display: block or float: left or right
+ 
+Image as element: holds semantic value and relevant to content on page
+As background image in CSS: part of design/UI of page
+ 
+Negative margin can pull smth slightly out of the element
+ 
+Adding audio
+<audio src=”jazz.ogg”></audio>
+Some Boolean attributes (doesn’t require stated value, when placed in opening tag, = true)
+    Autoplay: plays upon loading, not shown on page
+    Controls: display audio with default audio controls
+    Preload: identifies info to load before playing…
+        Default: auto (loads all info)
+        Metadata: all metadata
+        None:
+        If audio file is not essential to page, set to another one to reduce bandwidth
+    Loop
+ 
+Most commonly supported audio formats: ogg, mp3, wav
+ 
+Audio fallbacks. For best browser support
+Take src out and include several formats in source elements
+Type helps browser see whats available. Once it recognizes 1, will ignore rest
+Source element is html5. Backup a link to dwld files
+ 
+<audio controls>
+    <source src=”jazz.ogg” type=”audio/ogg”>
+    <source src=”jazz.mp3” type=”audio/mp3”>
+    <source src=”jazz.wav” type=”audio/wav”>
+    Please <a href=”jazz.mp3” download>download</a> the audio file.
+</audio>
+ 
+Adding video <video>
+Similar to <audio> with attributes src, autoplay, controls, preload, fallbacks
+Even without controls will display, but need autoplay to view
+Specify width/height
+Additional poster attribute: specifies image to display before a video is played.
+    poster=”earth.jpg”
+ 
+Each browser has preferred fallbacks
+Additional fallback option: Youtube or Vimeo embedded video
+ 
+<iframe> inline frames, embedding another HTML page
+Use src=”URL”
+Often used to embed Google maps, Youtube, etc
+Few default styles for border, width, height
+Change in HTML: frameborder, width, height attributes
+    In CSS: border, width, height
+ 
+<figure> block level element
+Identifies and maps self contained content, often media(s)
+If whole element is moved, should not disrupt page
+ 
+<figcaption> figure caption
+Can appear anywhere within <figure>
+Can replace img’s alt attribute
+ 
+FORMS
+ 
+<form> wrap page control elements
+Attributes action =”/login” where info is sent for processing by server
+    method=”post” HTTP method browsers should use to submit data
+ 
+Collecting text/string based data
+Text fields
+    <input> self closing
+    Attribute type=”text”
+        name=”username” the name of input, submitted w/ data to server
+Type values were originally just text or password, but HTML5 has many more for better semantics. See list. Will fall back to text in old browsers
+2. Text area: for multi line text, no type, keep name
+<textarea name=”comment”>Add your comment here</textarea>
+2 size attributes
+    Cols: width in terms of characters
+    Rows: for height in terms of # of lines of text
+ 
+Inputs and menus
+Radio buttons. Choose 1 of many
+<input type=”radio” name=”day” value=”Friday” checked>
+<input type=”radio” name=”day” value=”Saturday>
+Same name if same group
+    Checked = to preselect
+2. Checkboxes
+Just change type=”checkbox”
+3. Drop down list: for long list of options
+<select name=”day”>
+    <option value=”Friday” selected>Friday</option>
+    <option value=”Saturday”>Saturday</option>
+</select>
+ 
+Form buttons
+As an input, is self contained, can’t wrap.
+<input type=”submit” value=”Send”>
+ 
+For more control, use own element. No need for value, text is between open and close tags
+<button name=”submit”>Send</button>
+ 
+Other types of input
+Hidden: pass data to server w/o displaying to users
+Typically codes, keys, etc, not pertinent to user but helpful when processing form
+Not sensitive/secure info
+Use type=”hidden”, with appropriate name and value
+File input
+<input type=”file” name=”file”>
+These are hard to style, each browser has default, not much room to override
+ 
+Organizing forms
+Labels: provide captions and headings
+<label for=”username”>Username</label>
+For attribute should be same as id attribute of what it corresponds to
+This ties the 2 together, clicking on label will activate form
+Can also wrap form controls. Then omit for and id attributes in label
+Fieldset: block level, default with border otuline
+Wraps elements in form element, into organized sections. Like a div
+Legend: provides heading/caption for fieldset
+Place immediately after opening fieldset tag
+Appears in top left of fieldset border
+ 
+Form and input attributes
+Disabled: turns off element/control so it's not available for input, doesnt send to server
+Placeholder: text in form, disappears when clicked
+    Like value, but value stays unless user deletes. Use this for prepropagating data
+Required: displays error message if not filled
+    Error message can’t be styled with CSS
+Invalid elements and form controls can be styled with :optional and :required CSS pseudoclasses
+    Validity also depends on type attribute you gave it (ex. Valid email for type=”email”
+More attributes exist
+ 
+Tables: for data in columns and rows
+Organize in HTML, style with CSS
+<table>
+<tr> table row
+<td> table data. Multiple <td> in <tr> will create columns
+<th> table heading. Just like <td> but with semantic value
+    Attribute scope=”col, row, colgroup or rowgroup”. Tells what it's heading for
+Headers attribute: similar to scope, but can be used on both <td> and <th>
+    Usually for if a cell needs to be associated with a diff header
+    Should match id of the th element it pertains to
+ 
+Table structure
+<caption> comes right after <table> opening tag
+Table head, body, and foot
+<thead> wraps heading rows. Top of table after caption
+<tbody> the primary data
+<tfoot> data that outlines contents of table
+Tbody and tfoot can’t be nested in each other, and can be switched order
+ 
+Combining multiple cells, works in <td> and <th>
+    Attribute colspan/rowspan:
+        Default = 1
+        Change to integer value of cells u wanna span across
+ 
+Table borders in CSS
+Border-collapse: determines border model
+    Collapse: condenses border into 1, uses table cell as primary
+    Separate: default option, all the diff borders add up
+    Inherit
+Border-spacing: how much space is between borders
+    Only for when border-collapse: separate
+    Can take 2 values: horizontal-spacing, vertical-spacing
+Adding borders to rows
+    Borders can’t be applied to tr
+    Ensure border-collapse: collapse, then add bottom border to all td and th, except for last row (use :last-child pseudoclass selector)
+ 
+Table striping: for readability, alternating rows with diff background colours
+    Select with something like tbody tr:nth-child(even)
+ 
+Vertical align: works only with inline and table cell elements
+ 
+Time element <time datetime=”08:00:00”>8:00 AM</time>
+ 
+More pseudo classes
+:first-of-type
+:last-of-type
+:only-of-type
+ 
+Best coding practices
+Standards compliant markup -- poor code executes unreliably
+Make use of semantic elements
+Use proper document structure. Doctype, html, head, body
+Use practical id and class values. Names should relate to content and not appearance
+Include alt in images
+Don’t use inline styling in html
+Avoid “divitis” -- too many divs get confusing. Use appropriate elements
+Refactor code. Remove old code, evaluate code and condense to make more manageable
+ 
+More about CSS
+Organize code with comments in logical groups. Table of content not bad idea
+Avoid using ID selectors
+If selectors get too long, use shorter/direct selectors or specific classes
+Use shorthand/extended versions sensibly
+Use shorthand (when applicable) and lowercase hexadecimal codes
+Remove units from 0 values (0px -> 0)
+Group and align vendor prefixes for easy reading. With unprefixed version at end
+Organize classes so styles are easily reusable
