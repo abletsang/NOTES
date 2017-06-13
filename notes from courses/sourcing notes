@@ -1,0 +1,111 @@
+Purchasing is extremely important--depending on type of biz, account for 40-70% of expenses
+5 stages of purchasing: 
+Give purchase order
+Receive advance shipment notice and monitor progress
+Confirm receipt of goods
+Invoice
+Pay suppliers
+Procurement: not just buying, but centralize that action with everyone, internal and external
+ 
+You're looking to buy the right material, at the right quantity, at the right quality, from the right source, at the right price. Of course, these products have to be delivered and they have to be delivered at the right time, to the right location, with the right transportation mode, at the right level of service. And finally, all of this has to be managed with the right contract and the right length of payment terms.
+ 
+Kraljic matric: scale depending on profit impact and supplier risk, depending on category will affect how you will manage that supplier
+ 
+LEVERAGE SUPPLIERS
+High impact on profit, low risk
+Goals: there is no risk to manage, so focusing on reducing costs with hard negotations
+STRATEGIC SUPPLIERS
+High impact on profit, high risk
+Goals: aim to build a great relationship, work on innovations together (in this case value is not just in the product, but also the service too), mitigate risk with tight integration (work almost as one company)
+Will require resources to manage, but few suppliers will be like this, plus they are very important to the company
+Ex. coke and mcdonalds
+NON CRITICAL SUPPLIERS
+Low impact on profit, low risk
+Goals: simplify the process, automate or reduce management of supplier, they are too unimportant to spend resources on
+BOTTLENECK SUPPLIERS
+Low impact on profit, high risk
+Goals: manage risk by having multiple sources of supply, tight control on service, always knowing whats going on with that supplier
+ 
+change of perspective: from purchasing (an operating function) to supply management (a strategic one)
+Supply strategy (4 phases)
+Classification by profit impact (defined in terms of the volume purchased, percentage of total purchase cost, or impact on product quality or business growth) and supply risk (assessed in terms of availability, number of suppliers, competitive demand, make-or-buy opportunities, and storage risks and substitution possibilities)
+Market analysis: bargaining power of its suppliers against its own strength as a customer. It systematically reviews the supply market, assessing the availability of strategic materials in terms of both quality and quantity, and the relative strength of existing vendors. The company then analyzes its own needs and supply lines to gauge its ability to get the kind of supply terms it wants.
+Strategic positioning: identify areas of opportunity or vulnerability, assess supply risks, and derive basic strategic thrusts for these items. The purchasing portfolio matrix plots company buying strength against the strengths of the supply market
+
+Action plan
+
+Remember that suppliers can screw you over… make good relationships!
+ 
+Make vs buy: what business are we in? what are we good at? If not--buy, it will be better. Do we have competitive advantage? If not--use competitors. What does our customer care about? Core products should stay in house--outsource non core items. Would those resources be better spent elsewhere?
+Ex. harley davidson motorcycles are made in USA. accessories are not.
+Ex. Apple is outsourced, but what they are best at is R&D, having diff products that interact well together, marketing, etc
+Ex. a failure: german beer recipe made in USA sold in USA. people wanted real german beer, not just a recipe made here.
+ 
+What should we do inhouse that we can do at advantage? Or to grow in advantage/value in house? Everyone needs to do something better than someone else to survive. But it is not always easy to do better than to outsource…
+Insourcing is also difficult to manage… outsource is an easy contract, you can easily fire and switch if it’s bad
+ 
+Dealing with high impact, low probability risks (ex. Tsunamis, forest fires, floods, etc)
+They are often not in traditional models
+(TTR): the time it would take for a particular node (such as a supplier facility, a distribution center, or a transportation hub) to be restored to full functionality after a disruption
+Run scenarios of TTR’s of diff aspects at diff durations.
+Generate a financial or operational performance impact (PI) for each node. A company can choose different measures of PI: lost units of production, revenue, or profit margin, for instance. The model analyzes all nodes in the network, assigning a PI to each. The node with the largest PI (in lost sales, for instance, or lost units of production) is assigned a risk exposure index (REI) score of 1.0. All other nodes’ REI scores are indexed relative to this value (a node whose disruption would cause the least impact receives a value close to zero). The indexed scores allow the firm to identify at a glance the nodes that should get the most attention from risk managers. 
+Works well because, instead of predicting unlikely events, you now know what will happen if something gets shut down regardless of the cause; reveals dependencies (if 1 big supplier gets shut down, all the companies will be looking for back ups at once)
+Even what we previously classified as low risk should be run through this model, because it is more correctly hidden risk
+ 
+Using data generated by the model, we can categorize suppliers along two dimensions: the total amount of money that the company spends at each supplier site in a given year, and the performance impact on the firm associated with a disruption of each supplier node.
+HIGH RISK: strategic partnering with the suppliers to analyze and reduce their risk exposure, providing incentives to some suppliers to have multiple manufacturing sites in different regions, tracking suppliers’ performance, and developing and implementing business continuity plans. 
+LOW RISK: no need for intense risk management investment. most companies effectively manage the minimal risks from disruptions of these supplier sites by investing in excess inventory or negotiating long-term contracts with a penalty clause for nonperformance.
+HIDDEN RISK: critical to ensure that an adequate supply is available. That can often be accomplished using the strategies that apply to the other segments: investing in excess inventory, requiring suppliers to operate multiple production sites, or implementing dual-sourcing strategies.
+Flexibility is also good in helping recover… (system flexibility:the ability to quickly change the production mix of plants), product-design flexibility, process flexibility (achieved in this case by adjusting workforce skills and processes) 
+ 
+Why outsource?
+Access to world class resources, specialized providers, economies of scale
+Flexibility… can change suppliers, can have different volumes by season (compared to producing internally)
+Costs not always low: beside product costs: there are admin, logistics, storage, quality, management costs…
+ 
+Supplier segmentation: another way of classifying suppliers
+Consider benefits and challenges of each supplier to tailor strategies to take advantage of the most beneficial supplier
+Benefits: the areas where we can gain by working with a certain supplier (ex. Gaining cost advantage, or operational flexibility/efficiency, a marketing advantage, innovation
+Challenges: risk, complexity (requires layers of admin and management) and can make performance gains difficult
+Score by what benefits are important to you, same as challenges
+High challenge/high benefit suppliers will require more/diff management than your low benefit/low challenge suppliers
+ 
+Single vs multiple sourcing
+Single: simplicity, easier to manage, get their full attention. But if something fails, everything fails. You don’t to get to compare because you have nothing to compare with. The supplier controls your business and you control theirs… not always a good thing.
+Diversity: ethical, help small companies. Get to compare. Options: give business to a supplier with better deals, or take biz away from one that’s not performing. Less risk. But harder to manage them.
+Usually multiple sources, but there will be times where a single source is appropriate
+ 
+Dangers of relying on a few suppliers whom you’ve integrated highly with and depend on mostly
+Less control over costs, less ability to reduce costs
+Hidden costs, esp resources and time to investigate and solve problems in suppliers
+less access into new technological developments
+Less access to market information (lower tiers often serve a number of markets, and can spot shifts earlier)
+Less control over sustainability
+Having your top tier suppliers manage lower-tiers is not a good idea--they have different incentives.
+Have approved vendor lists (for getting raw materials) but never completely relinquish decisions about a products components and materials
+Retain control over that which as biggest impact on COGS
+Consider a supplier’s innovation potential--keep control over relationships with them.
+Even if something isn’t currently a big part of your products cost… might it be in the future?
+How to spot inventive lower tier suppliers
+Ones who successfully reduce the cost of what they produce are usually also technology innovators
+Suppliers who serve multiple industries or whose vendors also serve several industries are eposed to more ideas
+Take into account environmental/social impact of parts--finding ways around this = new processes = money savingS?
+ 
+Score carding: continuously updated file where a supplier is traced against specific metrics agreed upon (ex. Lead times, quality matrix, cost reductions over time)
+Feedback is provided so that they now where they stand and we now how they stand
+ 
+Sourcing best practices
+Monitor supplier performance
+keeping suppliers that meet requirements/guidelines
+ 
+Contract manufacturers: different managing
+Heavy reliance on them to produce goods--you have to be good at designing new products, marketing new products, and managing whole process from beginning to end
+Essential in some industries (ex. Majority of fashion and electronics) and shunned in others (ex. auto)
+ 
+Procure-to-pay systems: automating certain parts of buying with software
+Efficient, and transparent with info all in one system
+Tass are done seamlessly and electronically (ex. Finding suppliers, finding right item, confirming receipt, paying invoices)
+Integrate into other systems (inventory mgmt, warehousing, etc), automatically reorder certain supplies when low
+Reverse auction: exactly what we need, send to all suppliers, and they put in the price that they can supply at
+ 
+ 
