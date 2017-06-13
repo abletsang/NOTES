@@ -1,0 +1,75 @@
+Photoshop -> photo editing, Kaster (pixel) images
+AI: drawing, vector (no pixels), resolution independent graphics
+inDesign - multipage
+ 
+Command z = undo
+Command + = zoom, - = zoom out
+Hold shift while resizing to keep proportions
+Command y = outline view
+Command r = rulers
+Command j = join
+Option - move just 1 side curve
+ 
+Transform palette - scale stroke and effects when resizing
+ 
+Fashion classroom
+ 
+Open pics in photoshop
+Unlock layer
+Command t - transform to tilt
+ 
+Drawing flats
+Draw half of individ shapes (of a guideline)
+Copy, flip, align, join
+ 
+Pathfinder: combine, divide objects
+Ungroup to separate
+ 
+Resolution
+High >= 300 dpi. For printing
+Low. less than 300. For web
+ 
+Image - image size - resolution to see resolution
+72 ppi typical for internet
+Make sure to shoot in high res!! Have to get original
+More pixels = more light info
+ 
+Canvas - the working space
+Comand d = deselect
+Checkers = transparency
+ 
+Clone stamp. Diameter and hardness, opacity
+Spot healing brush test - no need for sampling
+Patch tool.
+Like putting on makeup/concealer. Use soft, sheer layers
+Translucent powder on shiny face
+Surface blur layer - foundation/matte layer
+Can erase areas where you don’t want blur
+ 
+Use history to step backwards. Last 30 actions. Can revert to last saved
+ 
+Layers; unlock by drag lock to garbage
+Duplicate: draw to new page
+See under - click eyeball next to it
+Merge visible - flatten image
+Fewer layers, less space
+ 
+Marquee tool - help colour w/i lines
+Select inverse to colour only outside
+Shift with selection: select 1+ things at a time
+Option w/ selection: need selection already. Take part of selection out (selection w/i selection)
+Lassoo, polygonal, magnetic (weird guesses), magic wand (guesses-can choose tolerance)
+Quick selection tool: modifying selectors, option to nudge smaller
+ 
+Adjustment layers: can filter (adjust photo w/o damaging orig photo)
+ 
+2 main colour codes
+RGB - for screens (light emitting devices), low res
+Colours merge into white
+CMYK (cyan, magenta, yellow, key/black(: pigments. No white, just paper
+For high res, prints. Will be duller-may change saturation to offset
+ 
+Image - mode. To change colour code in PS
+Grayscale, no colour, just black (not black mixed from other colours
+ 
+Tab - hide toolbars
