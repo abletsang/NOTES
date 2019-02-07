@@ -1,0 +1,131 @@
+Skip to content
+Your account has been flagged.
+Because of that, your profile is hidden from the public. If you believe this is a mistake, contact support to have your account status reviewed.
+
+azure travis vscode
+Repositories0
+Code316K
+Commits20
+Issues135
+Marketplace0
+Topics0
+Wikis21
+Users0
+Language
+
+Sort
+
+316,957 code results
+@DAXaholic
+DAXaholic/vscode-edifact – README.md
+Showing the top five matches
+Last indexed on Sep 19, 2018
+Markdown
+[![Build Status](https://travis-ci.org/DAXaholic/vscode-edifact.svg)](https://travis-ci.org/DAXaholic/vscode-edifact)
+[![Build status](https://ci.appveyor.com/api/projects/status/6hga12y0avnv7wq6?svg=true)](https://ci.appveyor.com/project/DAXaholic/vscode-edifact)
+[![Build Status](https://dev.azure.com/daxaholic/vscode-edifact/_apis/build/status/vscode-edifact%20CI)](https://dev.azure.com/daxaholic/vscode-edifact/_build/latest?definitionId=11)
+@Microsoft
+Microsoft/pvscbot – pull_request-files.json
+Showing the top four matches
+Last indexed on Dec 20, 2018
+JSON
+    "blob_url": "https://github.com/Microsoft/vscode-python/blob/f1013549456d13eb15dab4fffaa6cfe172b4244e/.travis.yml",
+    "raw_url": "https://github.com/Microsoft/vscode-python/raw/f1013549456d13eb15dab4fffaa6cfe172b4244e/.travis.yml",
+    "contents_url": "https://api.github.com/repos/Microsoft/vscode-python/contents/.travis.yml?ref=f1013549456d13eb15dab4fffaa6cfe172b4244e",
+@x-ercise
+x-ercise/.dotfiles – gulpfile.js
+Showing the top five matches
+Last indexed on Oct 13, 2018
+JavaScript
+const cp = require('child_process');
+const azureStorage = require('azure-storage');
+const vsce = require('vsce');
+const packageJson = require('./package.json');
+        return download(`http://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/azure-account/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage`)
+@kondratyev-nv
+kondratyev-nv/vscode-python-test-adapter – package.json
+Showing the top three matches
+Last indexed 4 days ago
+JSON
+      "url": "https://travis-ci.com/kondratyev-nv/vscode-python-test-adapter.svg?branch=master",
+      "href": "https://travis-ci.com/kondratyev-nv/vscode-python-test-adapter",
+      "description": "Continuous integration (Travis)"
+    },
+    {
+      "url": "https://dev.azure.com/kondratyev-nv/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code/_apis/build/status/Python%20Test%20Explorer%20for%20Visual%20Studio%20Code%20CI?branchName=master",
+@chrmarti
+chrmarti/testissues – .travis.yml
+Showing the top four matches
+Last indexed on Jun 28, 2018
+YAML
+  - no=3 fail=false label=hygiene
+notifications:
+  email: false
+  webhooks:
+    - https://vscode-probot.westus.cloudapp.azure.com:7890/travis/notifications
+    - https://vscode-test-probot.westus.cloudapp.azure.com:7890/travis/notifications
+@fbfmarc
+fbfmarc/SystemConfigs – gulpfile.js
+Showing the top five matches
+Last indexed on Nov 30, 2018
+JavaScript
+    const extensionPath = path.join(os.homedir(), `.vscode/extensions/ms-vscode.azure-account-${version}`);
+    if (!await fse.pathExists(extensionPath)) {
+        return download(`http://ms-vscode.gallery.vsassets.io/_apis/public/gallery/publisher/ms-vscode/extension/azure-account/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage`)
+@TomasHubelbauer
+TomasHubelbauer/vscode-markdown-link-suggestions – README.md
+Showing the top four matches
+Last indexed on Sep 19, 2018
+Markdown
+- Travis [![](https://travis-ci.org/TomasHubelbauer/vscode-markdown-link-suggestions.svg?branch=master)](https://travis-ci.org/TomasHubelbauer/vscode-markdown-link-suggestions) on Linux & macOS
+- Azure CI:
+  - [![](https://tomashubelbauer.visualstudio.com/VSCode/_apis/build/status/MarkDown%20Link%20Suggestions%20Windows)](https://tomashubelbauer.visualstudio.com/VSCode/_build/latest?definitionId=4) on Windows
+@ironyman
+ironyman/tardigrade-code – .travis.yml
+Showing the top five matches
+Last indexed on Jul 12, 2018
+YAML
+    - $HOME/.cache/yarn
+
+notifications:
+  email: false
+  webhooks:
+    - http://vscode-probot.westus.cloudapp.azure.com:3450/travis/notifications
+    - http://vscode-test-probot.westus.cloudapp.azure.com:3450/travis/notifications
+@yusufakpinar
+yusufakpinar/examples – .travis.yml
+Showing the top five matches
+Last indexed on Jul 12, 2018
+YAML
+    - $HOME/.cache/yarn
+
+notifications:
+  email: false
+  webhooks:
+    - http://vscode-probot.westus.cloudapp.azure.com:3450/travis/notifications
+    - http://vscode-test-probot.westus.cloudapp.azure.com:3450/travis/notifications
+@testforstephen
+testforstephen/testtravis – gulpfile.js
+Showing the top five matches
+Last indexed on Jul 6, 2018
+JavaScript
+const cliArgs = require('yargs').argv;
+const azure = require('azure-storage');
+
+function getVsixName() {
+    const packageJson = JSON.parse(fs.readFileSync('package.json'));
+    const container = process.env.TRAVIS_TAG ? 'vscode-arduino' : 'vscode-arduino-devint';
+    blobSvc.createContainerIfNotExists(container, {publicAccessLevel: 'blob'}, (error, result, response) => {
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
